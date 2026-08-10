@@ -45,6 +45,10 @@ peu de signal en 3,3 V, largement compensé par la résolution du HX711.
 Sur la carte ideaspark, l'écran occupe déjà les GPIO 2, 4, 15, 18, 23 et 32 : il
 ne reste plus qu'à câbler les HX711 et le bouton.
 
+> **[Schéma de câblage complet](docs/cablage.html)** — ouvre ce fichier dans un
+> navigateur : schéma des liaisons, coupe de la base mécanique, liste des
+> connexions et vérifications à faire avant de refermer le boîtier.
+
 | Signal | ideaspark (ST7789) | ESP32-WROOM + OLED | ESP32-S3 + OLED |
 |---|---|---|---|
 | HX711 **A** — DOUT | 16 | 16 | 4 |
