@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Le guide RumScale : connecter le tonneau au Wi-Fi, calibrer la balance, configurer Telegram, offrir le tonneau et résoudre les problèmes courants.">
+<meta name="theme-color" content="#faf8f3">
+<title>RumScale — Guide de configuration et FAQ</title>
+<link rel="icon" type="image/svg+xml" href="assets/tonneau.svg">
+<link rel="stylesheet" href="assets/guide.css">
+<script src="assets/guide.js" defer></script>
+</head>
+<body id="haut">
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="reading-progress" aria-hidden="true"></div>
+<header class="topbar">
+<a class="brand" href="#haut" aria-label="RumScale, début du guide">
+<svg viewBox="0 0 32 40" aria-hidden="true" fill="none"><path d="M8 3Q16 0 24 3Q34 20 24 37Q16 40 8 37Q-2 20 8 3Z" stroke="currentColor" stroke-width="1.6"/><path d="M5 10H27M3 29H29M12 3Q7 20 12 37M20 3Q25 20 20 37" stroke="currentColor" stroke-width="1.1"/></svg>
+<strong>RumScale</strong><span>Le guide</span></a>
+<div class="top-actions"><button class="print-button" type="button">Imprimer le guide</button><a class="local-link" href="http://rum.local/">Ouvrir mon tonneau ↗</a></div>
+</header>
+<details class="mobile-nav"><summary>Sommaire du guide</summary><nav aria-label="Sommaire mobile"><a href="#demarrage">Première connexion</a>
+<a href="#wifi">Wi-Fi et déménagement</a>
+<a href="#calibration">Calibrer la balance</a>
+<a href="#quotidien">Utilisation quotidienne</a>
+<a href="#telegram">Alertes Telegram</a>
+<a href="#reinitialisation">Redémarrer ou réinitialiser</a>
+<a href="#cadeau">Offrir le tonneau</a>
+<a href="#depannage">Résoudre un problème</a>
+<a href="#faq">Questions fréquentes</a>
+<a href="#boitier">Boîtier et impression 3D</a>
+<a href="#avance">Montage et maintenance</a></nav></details>
+<div class="layout">
+<aside class="sidebar"><p class="nav-title">Prendre en main</p><nav aria-label="Sommaire"><a href="#demarrage">Première connexion</a>
+<a href="#wifi">Wi-Fi et déménagement</a>
+<a href="#calibration">Calibrer la balance</a>
+<a href="#quotidien">Utilisation quotidienne</a>
+<a href="#telegram">Alertes Telegram</a>
+<a href="#reinitialisation">Redémarrer ou réinitialiser</a>
+<a href="#cadeau">Offrir le tonneau</a>
+<a href="#depannage">Résoudre un problème</a>
+<a href="#faq">Questions fréquentes</a>
+<a href="#boitier">Boîtier et impression 3D</a>
+<a href="#avance">Montage et maintenance</a></nav><p class="nav-note">Un guide à garder près du tonneau.<br>Vérifié le 30 septembre 2026.</p></aside>
+<main id="contenu" class="main">
+<div class="hero">
+<p class="eyebrow">Configuration · Utilisation · Questions fréquentes</p>
+<h1>Ton tonneau,<br>tout simplement.</h1>
+<p class="intro">Du premier branchement au suivi du vieillissement : les étapes utiles pour configurer RumScale, l’offrir et comprendre ce qu’il affiche.</p>
+<div class="hero-links"><a class="button" href="#demarrage">Commencer <span aria-hidden="true">→</span></a><a class="button secondary" href="#faq">Consulter la FAQ <span aria-hidden="true">↓</span></a></div>
+<div class="quick-paths"><a href="#cadeau"><strong>Je reçois un cadeau ↗</strong>La prise en main chez soi.</a><a href="#wifi"><strong>Je change de Wi-Fi ↗</strong>Garder tous les réglages.</a><a href="#depannage"><strong>J’ai un problème ↗</strong>Les vérifications à faire.</a></div>
+<p class="print-note">Guide RumScale · Configuration et FAQ · Vérifié le 30 septembre 2026.</p>
+</div>
+<section id="demarrage" aria-labelledby="titre-demarrage">
+  <h2 id="titre-demarrage">Première mise en route</h2>
+  <p class="lead">Un câble USB, ton téléphone et quelques minutes suffisent pour connecter un tonneau déjà préparé.</p>
+  <ol class="steps">
+    <li><strong>Installe la base sur une table stable et plane.</strong> Le tonneau doit reposer entièrement sur son plateau. Laisse les câbles détendus : ils ne doivent ni tirer sur la base ni se coincer dessous.</li>
+    <li><strong>Branche l’alimentation USB-C.</strong> Une alimentation USB de 5 V / 1 A convient. Attends la fin du démarrage et de la connexion au Wi-Fi.</li>
+    <li><strong>Connecte le tonneau au Wi-Fi de la maison.</strong> Si l’écran indique <code>RumBarrel-setup</code>, suis la <a href="#wifi">configuration Wi-Fi</a>.</li>
+    <li><strong>Ouvre <a href="http://rum.local/">http://rum.local</a></strong> sur un téléphone connecté au même réseau que le tonneau. Aucune application ni aucun compte RumScale n’est nécessaire.</li>
+    <li><strong>Vérifie le niveau et les réglages.</strong> Si le tonneau t’a été offert déjà rempli et calibré, conserve ses repères. Si l’app affiche « Pas encore initialisé », suis les <a href="#calibration">quatre étapes de calibration</a> avant de le remplir.</li>
+  </ol>
+  <aside class="callout"><strong>Deux pages, deux usages.</strong> Cette documentation se lit sur Internet. L’app <code>rum.local</code> est hébergée dans ton tonneau et permet de le régler uniquement lorsque tu es connecté à son réseau local.</aside>
+</section>
+
+<section id="wifi" aria-labelledby="titre-wifi">
+  <h2 id="titre-wifi">Connecter ou changer le Wi-Fi</h2>
+  <p class="lead">RumScale utilise un réseau Wi-Fi <strong>2,4 GHz</strong>. Un changement de maison ne demande aucune remise à zéro de la balance.</p>
+  <h3>Première connexion ou nouveau domicile</h3>
+  <ol>
+    <li>Branche le tonneau. S’il connaît déjà un réseau, il tente de s’y connecter trois fois, pendant environ 20 secondes à chaque essai. Prévois un peu plus d’une minute avec la recherche des réseaux.</li>
+    <li>Quand <code>RumBarrel-setup</code> apparaît, rejoins ce réseau depuis les réglages Wi-Fi du téléphone. Il est ouvert, sans mot de passe. Si le téléphone annonce « pas d’Internet », choisis de rester connecté.</li>
+    <li>Le portail de configuration peut s’ouvrir automatiquement. Sinon, ouvre <a href="http://192.168.4.1/">http://192.168.4.1</a> dans le navigateur, avec <strong>http</strong>.</li>
+    <li>Choisis le réseau de la maison, entre son mot de passe puis valide. Le tonneau mémorise ce réseau et poursuit son démarrage.</li>
+    <li>Reconnecte le téléphone au réseau domestique, puis ouvre <a href="http://rum.local/">http://rum.local</a>. Le téléphone peut utiliser la bande 5 GHz si elle appartient au même réseau local ; le tonneau, lui, doit disposer du 2,4 GHz.</li>
+  </ol>
+  <p>Si le tonneau est encore connecté à l’ancien réseau et que tu veux en choisir un autre, ouvre <strong>Réglages → Système → Oublier le Wi-Fi</strong>. Il redémarre et propose sa configuration. La calibration, le niveau de référence et l’historique restent enregistrés.</p>
+  <h3>Si la configuration expire</h3>
+  <p>Après environ <strong>5 minutes sans activité dans le portail</strong>, le tonneau passe en mode autonome. Connecté à <code>RumBarrel-setup</code>, tu peux alors ouvrir l’app à <code>http://192.168.4.1</code>. Cette adresse affiche désormais l’app de suivi : le portail permettant de choisir un Wi-Fi est fermé. Débranche puis rebranche le tonneau pour relancer la configuration.</p>
+  <p><strong>La pesée est suspendue pendant le portail de configuration.</strong> Elle reprend quand la connexion réussit ou quand le délai expire. En mode autonome, le niveau reste utilisable dans l’app locale, mais Telegram et la synchronisation de l’heure nécessitent une connexion à Internet. Dans le logiciel actuel, l’écran peut rester sur « Configuration Wi-Fi » et allumé même après expiration du portail : consulte alors les mesures dans l’app. Après un démarrage hors ligne, aucun nouveau point horaire n’est enregistré tant que l’heure n’est pas synchronisée.</p>
+  <h3>Si rum.local ne répond pas</h3>
+  <p>Vérifie d’abord que le téléphone et le tonneau partagent le même réseau, sans isolation « invités ». Essaie l’adresse IP du tonneau, visible dans la liste des appareils de ton routeur. Si un bouton externe est installé, la page Réseau de l’écran affiche également cette adresse et un QR code. Saisis l’adresse sous la forme <code>http://adresse-IP</code>.</p>
+</section>
+
+<section id="calibration" aria-labelledby="titre-calibration">
+  <h2 id="titre-calibration">Calibrer la balance et le tonneau</h2>
+  <p class="lead">Cette opération établit le poids réel, puis les repères « vide » et « plein ». Fais-la à la première installation ou après une modification de la base.</p>
+  <p>Prépare un objet dont la masse a été vérifiée sur une autre balance, <strong>au moins 100 g</strong>, ainsi que le tonneau encore vide. Pose la base à son emplacement définitif. Ouvre <strong>Réglages → Initialisation</strong> et respecte cet ordre.</p>
+  <ol class="steps">
+    <li><strong>Base vide — Faire le zéro.</strong> Retire le tonneau et tout autre objet du plateau. Attends que le poids affiché se stabilise, puis appuie sur <strong>Faire le zéro</strong>.</li>
+    <li><strong>Poids connu — Calibrer la balance.</strong> Pose l’objet de référence, attends la stabilisation et saisis sa masse exacte en grammes dans <strong>Masse posée</strong>. Appuie sur <strong>Calibrer la balance</strong>. Retire ensuite l’objet et vérifie que la mesure revient près de zéro.</li>
+    <li><strong>Tonneau vide — Enregistrer le tonneau vide.</strong> Pose le tonneau vide, avec sa bonde, son robinet et les accessoires qui resteront présents pendant l’utilisation. Attends la stabilisation puis enregistre-le.</li>
+    <li><strong>Tonneau plein — Enregistrer le tonneau plein.</strong> Remplis-le jusqu’au volume de référence annoncé, repose-le et attends la stabilisation. Saisis sa capacité en litres : <strong>2 L est un exemple</strong>, à remplacer par la valeur réelle de ton tonneau. Appuie sur <strong>Enregistrer le tonneau plein</strong>.</li>
+  </ol>
+  <aside class="callout"><strong>La masse du contenant compte.</strong> Une bouteille contenant un litre d’eau pèse plus de 1 000 g avec sa bouteille et son bouchon. Même si l’app donne cet exemple simplifié, utilise la masse totale mesurée de l’objet, pas seulement celle de son contenu.</aside>
+  <p>La stabilisation demande environ <strong>20 secondes de calme</strong>, parfois davantage après une manipulation. L’indication de stabilisation doit disparaître ; il ne suffit pas d’attendre deux secondes.</p>
+  <p>La première validation « plein » lance aussi le vieillissement. Le volume estimé dépend de la masse de liquide et de sa densité ; celle-ci est calculée si le rapport entre le poids ajouté et le volume déclaré est plausible. Un volume déclaré incorrect donnera des litres incorrects.</p>
+  <h3>Quand refaire les repères ?</h3>
+  <ul>
+    <li><strong>Base, capteurs ou montage mécanique modifiés :</strong> reprends la calibration complète.</li>
+    <li><strong>Tonneau neuf qui s’imbibe :</strong> son bois prend du poids. Lorsqu’il sera de nouveau vide, enregistre son poids vide avec les mêmes accessoires, puis son nouveau repère plein après remplissage.</li>
+    <li><strong>Nouveau lot :</strong> conserve une calibration valide, vérifie les repères vide/plein et utilise <strong>Redémarrer le vieillissement</strong> si tu veux compter un nouveau cycle. Enregistrer à nouveau « plein » ne remet pas à zéro un vieillissement déjà commencé.</li>
+  </ul>
+  <p><strong>Un tonneau déjà rempli sans repère vide valide ne peut pas être correctement initialisé par ces quatre boutons.</strong> Demande les références à la personne qui l’a préparé, ou attends de pouvoir le vider. Ne fais jamais le zéro de la base avec le tonneau posé dessus.</p>
+</section>
+
+<section id="quotidien" aria-labelledby="titre-quotidien">
+  <h2 id="titre-quotidien">Utilisation au quotidien</h2>
+  <p class="lead">Laisse le tonneau sur sa base. La pesée suit le liquide restant et distingue les services des variations lentes.</p>
+  <h3>Lire l’écran et l’app</h3>
+  <ul>
+    <li><strong>Pourcentage :</strong> niveau calculé entre les repères vide et plein enregistrés.</li>
+    <li><strong>Litres :</strong> estimation à partir du poids du liquide et de la densité configurée.</li>
+    <li><strong>Vieillissement :</strong> durée depuis la date de départ mémorisée.</li>
+    <li><strong>Dernier service et historique :</strong> les variations confirmées sont enregistrées. Le graphique reçoit habituellement un point par heure, plus des points lors des événements.</li>
+    <li><strong>Part des anges :</strong> estimation des pertes lentes. Le système ne peut pas distinguer parfaitement évaporation, absorption par le bois et dérive des capteurs.</li>
+  </ul>
+  <p>Évite de poser un verre ou une bouteille sur le plateau. Après un service, laisse le tonneau tranquille : le système attend un palier stable puis environ <strong>3 minutes</strong> pour confirmer l’événement. Une variation inférieure à environ 25 g n’est pas enregistrée comme un service individuel.</p>
+  <h3>Veille et réveil de l’écran</h3>
+  <p>Sur la carte ideaspark, seul le rétroéclairage s’éteint, après <strong>5 minutes par défaut</strong>. La pesée, le Wi-Fi et les alertes continuent. Donne <strong>deux petits coups brefs sur la base</strong> pour le rallumer ; ce geste ne change pas de page.</p>
+  <p>Dans <strong>Réglages → Le tonneau → Mise en veille de l’écran</strong>, choisis <strong>Jamais, 1, 5, 10, 30 minutes ou 1 heure</strong>, puis appuie sur <strong>Enregistrer</strong>. Le nom affiché se règle au même endroit. Garde la densité et la capacité issues de l’initialisation tant qu’elles sont correctes : changer ces champs ne recrée pas les repères de poids vide et plein.</p>
+  <h3>Si un bouton externe est installé</h3>
+  <p>Un appui court réveille l’écran ou passe à la page suivante : niveau, vieillissement, réseau, diagnostic. L’écran revient à la page principale après environ 30 secondes. Un appui maintenu affiche une confirmation après 3 secondes et redémarre le vieillissement à 6 secondes ; relâche avant la fin pour annuler. Ce bouton optionnel est distinct des petits boutons <strong>EN</strong> et <strong>BOOT</strong> de la carte.</p>
+  <h3>Coupure de courant</h3>
+  <p>La calibration, les repères, les réglages, la date de vieillissement et l’historique déjà enregistré restent en mémoire. Après le redémarrage, l’appareil retrouve l’heure sur Internet et recalcule les jours. Il ne mesure rien lorsqu’il est débranché et ne reconstitue pas chaque service effectué pendant la coupure.</p>
+</section>
+
+<section id="telegram" aria-labelledby="titre-telegram">
+  <h2 id="titre-telegram">Recevoir les alertes Telegram</h2>
+  <p class="lead">Telegram est facultatif. Il permet de recevoir les services confirmés et les alertes de niveau à 50 %, 25 % et 10 %.</p>
+  <ol>
+    <li>Dans Telegram, ouvre le bot officiel <a href="https://t.me/BotFather">@BotFather</a>, envoie <code>/newbot</code> et suis les instructions. Conserve le <strong>jeton du bot</strong> fourni, comme un mot de passe.</li>
+    <li>Ouvre la conversation avec ton nouveau bot et appuie sur <strong>Démarrer</strong> ou envoie-lui un message. Cette première action l’autorise à t’écrire.</li>
+    <li>Pour une discussion privée, ouvre <a href="https://t.me/userinfobot">@userinfobot</a> et relève ton identifiant numérique. C’est un <strong>bot tiers</strong> : ne lui envoie jamais le jeton. Le champ demandé par RumScale est l’identifiant de discussion, pas le nom <code>@utilisateur</code>.</li>
+    <li>Dans <strong>Réglages → Alertes Telegram</strong>, colle le jeton et l’identifiant, choisis si tu veux être prévenu à chaque service, puis appuie sur <strong>Enregistrer</strong>.</li>
+    <li>Appuie sur <strong>Envoyer un test</strong>, attends quelques secondes puis <strong>vérifie la réception réelle dans Telegram</strong>.</li>
+  </ol>
+  <p>Le message « Message de test envoyé » de l’app confirme la mise en attente du test, pas sa livraison. Sans Internet ou avec des coordonnées incorrectes, il peut ne pas arriver. Vérifie les champs, le premier message envoyé au bot, son éventuel blocage et la ligne d’état Telegram.</p>
+  <p>Décocher <strong>Me prévenir à chaque service</strong> désactive seulement ces notifications ; les seuils de niveau restent actifs. Pour suspendre toutes les notifications, efface l’<strong>Identifiant de discussion</strong> et enregistre. Le champ du jeton vide signifie « conserver le jeton existant ».</p>
+  <p>Les alertes dont l’envoi échoue sont abandonnées : il n’y a pas de rattrapage automatique au retour du réseau. En cas de changement de propriétaire, configure son bot et sa discussion pour que les messages lui soient adressés.</p>
+  <details class="faq-item">
+    <summary>Obtenir l’identifiant sans bot tiers</summary>
+    <div>
+      <p>Après avoir envoyé un message privé à ton nouveau bot, ouvre en navigation privée l’adresse ci-dessous en remplaçant <code>TON_JETON</code> par le jeton reçu de BotFather. Ne partage pas cette adresse personnalisée.</p>
+      <pre><code>https://api.telegram.org/botTON_JETON/getUpdates</code></pre>
+      <p>Dans la réponse, repère ton message et le nombre contenu dans <code>message → chat → id</code>. Copie ce nombre dans <strong>Identifiant de discussion</strong>, puis ferme la fenêtre privée. Si <code>result</code> est vide, envoie un nouveau message au bot et actualise. Cette procédure suppose un bot neuf, réservé à RumScale, sans autre application qui reçoit ses messages.</p>
+      <p>Références : <a href="https://core.telegram.org/bots/tutorial">création d’un bot Telegram</a> et <a href="https://core.telegram.org/bots/api#getupdates">méthode officielle getUpdates</a>.</p>
+    </div>
+  </details>
+</section>
+
+<section id="reinitialisation" aria-labelledby="titre-reinitialisation">
+  <h2 id="titre-reinitialisation">Redémarrer ou remettre à zéro</h2>
+  <p class="lead">Choisis l’action qui correspond à ton besoin. Le mot « reset » peut désigner quatre opérations très différentes.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Besoin</th><th scope="col">Action dans l’app</th><th scope="col">Effet</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Relancer l’appareil</th><td>Réglages → Système → <strong>Redémarrer</strong></td><td>Conserve les réglages, le Wi-Fi, la calibration et l’historique enregistré.</td></tr>
+        <tr><th scope="row">Changer de réseau</th><td>Réglages → Système → <strong>Oublier le Wi-Fi</strong></td><td>Efface le réseau mémorisé et redémarre vers la configuration Wi-Fi. Conserve les données du tonneau.</td></tr>
+        <tr><th scope="row">Commencer un nouveau vieillissement</th><td>Réglages → Le tonneau → <strong>Redémarrer le vieillissement</strong></td><td>Repart à zéro jour après confirmation. Conserve calibration, repères, historique, cumul de part des anges et état des alertes de seuil ; ajoute un événement au journal.</td></tr>
+        <tr><th scope="row">Recommencer toute l’installation</th><td>Réglages → Système → <strong>Remise à zéro complète</strong></td><td>Efface calibration, repères vide/plein, nom, réglages, Telegram, date de vieillissement et historique. <strong>Le Wi-Fi reste mémorisé.</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Après une remise à zéro complète, reprends les <a href="#calibration">quatre étapes d’initialisation</a>. Pour effacer aussi le Wi-Fi, utilise séparément <strong>Oublier le Wi-Fi</strong>.</p>
+  <p><strong>Sur la carte :</strong> un appui sur <strong>EN / Reset</strong> redémarre simplement l’ESP32, comme une coupure d’alimentation. <strong>BOOT</strong> sert au téléversement du logiciel ; il ne remet pas les réglages d’usine à zéro. Il n’y a pas de raccourci de remise à zéro complète sur ces deux boutons.</p>
+</section>
+
+<section id="cadeau" aria-labelledby="titre-cadeau">
+  <h2 id="titre-cadeau">Offrir le tonneau ou changer de maison</h2>
+  <p class="lead">Un tonneau déjà préparé conserve ses mesures pendant le transport. Son destinataire a surtout besoin de le connecter à son Wi-Fi.</p>
+  <h3>Avant de l’offrir</h3>
+  <ol>
+    <li>Si tu livres le tonneau rempli, enregistre son repère vide avant le remplissage, puis son repère plein une fois rempli. Vérifie que le niveau affiché est cohérent.</li>
+    <li>Transmets la capacité, la date de départ et ce guide. Signale si le vieillissement doit continuer ou repartir à zéro.</li>
+    <li>Dans Telegram, efface l’identifiant de discussion et enregistre pour arrêter les messages vers ton compte. Le destinataire pourra configurer son propre bot.</li>
+    <li>Tu peux utiliser <strong>Oublier le Wi-Fi</strong> avant de débrancher, mais ce n’est pas obligatoire : l’absence de l’ancien réseau déclenchera le portail au prochain démarrage.</li>
+  </ol>
+  <h3>Chez le destinataire</h3>
+  <p>Pose la base sur une table stable, replace le tonneau et branche-le. Après l’essai de l’ancien réseau, rejoins <code>RumBarrel-setup</code> et suis la <a href="#wifi">configuration Wi-Fi</a>. Laisse ensuite la mesure se stabiliser. <strong>Ne fais pas de remise à zéro complète pour un simple changement de propriétaire.</strong></p>
+  <p>Si le tonneau arrive rempli et fonctionne déjà, garde sa calibration. « Enregistrer le tonneau vide » avec du liquide à l’intérieur fausserait toutes les mesures suivantes. Si les repères ont été perdus, retrouve-les avec la personne qui l’a préparé ou attends une vidange pour refaire l’initialisation.</p>
+</section>
+
+<section id="depannage" aria-labelledby="titre-depannage">
+  <h2 id="titre-depannage">Dépannage rapide</h2>
+  <p class="lead">Commence par le symptôme observé. Une remise à zéro complète est rarement le bon premier geste.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Symptôme</th><th scope="col">À vérifier</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Écran noir</th><td>Donne deux petits coups sur la base pour sortir de veille. Si rien ne change, vérifie l’alimentation et le câble USB, puis redémarre. Si l’app répond, la balance reste alimentée.</td></tr>
+        <tr><th scope="row">rum.local introuvable</th><td>Téléphone et tonneau sur le même réseau ; pas de réseau invités isolé. Essaie l’IP attribuée par le routeur avec <code>http://</code>. En mode autonome, utilise <code>192.168.4.1</code>.</td></tr>
+        <tr><th scope="row">Réseau domestique absent de la liste</th><td>Active le Wi-Fi 2,4 GHz et rapproche le tonneau du routeur. Un réseau exclusivement 5 GHz n’est pas compatible.</td></tr>
+        <tr><th scope="row">La page 192.168.4.1 montre la jauge, pas le choix Wi-Fi</th><td>Le portail a expiré. Redémarre le tonneau et recommence la configuration quand <code>RumBarrel-setup</code> apparaît.</td></tr>
+        <tr><th scope="row">« Pas encore initialisé »</th><td>Termine les quatre étapes dans Réglages → Initialisation. Si le tonneau est déjà rempli, consulte d’abord la personne qui l’a préparé.</td></tr>
+        <tr><th scope="row">Poids instable</th><td>Attends au moins 20 secondes sans toucher la base. Écarte les câbles tendus, contacts parasites du plateau et vis desserrées. Une table souple ou des vibrations peuvent empêcher la stabilisation.</td></tr>
+        <tr><th scope="row">Poids à zéro ou « HX A muet »</th><td>Vérifie l’alimentation du HX711, la masse commune et les connexions DT/SCK. Une calibration ne corrige pas une absence de signal. Consulte le <a href="cablage.html">câblage du montage actif</a>.</td></tr>
+        <tr><th scope="row">« La mesure n’a pas bougé » pendant la calibration</th><td>L’objet doit charger le plateau, et les capteurs doivent pouvoir se déformer. Vérifie la mécanique et le câblage avant de recommencer.</td></tr>
+        <tr><th scope="row">Niveau supérieur à 100 %</th><td>Vérifie les accessoires et l’absence d’objet ajouté sur le plateau. Si le tonneau est réellement plus rempli qu’au repère initial, enregistre le bon repère plein et sa capacité.</td></tr>
+        <tr><th scope="row">Vieillissement « en cours » ou J+?</th><td>Le départ est mémorisé, mais l’heure n’est pas disponible. Rétablis une connexion Internet et vérifie « heure synchronisée » dans Réglages → Système. N’efface pas le compteur.</td></tr>
+        <tr><th scope="row">Aucun graphique au début</th><td>La courbe a besoin d’au moins deux points. Attends environ une heure, avec une mesure stable et l’heure synchronisée.</td></tr>
+        <tr><th scope="row">Le test Telegram n’arrive pas</th><td>Vérifie l’accès Internet, le jeton, l’identifiant de discussion et que tu as démarré la conversation avec le bon bot. Enregistre puis renvoie un test et contrôle Telegram directement.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="faq" aria-labelledby="titre-faq">
+  <h2 id="titre-faq">Questions fréquentes</h2>
+  <p class="lead">Les réponses aux situations courantes, sans avoir à parcourir tout le guide.</p>
+  <details class="faq-item"><summary>Faut-il installer une application ou créer un compte ?</summary><div><p>Non. Le suivi s’ouvre dans le navigateur à <a href="http://rum.local/">http://rum.local</a>, sur le même réseau que le tonneau. Un compte Telegram est nécessaire uniquement si tu souhaites utiliser ses alertes.</p></div></details>
+  <details class="faq-item"><summary>Le tonneau peut-il fonctionner sans Internet ?</summary><div><p>Oui pour la pesée et le suivi local après la phase de connexion. En mode autonome, rejoins <code>RumBarrel-setup</code> puis ouvre <code>http://192.168.4.1</code>. Telegram ne fonctionne pas et, après une coupure électrique, le calcul des jours et les nouveaux points horaires attendent la synchronisation de l’heure. L’écran peut rester sur « Configuration Wi-Fi » : l’app locale reste le moyen de lire les mesures.</p></div></details>
+  <details class="faq-item"><summary>Que se passe-t-il si je l’emmène dans une autre maison ?</summary><div><p>Il essaie son ancien réseau puis propose <code>RumBarrel-setup</code>. Configure le nouveau Wi-Fi 2,4 GHz. La calibration, les références et la date de vieillissement restent mémorisées. Voir le <a href="#cadeau">parcours cadeau</a>.</p></div></details>
+  <details class="faq-item"><summary>Mon téléphone affiche « pas d’Internet » sur RumBarrel-setup. Est-ce normal ?</summary><div><p>Oui. Ce réseau relie directement le téléphone au tonneau. Reste connecté et ouvre <code>http://192.168.4.1</code>. Une fois le Wi-Fi domestique configuré, reconnecte le téléphone au réseau de la maison.</p></div></details>
+  <details class="faq-item"><summary>Pourquoi le démarrage dure-t-il environ une minute ?</summary><div><p>Quand un réseau est déjà mémorisé, le tonneau fait jusqu’à trois essais d’environ 20 secondes, plus la recherche des réseaux. Si la connexion échoue, il ouvre son portail de configuration. Pendant cette phase, la pesée ne fonctionne pas encore.</p></div></details>
+  <details class="faq-item"><summary>Comment rouvrir le choix du Wi-Fi après cinq minutes ?</summary><div><p>Débranche puis rebranche le tonneau. Si l’app locale reste accessible, Réglages → Système → Redémarrer produit le même effet. Le portail s’ouvre si aucun réseau configuré n’est joignable.</p></div></details>
+  <details class="faq-item"><summary>Puis-je consulter le tonneau depuis l’extérieur de la maison ?</summary><div><p>L’app est locale : <code>rum.local</code> ne devient pas accessible à distance grâce à ce site de documentation. Telegram permet de recevoir les alertes loin de chez toi. L’app n’a pas de mot de passe ; ne crée pas de redirection de port Internet vers le tonneau.</p></div></details>
+  <details class="faq-item"><summary>Une coupure de courant efface-t-elle mes données ?</summary><div><p>Non. Les réglages et l’historique déjà enregistrés restent en mémoire. La durée de vieillissement est recalculée lorsque l’heure Internet revient. Les mesures pendant la coupure, les messages en attente et une petite partie des pertes lentes non encore sauvegardées peuvent manquer.</p></div></details>
+  <details class="faq-item"><summary>Pourquoi l’écran s’éteint-il alors que le tonneau est branché ?</summary><div><p>Il se met en veille après cinq minutes par défaut. Seul le rétroéclairage s’éteint ; la pesée et le réseau continuent. Deux petits coups sur la base le réveillent. Le délai se règle dans Réglages → Le tonneau.</p></div></details>
+  <details class="faq-item"><summary>Les deux coups sur la base changent-ils de page ?</summary><div><p>Non, ils réveillent seulement l’écran. Pour parcourir les pages de l’écran, il faut le bouton externe optionnel. Toutes les fonctions principales restent accessibles dans l’app web sans ce bouton.</p></div></details>
+  <details class="faq-item"><summary>Que font les boutons EN et BOOT près de l’USB ?</summary><div><p>EN, parfois marqué Reset, redémarre la carte sans effacer les données. BOOT sert à installer le logiciel. Aucun des deux ne lance une remise à zéro complète ni une calibration.</p></div></details>
+  <details class="faq-item"><summary>Quelle masse utiliser pour calibrer ?</summary><div><p>Un objet d’au moins 100 g dont tu connais précisément la masse totale, mesurée sur une autre balance. Inclus tout son contenant. Ne saisis pas automatiquement 1 000 g pour une bouteille d’un litre.</p></div></details>
+  <details class="faq-item"><summary>Dois-je refaire le zéro quand je pose le tonneau ?</summary><div><p>Non. Faire le zéro correspond au plateau entièrement vide pendant la calibration. Le tonneau vide a sa propre étape, « Enregistrer le tonneau vide ». Faire le zéro avec le tonneau posé fausserait la mesure.</p></div></details>
+  <details class="faq-item"><summary>J’ai reçu le tonneau déjà rempli. Dois-je l’initialiser ?</summary><div><p>Conserve ses réglages s’il a été préparé et affiche un niveau cohérent. Configure seulement ton Wi-Fi et, si nécessaire, Telegram. S’il n’a aucun repère vide valide, demande les références au donateur ou attends de le vider ; ne l’enregistre pas comme « vide » avec son liquide.</p></div></details>
+  <details class="faq-item"><summary>Pourquoi attendre avant d’enregistrer un poids ?</summary><div><p>Les mesures sont lissées et un état stable demande environ 20 secondes de calme. Une pression de la main, un câble tendu ou une table qui bouge modifie la charge. Attends que l’indication de stabilisation disparaisse.</p></div></details>
+  <details class="faq-item"><summary>Pourquoi une alerte de service arrive-t-elle en retard ?</summary><div><p>Après la stabilisation, RumScale attend environ trois minutes pour confirmer le service. Il peut ainsi annuler la variation créée par un objet posé puis retiré. Les tout petits services, sous environ 25 g, ne sont pas reconnus comme événements individuels.</p></div></details>
+  <details class="faq-item"><summary>Les alertes manquées reviennent-elles quand Internet revient ?</summary><div><p>Non. Les envois échoués sont abandonnés. L’appareil ne reconstitue pas non plus des alertes pour les services effectués lorsqu’il était débranché.</p></div></details>
+  <details class="faq-item"><summary>« Message de test envoyé » signifie-t-il que Telegram fonctionne ?</summary><div><p>Le bouton place le message en attente. Seule sa réception dans ta conversation Telegram confirme le fonctionnement de bout en bout. Sans réception, vérifie Internet, le jeton, l’identifiant et la conversation démarrée avec ton bot.</p></div></details>
+  <details class="faq-item"><summary>Comment désactiver Telegram sans tout effacer ?</summary><div><p>Dans Réglages → Alertes Telegram, efface l’identifiant de discussion puis enregistre. Décocher seulement « Me prévenir à chaque service » laisse les alertes de seuil actives. Laisser le champ du jeton vide conserve son ancienne valeur.</p></div></details>
+  <details class="faq-item"><summary>Comment repartir à zéro jour sans recalibrer ?</summary><div><p>Utilise Réglages → Le tonneau → Redémarrer le vieillissement, puis confirme. Les repères de poids et l’historique restent enregistrés. Une remise à zéro complète n’est pas nécessaire.</p></div></details>
+  <details class="faq-item"><summary>La remise à zéro complète efface-t-elle aussi le Wi-Fi ?</summary><div><p>Non. Elle efface les données et réglages RumScale, mais conserve le réseau. Pour effacer celui-ci, utilise séparément Réglages → Système → Oublier le Wi-Fi. À l’inverse, oublier le Wi-Fi conserve la calibration et l’historique.</p></div></details>
+  <details class="faq-item"><summary>Le volume est-il une mesure exacte du liquide ?</summary><div><p>C’est une estimation par pesée. Elle dépend de la calibration, du poids du tonneau vide, de la densité et du montage mécanique. Le bois qui s’imbibe et la dérive des capteurs peuvent la modifier. Reprends les références lors d’une vidange si elles ne correspondent plus au tonneau.</p></div></details>
+  <details class="faq-item"><summary>Un nouveau remplissage redémarre-t-il le vieillissement ?</summary><div><p>Le premier repère plein le démarre. Les suivants conservent une date déjà définie. Pour un nouveau lot dont tu souhaites mesurer la durée, utilise aussi « Redémarrer le vieillissement ».</p></div></details>
+  <details class="faq-item"><summary>Combien de temps l’historique est-il conservé ?</summary><div><p>La mémoire contient 8 760 points, soit environ un an à un point par heure ; les points ajoutés lors des événements réduisent cette durée. Le journal conserve les 128 derniers événements, et l’app en affiche jusqu’à 40. Les plus anciens sont remplacés progressivement.</p></div></details>
+</section>
+
+<section id="boitier" aria-labelledby="titre-boitier">
+  <h2 id="titre-boitier">Boîtier tonneau imprimé en 3D</h2>
+  <p class="lead">La version V2 protège la carte ideaspark tout en gardant l’écran et les connecteurs accessibles.</p>
+  <figure><img src="assets/boitier-v2.png" alt="Aperçu du boîtier tonneau V2 : écran incliné, fond plat et deux coques emboîtables." loading="lazy"><figcaption>Aperçu du modèle V2. Les couleurs illustrent les formes ; elles ne nécessitent pas de pièces métalliques.</figcaption></figure>
+  <ul>
+    <li>Dimensions extérieures d’environ <strong>74 × 82 × 75 mm</strong>, fond plat et écran incliné de <strong>30°</strong>.</li>
+    <li>Fenêtre d’écran <strong>46 × 25 mm</strong> ; logement adapté à une carte mesurée à 32,6 mm de largeur et 5 mm d’épaisseur.</li>
+    <li>Passage USB intérieur <strong>13 × 8 mm</strong>, port à environ 5,1 mm de l’extrémité ; passage arrière de 10 mm pour les fils.</li>
+    <li>Deux supports intégrés espacés de <strong>26 mm</strong>, pour <strong>deux vis M2 × 5 mm</strong> à tête cylindrique ou bombée, non fraisée.</li>
+    <li>Deux coques assemblées par quatre clips, sans colle ; espace de 36 mm prévu derrière la carte pour les connecteurs Dupont.</li>
+  </ul>
+  <h3>Avant l’impression complète</h3>
+  <p>Imprime d’abord le gabarit de carte et de vis avec ton filament définitif. Vérifie la fenêtre, l’alignement des trous et l’appui sur le circuit. Le gabarit ne reproduit pas le tunnel USB : après impression de la coque haute, vérifie aussi l’insertion réelle de ta fiche. Les contrôles numériques du modèle ne remplacent pas ce test physique. <strong>Les coques V1 et V2 ne s’assemblent pas entre elles.</strong></p>
+  <h3>Impression et montage</h3>
+  <p>Unités : millimètres, échelle 100 %. Les fichiers sont déjà orientés : coque basse sur son fond, coque haute sur le plan de joint, gabarit face visible sur le plateau. Point de départ : buse 0,4 mm, couches de 0,20 mm, quatre parois, cinq couches pleines et 15–20 % de remplissage. Le PETG donne davantage de souplesse aux clips ; teste ceux-ci si tu choisis du PLA ou un filament bois.</p>
+  <p>Prévois des supports sous la voûte et certains rebords de la coque haute, et vérifie les surplombs de la coque basse. Nettoie les bavures. Place la carte dans la coque haute, puis visse doucement depuis le dos du circuit imprimé dans les deux avant-trous de 1,6 mm. Arrête dès que la carte tient : les vis ne doivent ni courber la carte ni mettre le verre sous pression.</p>
+  <p>Vérifie la fiche USB avant de fermer. Une fiche avec un surmoulage de 6–7 mm de haut laisse plus de marge qu’une fiche de 8 mm. Branche les Dupont, range les fils à l’écart des clips et emboîte les coques. Les boutons BOOT et EN restent des commandes de la carte, pas des boutons de configuration quotidienne.</p>
+</section>
+
+<section id="avance" aria-labelledby="titre-avance">
+  <h2 id="titre-avance">Montage et maintenance avancée</h2>
+  <p class="lead">Ces informations s’adressent à la personne qui assemble ou entretient l’électronique. Un tonneau livré prêt à l’emploi n’en a pas besoin pour fonctionner.</p>
+  <h3>Montage actif : un seul HX711</h3>
+  <p>La configuration actuelle associe une carte <strong>ideaspark ESP32-WROOM-32 avec écran ST7789 1,9″</strong> à <strong>un HX711</strong>. Quatre demi-cellules de charge forment ensemble un seul pont de mesure ; elles ne représentent pas quatre canaux indépendants.</p>
+  <div class="table-wrap"><table><thead><tr><th scope="col">HX711</th><th scope="col">Carte ideaspark</th></tr></thead><tbody><tr><th scope="row">VCC</th><td>3V3</td></tr><tr><th scope="row">GND</th><td>GND commun</td></tr><tr><th scope="row">DT / DOUT</th><td>GPIO 25</td></tr><tr><th scope="row">SCK</th><td>GPIO 26</td></tr></tbody></table></div>
+  <p><strong>Le HX711 est alimenté en 3,3 V, même si la carte reçoit du 5 V par USB.</strong> Ne raccorde pas sa sortie logique alimentée en 5 V aux broches de l’ESP32. Consulte la <a href="cablage.html">fiche de câblage</a> avant d’intervenir.</p>
+  <h3>Variante : deux HX711</h3>
+  <p>Une variante utilise deux cellules à pont complet, avec un HX711 par cellule. Sur la carte ideaspark, le second module utilise GPIO 16 pour DT et GPIO 17 pour SCK. Elle exige de passer <code>NUM_CHANNELS</code> de <code>1</code> à <code>2</code>, de recompiler et de refaire la calibration. Le schéma de cette variante ne décrit pas les connexions individuelles des quatre demi-cellules du montage actif.</p>
+  <h3>Mettre à jour le logiciel</h3>
+  <p>Depuis une copie du projet avec PlatformIO installé, branche la carte en USB puis utilise les commandes suivantes. Le firmware contient déjà l’app web ; aucun téléversement séparé de fichiers web n’est nécessaire.</p>
+  <pre><code>make ports       # repérer la carte USB
+make build       # compiler pour la carte ideaspark
+make upload      # installer le logiciel
+make monitor     # lire le diagnostic ; quitter avec Ctrl-C</code></pre>
+  <p>Si l’installation reste sur <code>Connecting…</code>, maintiens BOOT au lancement du téléversement, puis relâche-le quand l’écriture commence. <code>make build-all</code> compile aussi les deux variantes OLED prévues dans le projet. Leur brochage est différent : vérifie la cible avant toute installation.</p>
+  <p>Une mise à jour peut conserver les réglages, mais ce n’est pas garanti si leur format a changé. Après intervention, vérifie le réseau, le poids, les repères et Telegram avant de remettre le tonneau en service.</p>
+  <h3>Diagnostic utile à transmettre</h3>
+  <p>Note le symptôme, les dernières manipulations et les indications de <strong>Réglages → Système</strong> : état du HX711 et synchronisation de l’heure. Pour un diagnostic technique, la page locale <code>http://rum.local/api/state</code> expose les mesures brutes et l’état de l’appareil. Elle peut contenir le nom du tonneau et l’identifiant de discussion Telegram : masque ces éléments avant de la partager publiquement.</p>
+</section>
+
+<footer class="site-footer"><p>RumScale · Guide d’utilisation<br>Fonctionnement vérifié dans le firmware du 30 septembre 2026.</p><a href="#haut">Retour en haut ↑</a></footer>
+</main></div>
+</body></html>

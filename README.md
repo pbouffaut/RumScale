@@ -1,5 +1,8 @@
 # RumScale
 
+**[Guide de configuration et FAQ](https://pbouffaut.github.io/RumScale/)** —
+première connexion, calibration, Telegram, changement de Wi-Fi, cadeau et dépannage.
+
 Un tonneau de vieillissement posé sur une base qui le pèse. Il sait combien il
 reste dedans, depuis combien de jours le rhum vieillit, et il prévient quand le
 niveau baisse.
@@ -195,7 +198,7 @@ python3 tools/mock_ui.py
    l'affiche.
 2. Avec un téléphone, rejoins ce réseau : la page de configuration s'ouvre
    d'elle-même. Choisis le Wi-Fi de la maison et saisis le mot de passe.
-3. L'ESP32 redémarre sur le réseau. Ouvre `http://rum.local` dans le navigateur
+3. L'ESP32 se connecte au réseau. Ouvre `http://rum.local` dans le navigateur
    d'un téléphone connecté au même Wi-Fi ; l'IP indiquée dans la console série
    fonctionne aussi.
 4. Si un bouton est installé, ses appuis courts donnent accès à la page réseau :
@@ -211,8 +214,9 @@ Onglet **Réglages** de l'app, section *Initialisation*. Le poids brut s'affiche
 en direct en haut, ce qui permet de vérifier chaque étape.
 
 1. **Base vide** → *Faire le zéro*.
-2. **Poids connu** → pose une bouteille d'eau d'un litre pleine (1000 g), saisis
-   la masse, *Calibrer*. Attends deux ou trois secondes que la valeur se pose.
+2. **Poids connu** → pose un objet pesé précisément (au moins 100 g),
+   attends que la mesure se stabilise, saisis sa masse réelle, contenant compris,
+   puis *Calibrer la balance*.
 3. **Tonneau vide** → pose le tonneau vide, bonde et robinet compris, attends la
    stabilisation, *Enregistrer le tonneau vide*.
 4. **Tonneau plein** → remplis, repose, attends, saisis la capacité, *Enregistrer
@@ -227,7 +231,7 @@ en direct en haut, ce qui permet de vérifier chaque étape.
 
 **La veille sur la carte ideaspark :** après 5 minutes par défaut, seul le
 rétroéclairage s'éteint ; la pesée, le Wi-Fi et les alertes continuent. Le délai
-se règle dans l'app web, de 0 à 1440 minutes (`0` désactive la veille). Deux
+se règle dans l'app web : jamais, 1, 5, 10, 30 ou 60 minutes. Deux
 coups brefs sur la base réveillent l'écran. Ils ne changent pas de page.
 
 **Le bouton, s'il est installé :**
@@ -374,3 +378,19 @@ Les contrôles numériques ne remplacent pas cet essai physique. Les coques V1 e
 V2 ne sont pas interchangeables : les deux moitiés doivent être imprimées en V2.
 
 ![Aperçu du boîtier tonneau V2](hardware/tonneau_v2/apercu_v2.png)
+
+## Documentation publique
+
+Le guide est dans `docs/index.html`, avec ses styles et sa recherche locale dans
+`docs/assets/`. La fiche de câblage est dans `docs/cablage.html`. Aucune compilation
+du site n'est nécessaire. GitHub Pages publie le dossier `/docs` de la branche
+`main` ; les modifications poussées sur cette branche mettent le guide à jour.
+
+Pour le consulter avant publication :
+
+```bash
+python3 -m http.server 8769 --directory docs
+```
+
+Ouvre ensuite `http://localhost:8769`. Après modification, vérifie les liens,
+l'affichage sur téléphone et la recherche dans la FAQ.
