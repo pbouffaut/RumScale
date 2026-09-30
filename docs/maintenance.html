@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="RumScale — Annexe technique. Boîtier, câblage et logiciel : les informations pour réparer ou modifier le matériel, à consulter au besoin avec la personne qui a préparé le tonneau.">
+<meta name="theme-color" content="#201d18">
+<title>RumScale — Annexe technique</title>
+<link rel="canonical" href="https://pbouffaut.github.io/RumScale/maintenance.html">
+<link rel="alternate" hreflang="fr" href="https://pbouffaut.github.io/RumScale/maintenance.html">
+<link rel="alternate" hreflang="en" href="https://pbouffaut.github.io/RumScale/en/maintenance.html">
+<link rel="alternate" hreflang="gcf" href="https://pbouffaut.github.io/RumScale/gcf/maintenance.html">
+<link rel="alternate" hreflang="x-default" href="https://pbouffaut.github.io/RumScale/maintenance.html">
+<link rel="icon" type="image/svg+xml" href="assets/pirate-mark.svg">
+<link rel="stylesheet" href="assets/guide.css">
+<script id="guide-strings" type="application/json">{"searchLabel": "Rechercher dans la FAQ", "searchPlaceholder": "Wi-Fi, écran, calibration…", "expand": "Tout ouvrir", "collapse": "Tout fermer", "empty": "Aucune réponse trouvée. Essaie un autre mot, ou consulte le dépannage ci-dessus.", "count": "{total} questions pour trouver rapidement une réponse.", "resultOne": "{n} réponse sur {total}", "resultMany": "{n} réponses sur {total}"}</script>
+<script src="assets/guide.js" defer></script>
+</head>
+<body id="haut">
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="reading-progress" aria-hidden="true"></div>
+<header class="topbar">
+<a class="brand" href="#haut" aria-label="RumScale"><img src="assets/pirate-mark.svg" alt="" width="40" height="45"><strong>RumScale</strong><span>Annexe technique</span></a>
+<nav class="language-switch" aria-label="Langue du guide"><a href="maintenance.html" lang="fr" hreflang="fr" data-guide-lang="fr" aria-current="page">Français</a><a href="en/maintenance.html" lang="en" hreflang="en" data-guide-lang="en">English</a><a href="gcf/maintenance.html" lang="gcf" hreflang="gcf" data-guide-lang="gcf" title="Kréyòl Gwadloup">Kréyòl</a></nav>
+<div class="top-actions"><button class="print-button" type="button">Imprimer le manuel</button><a class="local-link" href="http://rum.local/">Ouvrir mon tonneau ↗</a></div>
+</header>
+<details class="mobile-nav"><summary>Sommaire du manuel</summary><nav aria-label="Sommaire du manuel"><a href="#boitier">Boîtier tonneau imprimé en 3D</a>
+<a href="#avance">Montage et maintenance avancée</a></nav></details>
+<div class="layout">
+<aside class="sidebar"><p class="nav-title">Carte de navigation</p><nav aria-label="Sommaire du manuel"><a href="#boitier">Boîtier tonneau imprimé en 3D</a>
+<a href="#avance">Montage et maintenance avancée</a></nav><p class="nav-note">Ton manuel, à garder près du tonneau.<br>Vérifié le 30 septembre 2026.</p></aside>
+<main id="contenu" class="main">
+<div class="hero technical-hero">
+<p class="eyebrow">RumScale · Annexe technique</p>
+<h1>Annexe technique</h1><p class="intro">Boîtier, câblage et logiciel : les informations pour réparer ou modifier le matériel, à consulter au besoin avec la personne qui a préparé le tonneau.</p>
+<div class="hero-links"><a class="button" href="index.html#assistance">← Retour au manuel</a><a class="button secondary" href="cablage.html">Fiche de câblage →</a></div>
+<p class="print-note">RumScale — Annexe technique · Vérifié le 30 septembre 2026.</p></div>
+<section id="boitier" aria-labelledby="titre-boitier">
+  <h2 id="titre-boitier">Boîtier tonneau imprimé en 3D</h2>
+  <p class="lead">La version V2 protège la carte ideaspark tout en gardant l’écran et les connecteurs accessibles.</p>
+  <p><a href="https://github.com/pbouffaut/RumScale/raw/refs/heads/main/hardware/tonneau_ESP32_V2_STL_et_guide.zip">Télécharger les STL et le guide V2</a> · <a href="https://github.com/pbouffaut/RumScale/tree/main/hardware/tonneau_v2">Consulter tous les fichiers du boîtier</a>.</p>
+  <figure><img src="assets/boitier-v2.png" alt="Aperçu du boîtier tonneau V2 : écran incliné, fond plat et deux coques emboîtables." loading="lazy"><figcaption>Aperçu du modèle V2. Les couleurs illustrent les formes ; elles ne nécessitent pas de pièces métalliques.</figcaption></figure>
+  <ul>
+    <li>Dimensions extérieures d’environ <strong>74 × 82 × 75 mm</strong>, fond plat et écran incliné de <strong>30°</strong>.</li>
+    <li>Fenêtre d’écran <strong>46 × 25 mm</strong> ; logement adapté à une carte mesurée à 32,6 mm de largeur et 5 mm d’épaisseur.</li>
+    <li>Passage USB intérieur <strong>13 × 8 mm</strong>, port à environ 5,1 mm de l’extrémité ; passage arrière de 10 mm pour les fils.</li>
+    <li>Deux supports intégrés espacés de <strong>26 mm</strong>, pour <strong>deux vis M2 × 5 mm</strong> à tête cylindrique ou bombée, non fraisée.</li>
+    <li>Deux coques assemblées par quatre clips, sans colle ; espace de 36 mm prévu derrière la carte pour les connecteurs Dupont.</li>
+  </ul>
+  <h3>Avant l’impression complète</h3>
+  <p>Imprime d’abord le gabarit de carte et de vis avec ton filament définitif. Vérifie la fenêtre, l’alignement des trous et l’appui sur le circuit. Le gabarit ne reproduit pas le tunnel USB : après impression de la coque haute, vérifie aussi l’insertion réelle de ta fiche. Les contrôles numériques du modèle ne remplacent pas ce test physique. <strong>Les coques V1 et V2 ne s’assemblent pas entre elles.</strong></p>
+  <h3>Impression et montage</h3>
+  <p>Unités : millimètres, échelle 100 %. Les fichiers sont déjà orientés : coque basse sur son fond, coque haute sur le plan de joint, gabarit face visible sur le plateau. Point de départ : buse 0,4 mm, couches de 0,20 mm, quatre parois, cinq couches pleines et 15–20 % de remplissage. Le PETG donne davantage de souplesse aux clips ; teste ceux-ci si tu choisis du PLA ou un filament bois.</p>
+  <p>Prévois des supports sous la voûte et certains rebords de la coque haute, et vérifie les surplombs de la coque basse. Nettoie les bavures. Place la carte dans la coque haute, puis visse doucement depuis le dos du circuit imprimé dans les deux avant-trous de 1,6 mm. Arrête dès que la carte tient : les vis ne doivent ni courber la carte ni mettre le verre sous pression.</p>
+  <p>Vérifie la fiche USB avant de fermer. Une fiche avec un surmoulage de 6–7 mm de haut laisse plus de marge qu’une fiche de 8 mm. Branche les Dupont, range les fils à l’écart des clips et emboîte les coques. Les boutons BOOT et EN restent des commandes de la carte, pas des boutons de configuration quotidienne.</p>
+</section>
+
+<section id="avance" aria-labelledby="titre-avance">
+  <h2 id="titre-avance">Montage et maintenance avancée</h2>
+  <p class="lead">Ces informations s’adressent à la personne qui assemble ou entretient l’électronique. Un tonneau livré prêt à l’emploi n’en a pas besoin pour fonctionner.</p>
+  <h3>Montage actif : un seul HX711</h3>
+  <p>La configuration actuelle associe une carte <strong>ideaspark ESP32-WROOM-32 avec écran ST7789 1,9″</strong> à <strong>un HX711</strong>. Quatre demi-cellules de charge forment ensemble un seul pont de mesure ; elles ne représentent pas quatre canaux indépendants.</p>
+  <div class="table-wrap"><table><thead><tr><th scope="col">HX711</th><th scope="col">Carte ideaspark</th></tr></thead><tbody><tr><th scope="row">VCC</th><td>3V3</td></tr><tr><th scope="row">GND</th><td>GND commun</td></tr><tr><th scope="row">DT / DOUT</th><td>GPIO 25</td></tr><tr><th scope="row">SCK</th><td>GPIO 26</td></tr></tbody></table></div>
+  <p><strong>Le HX711 est alimenté en 3,3 V, même si la carte reçoit du 5 V par USB.</strong> Ne raccorde pas sa sortie logique alimentée en 5 V aux broches de l’ESP32. Consulte la <a href="cablage.html">fiche de câblage</a> avant d’intervenir.</p>
+  <h3>Variante : deux HX711</h3>
+  <p>Une variante utilise deux cellules à pont complet, avec un HX711 par cellule. Sur la carte ideaspark, le second module utilise GPIO 16 pour DT et GPIO 17 pour SCK. Elle exige de passer <code>NUM_CHANNELS</code> de <code>1</code> à <code>2</code>, de recompiler et de refaire la calibration. Le schéma de cette variante ne décrit pas les connexions individuelles des quatre demi-cellules du montage actif.</p>
+  <h3>Mettre à jour le logiciel</h3>
+  <p>Depuis une copie du projet avec PlatformIO installé, branche la carte en USB puis utilise les commandes suivantes. Le firmware contient déjà l’app web ; aucun téléversement séparé de fichiers web n’est nécessaire.</p>
+  <pre><code>make ports       # repérer la carte USB
+make build       # compiler pour la carte ideaspark
+make upload      # installer le logiciel
+make monitor     # lire le diagnostic ; quitter avec Ctrl-C</code></pre>
+  <p>Si l’installation reste sur <code>Connecting…</code>, maintiens BOOT au lancement du téléversement, puis relâche-le quand l’écriture commence. <code>make build-all</code> compile aussi les deux variantes OLED prévues dans le projet. Leur brochage est différent : vérifie la cible avant toute installation.</p>
+  <p>Une mise à jour peut conserver les réglages, mais ce n’est pas garanti si leur format a changé. Après intervention, vérifie le réseau, le poids, les repères et Telegram avant de remettre le tonneau en service.</p>
+  <h3>Diagnostic utile à transmettre</h3>
+  <p>Note le symptôme, les dernières manipulations et les indications de <strong>Réglages → Système</strong> : état du HX711 et synchronisation de l’heure. Pour un diagnostic technique, la page locale <code>http://rum.local/api/state</code> expose les mesures brutes et l’état de l’appareil. Elle peut contenir le nom du tonneau et l’identifiant de discussion Telegram : masque ces éléments avant de la partager publiquement.</p>
+</section>
+<footer class="site-footer"><p>RumScale · Annexe technique<br>Vérifié le 30 septembre 2026.</p><a href="index.html">Retour au manuel ↗</a><a href="https://github.com/pbouffaut/RumScale">Le projet sur GitHub ↗</a><a href="#haut">Retour en haut ↑</a></footer>
+</main></div>
+</body></html>

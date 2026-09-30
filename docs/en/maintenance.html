@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="RumScale — Technical appendix. Enclosure, wiring and software: information for repairing or modifying the hardware, to consult when needed with the person who prepared the barrel.">
+<meta name="theme-color" content="#201d18">
+<title>RumScale — Technical appendix</title>
+<link rel="canonical" href="https://pbouffaut.github.io/RumScale/en/maintenance.html">
+<link rel="alternate" hreflang="fr" href="https://pbouffaut.github.io/RumScale/maintenance.html">
+<link rel="alternate" hreflang="en" href="https://pbouffaut.github.io/RumScale/en/maintenance.html">
+<link rel="alternate" hreflang="gcf" href="https://pbouffaut.github.io/RumScale/gcf/maintenance.html">
+<link rel="alternate" hreflang="x-default" href="https://pbouffaut.github.io/RumScale/maintenance.html">
+<link rel="icon" type="image/svg+xml" href="../assets/pirate-mark.svg">
+<link rel="stylesheet" href="../assets/guide.css">
+<script id="guide-strings" type="application/json">{"searchLabel": "Search the FAQ", "searchPlaceholder": "Wi-Fi, screen, calibration…", "expand": "Open all", "collapse": "Close all", "empty": "No matching answers. Try another word or check the troubleshooting section above.", "count": "{total} questions to help you find an answer.", "resultOne": "{n} answer out of {total}", "resultMany": "{n} answers out of {total}"}</script>
+<script src="../assets/guide.js" defer></script>
+</head>
+<body id="haut">
+<a class="skip" href="#contenu">Skip to content</a>
+<div class="reading-progress" aria-hidden="true"></div>
+<header class="topbar">
+<a class="brand" href="#haut" aria-label="RumScale"><img src="../assets/pirate-mark.svg" alt="" width="40" height="45"><strong>RumScale</strong><span>Technical appendix</span></a>
+<nav class="language-switch" aria-label="Guide language"><a href="../maintenance.html" lang="fr" hreflang="fr" data-guide-lang="fr">Français</a><a href="../en/maintenance.html" lang="en" hreflang="en" data-guide-lang="en" aria-current="page">English</a><a href="../gcf/maintenance.html" lang="gcf" hreflang="gcf" data-guide-lang="gcf" title="Kréyòl Gwadloup">Kréyòl</a></nav>
+<div class="top-actions"><button class="print-button" type="button">Print the manual</button><a class="local-link" href="http://rum.local/">Open my barrel ↗</a></div>
+</header>
+<details class="mobile-nav"><summary>Manual contents</summary><nav aria-label="Manual contents"><a href="#boitier">3D-printed barrel enclosure</a>
+<a href="#avance">Advanced assembly and maintenance</a></nav></details>
+<div class="layout">
+<aside class="sidebar"><p class="nav-title">Chart your course</p><nav aria-label="Manual contents"><a href="#boitier">3D-printed barrel enclosure</a>
+<a href="#avance">Advanced assembly and maintenance</a></nav><p class="nav-note">Your manual, to keep close to your barrel.<br>Checked on September 30, 2026.</p></aside>
+<main id="contenu" class="main">
+<div class="hero technical-hero">
+<p class="eyebrow">RumScale · Technical appendix</p>
+<h1>Technical appendix</h1><p class="intro">Enclosure, wiring and software: information for repairing or modifying the hardware, to consult when needed with the person who prepared the barrel.</p>
+<div class="hero-links"><a class="button" href="index.html#assistance">← Back to the manual</a><a class="button secondary" href="cablage.html">Wiring reference →</a></div>
+<p class="print-note">RumScale — Technical appendix · Checked on September 30, 2026.</p></div>
+<section id="boitier" aria-labelledby="titre-boitier">
+  <h2 id="titre-boitier">3D-printed barrel enclosure</h2>
+  <p class="lead">The V2 enclosure protects the ideaspark board while keeping its screen and connectors accessible.</p>
+  <p><a href="https://github.com/pbouffaut/RumScale/raw/refs/heads/main/hardware/tonneau_ESP32_V2_STL_et_guide.zip">Download the V2 STL files and guide</a> · <a href="https://github.com/pbouffaut/RumScale/tree/main/hardware/tonneau_v2">Browse all enclosure files</a>.</p>
+  <figure><img src="../assets/boitier-v2.png" alt="Preview of the V2 barrel enclosure: tilted screen, flat base and two interlocking shells." loading="lazy"><figcaption>Preview of the V2 model. The colours illustrate its shape; no metal parts are required.</figcaption></figure>
+  <ul>
+    <li>Overall dimensions of about <strong>74 × 82 × 75 mm</strong>, with a flat base and a screen tilted at <strong>30°</strong>.</li>
+    <li><strong>46 × 25 mm</strong> screen window; board pocket designed for a measured width of 32.6 mm and thickness of 5 mm.</li>
+    <li><strong>13 × 8 mm</strong> inner USB opening, with the port about 5.1 mm from the end; a 10 mm rear opening for wires.</li>
+    <li>Two built-in supports spaced <strong>26 mm</strong> apart, for <strong>two M2 × 5 mm screws</strong> with cylindrical or rounded heads, not countersunk heads.</li>
+    <li>Two shells held together by four clips, without glue; 36 mm of space behind the board for Dupont connectors.</li>
+  </ul>
+  <h3>Before printing the complete enclosure</h3>
+  <p>Print the board-and-screw fit gauge first, using your final filament. Check the window, hole alignment and where the board rests. The gauge does not reproduce the USB tunnel: after printing the upper shell, also check that your actual plug fits. Digital model checks do not replace this physical test. <strong>V1 and V2 shells do not fit together.</strong></p>
+  <h3>Printing and assembly</h3>
+  <p>Units: millimetres, scale 100%. The files are already oriented: lower shell on its flat base, upper shell on its joining face, and gauge with its visible face on the print bed. Starting settings: 0.4 mm nozzle, 0.20 mm layers, four walls, five solid layers and 15–20% infill. PETG gives the clips more flexibility; test them if you choose PLA or wood-filled filament.</p>
+  <p>Add supports under the upper shell’s arch and some of its ledges, and check the lower shell’s overhangs. Remove burrs. Place the board in the upper shell, then gently drive the screws from the back of the circuit board into the two 1.6 mm pilot holes. Stop as soon as the board is secure: the screws must not bend the board or put pressure on the glass.</p>
+  <p>Check the USB plug before closing the enclosure. A plug with a 6–7 mm-high moulded housing leaves more clearance than an 8 mm one. Connect the Dupont leads, tuck the wires away from the clips and join the shells. BOOT and EN remain board controls, not everyday setup buttons.</p>
+</section>
+
+<section id="avance" aria-labelledby="titre-avance">
+  <h2 id="titre-avance">Advanced assembly and maintenance</h2>
+  <p class="lead">This information is for the person assembling or maintaining the electronics. You do not need it to use a barrel supplied ready to go.</p>
+  <h3>Active setup: one HX711</h3>
+  <p>The current setup combines an <strong>ideaspark ESP32-WROOM-32 board with a 1.9″ ST7789 screen</strong> and <strong>one HX711</strong>. Four half-bridge load cells together form a single measurement bridge; they are not four independent channels.</p>
+  <div class="table-wrap"><table><thead><tr><th scope="col">HX711</th><th scope="col">ideaspark board</th></tr></thead><tbody><tr><th scope="row">VCC</th><td>3V3</td></tr><tr><th scope="row">GND</th><td>Shared GND</td></tr><tr><th scope="row">DT / DOUT</th><td>GPIO 25</td></tr><tr><th scope="row">SCK</th><td>GPIO 26</td></tr></tbody></table></div>
+  <p><strong>The HX711 is powered at 3.3 V, even though the board receives 5 V over USB.</strong> Do not connect a logic output powered at 5 V to the ESP32 pins. Consult the <a href="cablage.html">wiring reference</a> before working on it.</p>
+  <h3>Alternative setup: two HX711 modules</h3>
+  <p>An alternative uses two full-bridge load cells, with one HX711 per cell. On the ideaspark board, the second module uses GPIO 16 for DT and GPIO 17 for SCK. This requires changing <code>NUM_CHANNELS</code> from <code>1</code> to <code>2</code>, rebuilding the firmware and recalibrating. The diagram for this alternative does not show the individual connections of the four half-bridge cells in the active setup.</p>
+  <h3>Updating the software</h3>
+  <p>From a copy of the project with PlatformIO installed, connect the board over USB, then use the commands below. The firmware already includes the web app; no separate upload of web files is needed.</p>
+  <pre><code>make ports       # repérer la carte USB
+make build       # compiler pour la carte ideaspark
+make upload      # installer le logiciel
+make monitor     # lire le diagnostic ; quitter avec Ctrl-C</code></pre>
+  <p>The commands above identify the USB board, build the ideaspark firmware, install it and display diagnostics; exit the monitor with Ctrl-C. If installation stays on <code>Connecting…</code>, hold BOOT as the upload starts, then release it when writing begins. <code>make build-all</code> also builds the two OLED variants included in the project. Their pin assignments differ: check the target before installing anything.</p>
+  <p>A software update may preserve settings, but this is not guaranteed if their format has changed. After maintenance, check the network, weight, reference points and Telegram before putting the barrel back into use.</p>
+  <h3>Useful information for troubleshooting</h3>
+  <p>Note the symptom, your recent actions and the information in <strong>Réglages → Système</strong>: HX711 status and time synchronization. For technical diagnostics, the local page <code>http://rum.local/api/state</code> exposes raw measurements and device status. It may include the barrel’s name and Telegram chat ID: hide those details before sharing it publicly.</p>
+</section>
+<footer class="site-footer"><p>RumScale · Technical appendix<br>Checked on September 30, 2026.</p><a href="index.html">Back to the manual ↗</a><a href="https://github.com/pbouffaut/RumScale">Project on GitHub ↗</a><a href="#haut">Back to top ↑</a></footer>
+</main></div>
+</body></html>

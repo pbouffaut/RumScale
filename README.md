@@ -1,9 +1,11 @@
 # RumScale
 
-**Guide de configuration et FAQ : [Français](https://pbouffaut.github.io/RumScale/) ·
+**Manuel d’utilisation : [Français](https://pbouffaut.github.io/RumScale/) ·
 [English](https://pbouffaut.github.io/RumScale/en/) ·
 [Kréyòl Gwadloup](https://pbouffaut.github.io/RumScale/gcf/)** — première connexion,
-calibration, Telegram, changement de Wi-Fi, cadeau, dépannage et câblage.
+utilisation quotidienne, Telegram, entretien, nouveau remplissage et dépannage.
+Le manuel accompagne un tonneau déjà préparé ; le montage et les réparations
+sont regroupés dans une annexe technique.
 
 Un tonneau de vieillissement posé sur une base qui le pèse. Il sait combien il
 reste dedans, depuis combien de jours le rhum vieillit, et il prévient quand le
@@ -383,11 +385,17 @@ V2 ne sont pas interchangeables : les deux moitiés doivent être imprimées en 
 
 ## Documentation publique
 
-Le guide au thème pirate est disponible en trois langues :
+Le manuel au thème pirate s’adresse à la personne qui utilise le tonneau. Il est
+disponible en trois langues, avec sa FAQ et ses annexes :
 
-- Français : `docs/index.html` et `docs/cablage.html`.
-- Anglais : `docs/en/index.html` et `docs/en/cablage.html`.
-- Créole guadeloupéen : `docs/gcf/index.html` et `docs/gcf/cablage.html`.
+- Français : `docs/index.html`, `docs/maintenance.html` et `docs/cablage.html`.
+- Anglais : `docs/en/index.html`, `docs/en/maintenance.html` et `docs/en/cablage.html`.
+- Créole guadeloupéen : `docs/gcf/index.html`, `docs/gcf/maintenance.html` et `docs/gcf/cablage.html`.
+
+Le parcours normal conserve la calibration et le vieillissement d’un tonneau
+déjà préparé. L’initialisation est une procédure à consulter seulement au besoin.
+Les pages `maintenance.html` regroupent l’impression 3D, le montage électronique
+et les mises à jour ; les pages `cablage.html` en détaillent les schémas.
 
 Les styles, illustrations et la recherche locale sont partagés dans `docs/assets/`.
 La police est fournie localement, avec sa licence dans `docs/assets/fonts/OFL.txt`.
