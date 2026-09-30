@@ -12,6 +12,8 @@ namespace {
   const char* KEY_BLOB  = "cfg";
   const char* KEY_HIST  = "histIdx";
   const char* KEY_EVT   = "evtIdx";
+  const char* KEY_SLEEP = "sleepMin";
+  uint16_t displaySleepMin = 5;
   // « RSC » + numéro de format. À INCRÉMENTER à chaque modification de la
   // structure Settings : sans cela, un blob d'ancien format de même taille
   // serait relu de travers, et la calibration lue comme du bruit. Le prix d'un
@@ -23,6 +25,7 @@ namespace {
 
 void Store::begin() {
   prefs.begin(NS, false);
+  displaySleepMin = prefs.getUShort(KEY_SLEEP, 5);
 
   if (prefs.getUInt(KEY_MAGIC, 0) == MAGIC) {
     Settings loaded;
@@ -46,6 +49,7 @@ void Store::save() {
 void Store::factoryReset() {
   prefs.clear();
   settings = Settings();
+  displaySleepMin = 5;
   if (LittleFS.begin(true)) {
     LittleFS.remove("/hist.bin");
     LittleFS.remove("/events.bin");
@@ -54,6 +58,12 @@ void Store::factoryReset() {
 }
 
 Settings& Store::s() { return settings; }
+
+uint16_t Store::displaySleepMinutes() { return displaySleepMin; }
+void Store::setDisplaySleepMinutes(uint16_t minutes) {
+  displaySleepMin = minutes;
+  prefs.putUShort(KEY_SLEEP, minutes);
+}
 
 uint16_t Store::histIndex()             { return prefs.getUShort(KEY_HIST, 0); }
 void     Store::setHistIndex(uint16_t i){ prefs.putUShort(KEY_HIST, i); }

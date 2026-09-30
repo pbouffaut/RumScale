@@ -13,6 +13,7 @@ uint32_t bandStartMs = 0;
 bool     bandActive = false;
 bool     bandPublished = false;
 bool     isStable = false;
+float    stableDisplayG = 0;          // centre du dernier palier publié
 
 // --- dernier palier confirmé ----------------------------------------------
 float    refG = 0;
@@ -280,10 +281,14 @@ void Barrel::update() {
     float hi = max(bandMax, cur);
     if (hi - lo > STABLE_BAND_G) {
       // On sort de la fenêtre : quelque chose se passe, le palier repart.
+      // Une dérive lente peut finir par parcourir 12 g sans qu'aucun objet ne
+      // bouge. Elle reconstruit le palier, mais ne fait pas clignoter l'état
+      // visuel tant qu'elle reste proche du dernier centre confirmé.
+      const bool realMovement = !isStable || fabsf(cur - stableDisplayG) >= STABLE_EXIT_G;
       bandMin = bandMax = cur;
       bandStartMs = now;
       bandPublished = false;
-      isStable = false;
+      if (realMovement) isStable = false;
     } else {
       bandMin = lo;
       bandMax = hi;
@@ -293,7 +298,8 @@ void Barrel::update() {
   if (!bandPublished && (now - bandStartMs) >= STABLE_MS) {
     bandPublished = true;
     isStable = true;
-    onSettled((bandMin + bandMax) * 0.5f);
+    stableDisplayG = (bandMin + bandMax) * 0.5f;
+    onSettled(stableDisplayG);
   }
 
   if (pending.active && (int32_t)(now - pending.confirmAtMs) >= 0)

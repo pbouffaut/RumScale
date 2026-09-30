@@ -15,7 +15,7 @@ struct Settings {
   bool    initialized = false;
 
   // --- contenu ---
-  uint32_t capacityMl = 5000;         // capacité nominale annoncée
+  uint32_t capacityMl = 2000;         // capacité nominale annoncée (tonneau 2 L)
   float    densityGml = 0.94f;        // rhum ~40 % vol. ≈ 0,94 g/ml
 
   // --- vieillissement ---
@@ -41,6 +41,11 @@ namespace Store {
   void save();                 // écrit les réglages en NVS
   void factoryReset();         // efface tout, y compris l'historique
   Settings& s();
+
+  // Réglage séparé du blob principal pour pouvoir l'ajouter sans invalider la
+  // calibration existante. 0 = rétroéclairage toujours allumé.
+  uint16_t displaySleepMinutes();
+  void     setDisplaySleepMinutes(uint16_t minutes);
 
   // Index d'écriture des anneaux d'historique, persistés à part.
   uint16_t histIndex();

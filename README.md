@@ -4,9 +4,9 @@ Un tonneau de vieillissement posé sur une base qui le pèse. Il sait combien il
 reste dedans, depuis combien de jours le rhum vieillit, et il prévient quand le
 niveau baisse.
 
-- **Écran couleur + un bouton** sur le tonneau : jauge de tonneau qui se vide,
-  niveau en %, jours de vieillissement, QR code pour ouvrir l'app, remise à zéro
-  du vieillissement.
+- **Écran couleur** sur le tonneau : jauge de tonneau qui se vide, niveau en %,
+  jours de vieillissement et réveil par deux coups brefs sur la base. Un bouton
+  optionnel permet de parcourir les pages et de remettre le vieillissement à zéro.
 - **App web** servie par l'ESP32 lui-même : jauge, historique, journal des
   services, assistant d'initialisation. Aucune application à installer — ça
   s'ouvre dans le navigateur, sur iPhone comme sur Android.
@@ -19,11 +19,15 @@ niveau baisse.
 | Élément | Détail |
 |---|---|
 | Carte | **ideaspark ESP32 avec écran ST7789 1,9" 170×320 intégré** (cible principale). L'ESP32 et l'écran sont sur la même carte, déjà câblés. |
-| 2 × HX711 | modules ampli/ADC pour cellule de charge |
-| 2 × cellules de charge | **4 fils (pont complet)**, barres à flexion. Pour un tonneau de 5 L, prends du 10 kg chacune : le tout chargé pèse ~10 kg, et la marge protège des chocs. |
-| Bouton | poussoir momentané, câblé vers la masse |
+| 1 × HX711 | module ampli/ADC, canal A actif dans le firmware |
+| 4 × demi-cellules de charge | réunies en **un pont complet** connecté au HX711 ; configuration actuelle du tonneau de 2 L |
+| Bouton optionnel | poussoir momentané, câblé vers la masse ; inutile pour le réveil par double coup et l'utilisation de l'app web |
 | Base | deux plaques rigides (contreplaqué 18 mm ou alu) + entretoises + vis M4/M5 |
 | Alimentation | USB 5 V, 1 A suffit |
+
+Une variante à **deux cellules à quatre fils (deux ponts complets)** reste
+possible : une cellule par HX711, soit deux modules, avec `NUM_CHANNELS` réglé
+à `2` dans [config.h](src/config.h), puis recompilation et recalibration.
 
 Deux autres combinaisons sont maintenues dans le même code, avec un écran OLED
 SSD1306 0,96" I²C à la place : un ESP32-WROOM-32 nu, ou un ESP32-S3 nu (Waveshare
@@ -42,25 +46,29 @@ Tout est en 3,3 V. **N'alimente pas les HX711 en 5 V** : leur sortie DOUT
 suivrait le 5 V et attaquerait les GPIO de l'ESP32 hors spécification. On perd un
 peu de signal en 3,3 V, largement compensé par la résolution du HX711.
 
-Sur la carte ideaspark, l'écran occupe déjà les GPIO 2, 4, 15, 18, 23 et 32 : il
-ne reste plus qu'à câbler les HX711 et le bouton.
+Sur la carte ideaspark, l'écran occupe déjà les GPIO 2, 4, 15, 18, 23 et 32.
+Le montage actuel utilise **un HX711 : DOUT sur GPIO 25, SCK sur GPIO 26,
+VCC sur 3V3 et GND sur GND**. Les quatre demi-cellules forment ensemble le pont
+raccordé à ses bornes E+, E−, A+ et A− ; elles ne correspondent pas à quatre
+canaux du firmware. `NUM_CHANNELS` vaut déjà `1`.
 
-> **[Schéma de câblage complet](docs/cablage.html)** — ouvre ce fichier dans un
-> navigateur : schéma des liaisons, coupe de la base mécanique, liste des
-> connexions et vérifications à faire avant de refermer le boîtier.
+> **[Fiche de câblage](docs/cablage.html)** — raccordement du montage actif et
+> schéma de la variante à deux HX711, avec sa base à deux barres à flexion.
 
 | Signal | ideaspark (ST7789) | ESP32-WROOM + OLED | ESP32-S3 + OLED |
 |---|---|---|---|
-| HX711 **A** — DOUT | 16 | 16 | 4 |
-| HX711 **A** — SCK | 17 | 4 | 5 |
-| HX711 **B** — DOUT | 25 | 17 | 6 |
-| HX711 **B** — SCK | 26 | 5 | 7 |
+| HX711 **A** — DOUT | 25 | 16 | 4 |
+| HX711 **A** — SCK | 26 | 4 | 5 |
+| HX711 **B** — DOUT (option) | 16 | 17 | 6 |
+| HX711 **B** — SCK (option) | 17 | 5 | 7 |
 | OLED — SDA / SCL | — | 21 / 22 | 8 / 9 |
 | Bouton | 27 | 27 | 10 |
 | VCC des HX711 | 3V3 | 3V3 | 3V3 |
 | GND | GND commun, obligatoire | | |
 
-Cellule de charge → HX711, avec le code couleur le plus répandu :
+Pour une **cellule à quatre fils formant déjà un pont complet** (variante), le
+code couleur le plus répandu est le suivant. Ce tableau ne décrit pas les
+liaisons individuelles des quatre demi-cellules du montage actuel :
 
 | Fil | Borne HX711 |
 |---|---|
@@ -72,11 +80,17 @@ Cellule de charge → HX711, avec le code couleur le plus répandu :
 > Si le poids diminue quand tu appuies sur le plateau, inverse vert et blanc sur
 > ce HX711. Les codes couleur varient d'un fabricant à l'autre.
 
-Le brochage se change en haut de [config.h](src/config.h). Si tu n'as qu'une
-seule cellule, mets `NUM_CHANNELS` à `1` : seul le HX711 A est lu, mais le
-tonneau devra être bien centré dessus.
+Le brochage se change en haut de [config.h](src/config.h). `NUM_CHANNELS`
+désigne le nombre de **modules HX711** : `1` pour le montage actuel (ou une
+seule cellule à pont complet), `2` pour deux modules. Le HX711 B n'est lu que
+dans ce dernier cas.
 
 ## 3. La base mécanique — la partie qui compte vraiment
+
+Dans le montage actuel, les quatre demi-cellules doivent porter le plateau et
+pouvoir se déformer, sans appui parasite ni câble tendu. Respecte le montage
+mécanique prévu pour leur forme. La coupe ci-dessous décrit la **variante à
+deux barres à flexion**, pas les quatre demi-cellules.
 
 Une cellule à flexion ne mesure que si elle peut **fléchir**. Elle se monte en
 porte-à-faux : une extrémité vissée sur la plaque du bas, l'autre sur la plaque
@@ -107,6 +121,37 @@ Quatre règles, dans l'ordre d'importance :
 Passe les câbles sans tension et fixe l'électronique sur la plaque du bas.
 
 ## 4. Compiler et flasher
+
+PlatformIO Core s'installe sur macOS avec Homebrew :
+
+```bash
+brew install platformio
+```
+
+Dans ce dépôt, la carte principale est déjà sélectionnée par les commandes du
+`Makefile` :
+
+```bash
+make build       # compiler pour la carte ideaspark
+make ports       # afficher les ports USB/série détectés
+make upload      # compiler et flasher
+make monitor     # ouvrir le journal série à 115200 bauds
+make deploy      # flasher puis ouvrir le journal série
+make build-all   # vérifier les trois variantes matérielles
+```
+
+Pour utiliser exceptionnellement une autre cible :
+
+```bash
+make upload ENV=esp32dev
+make upload ENV=esp32s3
+```
+
+Le moniteur série se ferme avec `Ctrl-C`. Si le téléversement reste sur
+`Connecting…`, maintenir le bouton **BOOT**, lancer `make upload`, puis relâcher
+BOOT dès que l'écriture commence. Ne pas installer de pilote USB avant d'avoir
+branché la carte et vérifié `make ports` : certaines révisions utilisent CH340,
+d'autres CP210x, et macOS peut déjà reconnaître la puce.
 
 Trois cibles, une seule base de code. Choisis la tienne avec `-e` :
 
@@ -150,10 +195,11 @@ python3 tools/mock_ui.py
    l'affiche.
 2. Avec un téléphone, rejoins ce réseau : la page de configuration s'ouvre
    d'elle-même. Choisis le Wi-Fi de la maison et saisis le mot de passe.
-3. L'ESP32 redémarre sur le réseau. Appuie sur le bouton jusqu'à la page réseau :
-   elle affiche un **QR code**. Le scanner ouvre l'app. C'est la façon la plus
-   simple de la donner à quelqu'un sans savoir ce qu'il a comme téléphone.
-4. L'app est aussi accessible sur `http://rum.local` et sur l'IP affichée.
+3. L'ESP32 redémarre sur le réseau. Ouvre `http://rum.local` dans le navigateur
+   d'un téléphone connecté au même Wi-Fi ; l'IP indiquée dans la console série
+   fonctionne aussi.
+4. Si un bouton est installé, ses appuis courts donnent accès à la page réseau :
+   elle affiche l'IP et un **QR code** pour ouvrir l'app.
 
 Si le Wi-Fi n'est pas configuré dans les 5 minutes, l'appareil reste en point
 d'accès autonome : l'app fonctionne en s'y connectant, mais sans alertes
@@ -179,10 +225,16 @@ en direct en haut, ce qui permet de vérifier chaque étape.
 
 ## 7. Au quotidien
 
-**Le bouton :**
+**La veille sur la carte ideaspark :** après 5 minutes par défaut, seul le
+rétroéclairage s'éteint ; la pesée, le Wi-Fi et les alertes continuent. Le délai
+se règle dans l'app web, de 0 à 1440 minutes (`0` désactive la veille). Deux
+coups brefs sur la base réveillent l'écran. Ils ne changent pas de page.
 
-- appui court → page suivante de l'écran (niveau → vieillissement → réseau →
-  diagnostic, puis retour automatique au bout de 30 s) ;
+**Le bouton, s'il est installé :**
+
+- appui court → réveil si l'écran ideaspark est éteint ; sinon page suivante
+  (niveau → vieillissement → réseau → diagnostic, puis retour automatique au
+  bout de 30 s) ;
 - appui maintenu 3 s → l'écran demande confirmation, une barre se remplit ;
 - maintenu jusqu'à 6 s → le compteur de vieillissement repart à J+0 ;
 - relâché avant la fin → rien ne se passe.
@@ -212,7 +264,7 @@ s'éloigne lentement de la réalité.
 
 Le firmware raisonne donc en **paliers** :
 
-- 10 mesures par seconde et par cellule, médiane glissante sur 15 valeurs puis
+- 10 mesures par seconde et par HX711, médiane glissante sur 15 valeurs puis
   lissage exponentiel ;
 - quand le poids reste dans une fenêtre de 12 g pendant 20 s, le palier est figé ;
 - l'écart avec le palier précédent devient un **événement** ;
@@ -301,3 +353,24 @@ complètement autonome vis-à-vis du réseau.
 - **Pas d'horloge sauvegardée.** Après une coupure de courant, les dates
   reviennent avec le Wi-Fi et le NTP. Le compteur de vieillissement est stocké en
   date absolue, il ne se perd pas.
+
+## 13. Boîtier tonneau — impression 3D (V2)
+
+Le [dossier du boîtier V2](hardware/tonneau_v2) contient les cinq STL, le modèle
+paramétrique, les aperçus et les rapports de vérification géométrique.
+Le boîtier mesure environ **74 × 82 × 75 mm**, avec une fenêtre écran de
+**46 × 25 mm à 30°**, un passage USB rapproché et deux supports pour vis M2 × 5 mm
+espacés de 26 mm. Les deux moitiés s'emboîtent sans colle et laissent de la place
+pour les connecteurs Dupont derrière la carte.
+
+- [Télécharger le pack STL et guide](hardware/tonneau_ESP32_V2_STL_et_guide.zip).
+- [Lire le guide d'impression et de montage](hardware/tonneau_v2/LIRE_AVANT_IMPRESSION_V2.md).
+- [Coque basse](hardware/tonneau_v2/01_demi_tonneau_bas_v2.stl) et
+  [coque haute](hardware/tonneau_v2/02_demi_tonneau_haut_v2.stl).
+- [Gabarit de vérification de la carte et des vis](hardware/tonneau_v2/03_gabarit_carte_et_vis_v2.stl).
+
+Imprimer d'abord le gabarit pour vérifier l'ajustement avec la carte réelle.
+Les contrôles numériques ne remplacent pas cet essai physique. Les coques V1 et
+V2 ne sont pas interchangeables : les deux moitiés doivent être imprimées en V2.
+
+![Aperçu du boîtier tonneau V2](hardware/tonneau_v2/apercu_v2.png)

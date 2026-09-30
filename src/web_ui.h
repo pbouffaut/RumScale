@@ -92,10 +92,10 @@ ul.ev .amt{font-variant-numeric:tabular-nums;font-weight:600}
 
 /* --- formulaires ------------------------------------------------------- */
 label{display:block;font-size:12px;color:var(--ink-3);margin:12px 0 4px}
-input[type=text],input[type=number],input[type=password]{
+input[type=text],input[type=number],input[type=password],select{
   width:100%;background:#0f0c0a;border:1px solid var(--line);color:var(--ink);
   border-radius:9px;padding:10px 11px;font-size:15px}
-input:focus{outline:2px solid var(--amber-deep);outline-offset:1px}
+input:focus,select:focus{outline:2px solid var(--amber-deep);outline-offset:1px}
 .row{display:flex;gap:10px}
 .row>*{flex:1}
 button.act{background:var(--amber);color:#231703;border:0;border-radius:10px;
@@ -242,7 +242,7 @@ section[hidden]{display:none}
         <p>Remplis le tonneau, repose-le, attends la stabilisation puis valide.
            La densité du liquide est calculée automatiquement.</p>
         <label for="cap">Capacité du tonneau (litres)</label>
-        <input type="number" id="cap" value="5" min="0.25" step="0.25">
+        <input type="number" id="cap" value="2" min="0.25" step="0.25">
         <button class="act" onclick="markFull()">Enregistrer le tonneau plein</button>
       </div>
     </div>
@@ -261,9 +261,18 @@ section[hidden]{display:none}
           <input type="number" id="cap2" step="0.25" min="0.25">
         </div>
       </div>
+      <label for="sleep">Mise en veille de l'écran</label>
+      <select id="sleep">
+        <option value="0">Jamais</option>
+        <option value="1">Après 1 minute</option>
+        <option value="5">Après 5 minutes</option>
+        <option value="10">Après 10 minutes</option>
+        <option value="30">Après 30 minutes</option>
+        <option value="60">Après 1 heure</option>
+      </select>
+      <div class="hint">Deux coups brefs sur la base rallument l'écran.</div>
       <button class="act ghost" onclick="saveBarrel()">Enregistrer</button>
       <button class="act ghost" onclick="resetAging()">Redémarrer le vieillissement</button>
-      <div class="hint">Le bouton du tonneau fait la même chose : maintiens-le 6 secondes.</div>
     </div>
 
     <div class="card">
@@ -342,7 +351,8 @@ function saveBarrel(){
   post('/api/config',{
     name: $('#nm').value.trim() || 'Tonneau',
     density: parseFloat($('#dens').value),
-    capacity_ml: Math.round(parseFloat($('#cap2').value)*1000)
+    capacity_ml: Math.round(parseFloat($('#cap2').value)*1000),
+    display_sleep_min: parseInt($('#sleep').value,10)
   });
 }
 function saveTg(){
@@ -407,8 +417,10 @@ function render(s){
 
   if(document.activeElement!==$('#nm'))   $('#nm').value = s.name;
   if(document.activeElement!==$('#dens')) $('#dens').value = (s.density||0.94).toFixed(2);
+  if(document.activeElement!==$('#cap'))  $('#cap').value  = s.capacity_ml/1000;
   if(document.activeElement!==$('#cap2')) $('#cap2').value = s.capacity_ml/1000;
   if(document.activeElement!==$('#chat')) $('#chat').value = s.tg_chat||'';
+  if(document.activeElement!==$('#sleep')) $('#sleep').value = String(s.display_sleep_min ?? 5);
   $('#aos').checked = !!s.alert_on_serve;
   $('#tgState').textContent = s.telegram
       ? (s.tg_error ? 'Configuré, mais le dernier envoi a échoué (code '+s.tg_error+').'
@@ -435,7 +447,7 @@ function drawChart(pts){
   const tMin=data[0].t, tMax=data[data.length-1].t || tMin+1;
   // L'axe part de zéro et monte au moins jusqu'à la capacité : on veut lire
   // « ce qu'il reste sur le total », pas une variation grossie.
-  const capL=(S.capacity_ml||5000)/1000;
+  const capL=(S.capacity_ml||2000)/1000;
   const dataMax=Math.max(...data.map(d=>d.v));
   const vMax=dataMax>capL ? dataMax*1.05 : capL;
   const sx=t=>x0+(x1-x0)*(t-tMin)/Math.max(1,tMax-tMin);

@@ -113,10 +113,25 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
 
 <header>
   <div class="eyebrow">RumScale · fiche de montage</div>
-  <h1>Schéma de câblage complet</h1>
-  <p class="lede">Carte ideaspark ESP32-WROOM-32 à écran ST7789 1,9", deux HX711,
-  deux cellules de charge à quatre fils, un bouton. Onze soudures en tout.</p>
+  <h1>Câblage de la carte ideaspark</h1>
+  <p class="lede">Montage actuel : quatre demi-cellules réunies en un pont complet,
+  un HX711, carte ESP32-WROOM-32 à écran ST7789 1,9". Les schémas ci-dessous
+  conservent la variante à deux HX711 et deux cellules à quatre fils.</p>
 </header>
+
+<div class="callout note">
+  <div class="t">Montage actuel — un HX711 A</div>
+  <p><strong>DT / DOUT → GPIO 25 · SCK → GPIO 26 · VCC → 3V3 · GND → GND.</strong>
+  Les quatre demi-cellules sont réunies en un pont complet raccordé aux bornes
+  E+, E−, A+ et A− du module. Les couleurs du schéma à quatre fils ci-dessous
+  ne décrivent pas leurs liaisons individuelles.</p>
+  <p><code>NUM_CHANNELS</code> vaut <code>1</code> dans <code>src/config.h</code>.
+  Le second HX711 n'est pas nécessaire. Le bouton est optionnel : deux coups
+  brefs sur la base réveillent l'écran en veille, et l'app web donne accès aux réglages.</p>
+  <p><strong>Variante illustrée ci-dessous :</strong> deux cellules formant chacune
+  un pont complet, chacune sur son HX711. Mettre <code>NUM_CHANNELS</code> à
+  <code>2</code>, recompiler et recalibrer ; A reste sur 25/26, B utilise 16/17.</p>
+</div>
 
 <div class="callout">
   <div class="t">Trois erreurs qui coûtent la journée</div>
@@ -131,11 +146,11 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
 </div>
 
 <section>
-  <h2><span class="n">01</span>Le câblage électrique</h2>
+  <h2><span class="n">01</span>Variante à deux HX711 — câblage électrique</h2>
 
   <figure>
     <div class="scroller">
-      <svg viewBox="0 0 900 620" role="img" aria-label="Schéma de câblage : la carte ideaspark ESP32 alimente deux modules HX711 en 3,3 volts avec masse commune, leur envoie les signaux DT et SCK sur les GPIO 16, 17, 25 et 26, chaque HX711 recevant une cellule de charge à quatre fils ; un bouton est câblé entre le GPIO 27 et la masse.">
+      <svg viewBox="0 0 900 620" role="img" aria-label="Schéma de câblage : la carte ideaspark ESP32 alimente deux modules HX711 en 3,3 volts avec masse commune, leur envoie les signaux DT et SCK sur les GPIO 25 et 26 pour A, 16 et 17 pour B, chaque HX711 recevant une cellule de charge à quatre fils ; un bouton est câblé entre le GPIO 27 et la masse.">
         <defs>
           <marker id="dot" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="8" markerHeight="8">
             <circle cx="4" cy="4" r="3.4" fill="currentColor"/>
@@ -164,12 +179,12 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
           <!-- broches du bas -->
           <g font-size="11" font-family="ui-monospace,Menlo,monospace"
              text-anchor="middle" fill="currentColor">
-            <text x="275" y="152">16</text>
-            <text x="312" y="152">17</text>
+            <text x="275" y="152">25</text>
+            <text x="312" y="152">26</text>
             <text x="375" y="152">3V3</text>
             <text x="412" y="152">GND</text>
-            <text x="485" y="152">25</text>
-            <text x="522" y="152">26</text>
+            <text x="485" y="152">16</text>
+            <text x="522" y="152">17</text>
           </g>
           <g fill="var(--accent)">
             <rect x="271" y="160" width="8" height="35" rx="2"/>
@@ -332,13 +347,13 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
         <text x="292" y="281" font-size="11" fill="var(--wire-red)"
               font-family="ui-monospace,Menlo,monospace">3,3 V</text>
         <text x="88" y="204" font-size="10.5" fill="var(--ink-3)"
-              font-family="ui-monospace,Menlo,monospace">GPIO 16 → DT</text>
-        <text x="128" y="222" font-size="10.5" fill="var(--ink-3)"
-              font-family="ui-monospace,Menlo,monospace">GPIO 17 → SCK</text>
-        <text x="614" y="204" font-size="10.5" fill="var(--ink-3)"
               font-family="ui-monospace,Menlo,monospace">GPIO 25 → DT</text>
-        <text x="576" y="222" font-size="10.5" fill="var(--ink-3)"
+        <text x="128" y="222" font-size="10.5" fill="var(--ink-3)"
               font-family="ui-monospace,Menlo,monospace">GPIO 26 → SCK</text>
+        <text x="614" y="204" font-size="10.5" fill="var(--ink-3)"
+              font-family="ui-monospace,Menlo,monospace">GPIO 16 → DT</text>
+        <text x="576" y="222" font-size="10.5" fill="var(--ink-3)"
+              font-family="ui-monospace,Menlo,monospace">GPIO 17 → SCK</text>
         <text x="590" y="103" font-size="10.5" fill="var(--ink-3)"
               font-family="ui-monospace,Menlo,monospace">GPIO 27</text>
         <text x="590" y="128" font-size="10.5" fill="var(--ink-3)"
@@ -368,7 +383,7 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
 </section>
 
 <section>
-  <h2><span class="n">02</span>Liste des connexions</h2>
+  <h2><span class="n">02</span>Variante à deux HX711 — connexions</h2>
 
   <div class="tablewrap">
     <table>
@@ -383,12 +398,12 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
             <td class="wire">libre</td></tr>
 
         <tr class="grp"><td colspan="3">Signaux — un couple par module</td></tr>
-        <tr><td class="pin">GPIO 16</td><td>HX711 A · DT (ou DOUT)</td><td class="wire">libre</td></tr>
-        <tr><td class="pin">GPIO 17</td><td>HX711 A · SCK</td><td class="wire">libre</td></tr>
-        <tr><td class="pin">GPIO 25</td><td>HX711 B · DT (ou DOUT)</td><td class="wire">libre</td></tr>
-        <tr><td class="pin">GPIO 26</td><td>HX711 B · SCK</td><td class="wire">libre</td></tr>
+        <tr><td class="pin">GPIO 25</td><td>HX711 A · DT (ou DOUT)</td><td class="wire">libre</td></tr>
+        <tr><td class="pin">GPIO 26</td><td>HX711 A · SCK</td><td class="wire">libre</td></tr>
+        <tr><td class="pin">GPIO 16</td><td>HX711 B · DT (ou DOUT)</td><td class="wire">libre</td></tr>
+        <tr><td class="pin">GPIO 17</td><td>HX711 B · SCK</td><td class="wire">libre</td></tr>
 
-        <tr class="grp"><td colspan="3">Bouton — sans polarité, ni résistance</td></tr>
+        <tr class="grp"><td colspan="3">Bouton optionnel — sans polarité, ni résistance</td></tr>
         <tr><td class="pin">GPIO 27</td><td>une patte du poussoir</td><td class="wire">libre</td></tr>
         <tr><td class="pin">GND</td><td>l'autre patte</td><td class="wire">libre</td></tr>
 
@@ -412,7 +427,7 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
 </section>
 
 <section>
-  <h2><span class="n">03</span>La base mécanique</h2>
+  <h2><span class="n">03</span>Variante à deux barres — base mécanique</h2>
 
   <p>C'est la partie qui décide de la qualité de la mesure. Une cellule à flexion ne
   mesure que si elle peut <strong>fléchir</strong> : une extrémité sur la plaque du
@@ -519,15 +534,16 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
 <section>
   <h2><span class="n">04</span>Vérifier avant de refermer</h2>
   <ol class="steps">
-    <li>Branche l'USB et ouvre la console série. La carte annonce
-    <code>2 canal/canaux HX711 initialisé(s)</code>.</li>
-    <li>Appuie brièvement sur le bouton jusqu'à la page <strong>Diagnostic</strong> de
-    l'écran. Elle doit afficher <code>HX A:ok B:ok</code>. Un <code>muet</code> signale
-    un DT, un SCK ou une alimentation qui ne passe pas.</li>
-    <li>Appuie du doigt sur le plateau : la valeur brute doit <strong>monter</strong>.
-    Si elle descend, échange vert et blanc sur le module concerné.</li>
+    <li>Branche l'USB et ouvre la console série. Le montage actuel annonce
+    <code>1 canal/canaux HX711 initialisé(s)</code> ; la variante à deux modules,
+    compilée avec <code>NUM_CHANNELS = 2</code>, en annonce deux.</li>
+    <li>Dans l'app web, vérifie que la mesure brute réagit. Avec un bouton installé,
+    la page <strong>Diagnostic</strong> de l'écran permet aussi de vérifier les
+    canaux actifs. Un module muet signale un DT, un SCK ou une alimentation à vérifier.</li>
+    <li>Appuie du doigt sur le plateau : la valeur brute doit <strong>varier</strong>.
+    La calibration avec un poids connu prend en compte le sens du signal.</li>
     <li>Appuie sur un coin puis sur l'autre : les deux doivent faire réagir la mesure.
-    Sinon, une des deux cellules ne porte rien — revois ses entretoises.</li>
+    Sinon, vérifie que toutes les cellules portent correctement le plateau.</li>
     <li>Rejoins le réseau <code>RumBarrel-setup</code>, configure le Wi-Fi, puis fais
     l'initialisation en quatre étapes dans l'app.</li>
   </ol>

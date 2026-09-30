@@ -7,12 +7,15 @@ que ce soit.
 
 ---
 
-## 1. L'avertissement qui prime sur tout le reste
+## 1. Contexte historique et portée des vérifications
 
-**Rien n'a jamais tourné sur du matériel.** Pas une ligne. La carte cible n'était
-pas encore achetée au moment d'écrire ce code.
+Cette passation a été rédigée lors de la préparation initiale, avant l'achat de
+la carte. Les mentions de « premier flash » ci-dessous viennent de cette phase
+et ne décrivent plus l'état actuel du projet : des essais matériels ont eu lieu
+depuis. Cette mise à jour documentaire n'ajoute aucune nouvelle validation sur
+l'appareil.
 
-Ce qui est réellement vérifié :
+Vérifications consignées lors de la préparation initiale :
 
 - les trois cibles compilent (`ideaspark`, `esp32dev`, `esp32s3`) ;
 - l'app web a été testée dans un navigateur contre un simulateur HTTP
@@ -20,21 +23,27 @@ Ce qui est réellement vérifié :
 - la géométrie de l'écran couleur a été contrôlée en reconstruisant le layout en
   SVG à partir des constantes du source.
 
-Ce qui n'est **pas** vérifié : la lecture des HX711, l'affichage ST7789, le
-bouton, le Wi-Fi, Telegram, la persistance NVS/LittleFS, le cycle
-extinction/rallumage. Ne présente aucune de ces parties comme fonctionnelle à
-l'utilisateur, et ne laisse pas un futur lecteur du code le croire.
+La lecture des HX711, l'affichage ST7789, le bouton, le Wi-Fi, Telegram, la
+persistance NVS/LittleFS et le cycle extinction/rallumage n'étaient pas vérifiés
+à cette date. Ce relevé historique ne suffit donc ni à certifier le firmware
+actuel, ni à affirmer que ces fonctions n'ont jamais été essayées.
 
-Les trois points à vérifier en priorité au premier flash sont listés en §6.
+La configuration actuelle dans `config.h` est la carte ideaspark avec quatre
+demi-cellules réunies en un pont complet, un HX711 A sur DOUT 25 / SCK 26 et
+`NUM_CHANNELS = 1`. Le HX711 B sur 16/17 reste optionnel. Le rétroéclairage
+se met en veille après un délai réglable et se réveille par deux coups brefs ;
+le bouton reste optionnel pour la navigation des pages. Pour une nouvelle carte
+ou un changement de montage, reprendre les points de contrôle du §6.
 
 ---
 
 ## 2. Ce que fait l'appareil
 
 Un tonneau de vieillissement (cadeau) posé sur une base qui le pèse en continu.
-Deux cellules de charge → deux HX711 → un ESP32 qui en déduit le volume restant,
-compte les jours de vieillissement, sert une app web, et prévient par Telegram
-quand quelqu'un se sert.
+Quatre demi-cellules réunies en un pont complet → un HX711 → un ESP32 qui en
+déduit le volume restant, compte les jours de vieillissement, sert une app web,
+et prévient par Telegram quand quelqu'un se sert. La variante initiale à deux
+cellules à pont complet et deux HX711 nécessite `NUM_CHANNELS = 2`.
 
 ## 3. Architecture
 
@@ -45,7 +54,7 @@ classes — il n'y a qu'une instance de chaque chose).
 |---|---|
 | `main.cpp` | `setup()` / `loop()`, cinq appels, rien d'autre |
 | `config.h` | **tout le brochage et tous les seuils**, par cible (`#if defined(BOARD_*)`) |
-| `store.{h,cpp}` | réglages persistants (NVS), un seul blob binaire |
+| `store.{h,cpp}` | réglages persistants (NVS), blob binaire et délai de veille dans une clé séparée |
 | `scale.{h,cpp}` | lecture non bloquante des HX711, médiane + lissage, calibration |
 | `barrel.{h,cpp}` | **le cœur métier** : paliers, événements, volume, vieillissement |
 | `history.{h,cpp}` | anneaux sur LittleFS : points horaires + journal d'événements |
@@ -106,10 +115,12 @@ De même, `resetAging()` sans heure n'écrit pas `0` (qui signifie « jamais
 démarré ») : il pose `agingPending`, que `resolveAgingPending()` date au retour
 du NTP.
 
-### Une seule pente de calibration pour deux cellules
+### Une seule pente de calibration pour les canaux actifs
 
-`grams()` fait `(Σ(brut − offset)) / countsPerGram`. C'est exact tant que la
-répartition de la charge est constante — ce qui est le cas d'un tonneau qui ne
+`grams()` fait `(Σ(brut − offset)) / countsPerGram`. Dans le montage actif,
+le pont complet est lu par un seul HX711. Dans la variante à deux modules,
+cette calibration commune suppose que la répartition de la charge est constante
+— ce qui est le cas d'un tonneau qui ne
 bouge plus. Calibrer chaque cellule séparément demanderait de poser un poids connu
 sur chacune, sans gain réel ici.
 
@@ -161,7 +172,7 @@ brochage OLED d'origine utilisait le 2 et le 4 : il a fallu déplacer les HX711.
 
 ## 6. Ce qui reste à faire
 
-### À vérifier au tout premier flash, dans cet ordre
+### Points de contrôle issus du premier montage
 
 1. **Le décalage de l'écran.** Image glissée → passer `TFT_COL_OFFSET` de 35 à 0.
 2. **La métrique verticale des polices.** `ui_tft.cpp` suppose que

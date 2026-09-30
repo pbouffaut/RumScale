@@ -1,0 +1,203 @@
+{
+  "parameters_mm": {
+    "length": 74.0,
+    "radius_end": 35.0,
+    "radius_middle": 41.0,
+    "axis_height": 34.0,
+    "wall": 2.8,
+    "floor": 3.0,
+    "screen_angle": 30.0,
+    "board_length": 63.8,
+    "board_width": 32.6,
+    "board_depth": 5.0,
+    "pcb_thickness": 1.6,
+    "board_pocket_x": 65.2,
+    "board_pocket_y": 34.0,
+    "window_x": 46.0,
+    "window_y": 25.0,
+    "window_offset_x": -0.8,
+    "bezel_x": 70.0,
+    "bezel_y": 38.0,
+    "bezel_front_q": 33.5,
+    "board_front_q": 30.7,
+    "seam_z": 34.0,
+    "seam_gap": 0.18,
+    "lip_clearance": 0.3,
+    "lip_thickness": 1.6,
+    "lip_height": 4.5,
+    "clip_thickness": 1.5,
+    "clip_width": 6.5,
+    "clip_y": 25.5,
+    "usb_width": 13.0,
+    "usb_height": 8.0,
+    "usb_center_q": 28.3,
+    "wire_diameter": 10.0,
+    "mount_spacing": 26.0,
+    "mount_x": 29.8,
+    "pilot_diameter": 1.6,
+    "mount_radius": 2.6,
+    "button_span": 22.0,
+    "dupont_depth": 36.0
+  },
+  "parts": {
+    "01_demi_tonneau_bas_v2": {
+      "watertight": true,
+      "connected_solids": 1,
+      "triangles": 16594,
+      "bounds_mm": [
+        [
+          -37.0,
+          -41.09931692334041,
+          0.0
+        ],
+        [
+          37.0,
+          41.09931692334041,
+          47.0
+        ]
+      ],
+      "size_mm": [
+        74.0,
+        82.19863384668082,
+        47.0
+      ],
+      "volume_cm3": 39.281306888999104,
+      "mass_solid_PETG_g_estimate": 49.887259749028864,
+      "stl_reloaded_watertight": true,
+      "stl_reloaded_single_solid": true,
+      "stl_reloaded_degenerate_faces": 0,
+      "sha256": "381addff8bc468d21e9e3114b34ad6a289ed9e2b7ae005016ebb92f4088901a2"
+    },
+    "02_demi_tonneau_haut_v2": {
+      "watertight": true,
+      "connected_solids": 1,
+      "triangles": 16508,
+      "bounds_mm": [
+        [
+          -37.0,
+          -41.09931692334041,
+          0.0
+        ],
+        [
+          37.0,
+          41.09931692334041,
+          41.00978816654492
+        ]
+      ],
+      "size_mm": [
+        74.0,
+        82.19863384668082,
+        41.00978816654492
+      ],
+      "volume_cm3": 32.8740419904714,
+      "mass_solid_PETG_g_estimate": 41.75003332789868,
+      "stl_reloaded_watertight": true,
+      "stl_reloaded_single_solid": true,
+      "stl_reloaded_degenerate_faces": 0,
+      "sha256": "67aa034b6375e5f86f518053946653c1748732afaf1d4c1ef9386fcb46de39dc"
+    },
+    "03_gabarit_carte_et_vis_v2": {
+      "watertight": true,
+      "connected_solids": 1,
+      "triangles": 1402,
+      "bounds_mm": [
+        [
+          -35.0,
+          -19.0,
+          0.0
+        ],
+        [
+          35.0,
+          19.0,
+          7.0
+        ]
+      ],
+      "size_mm": [
+        70.0,
+        38.0,
+        7.0
+      ],
+      "volume_cm3": 6.139818975787781,
+      "mass_solid_PETG_g_estimate": 7.797570099250482,
+      "stl_reloaded_watertight": true,
+      "stl_reloaded_single_solid": true,
+      "stl_reloaded_degenerate_faces": 0,
+      "sha256": "93c9a2dd23bb483c31f8fe72b7c790cdad8a44e26f81807cd13f681d7cb761cb"
+    },
+    "04_test_clip_male_v2": {
+      "watertight": true,
+      "connected_solids": 1,
+      "triangles": 166,
+      "bounds_mm": [
+        [
+          31.299999997019768,
+          20.5,
+          0.0
+        ],
+        [
+          37.0,
+          30.5,
+          24.0
+        ]
+      ],
+      "size_mm": [
+        5.700000002980232,
+        10.0,
+        24.0
+      ],
+      "volume_cm3": 0.5618794969156325,
+      "mass_solid_PETG_g_estimate": 0.7135869610828534,
+      "stl_reloaded_watertight": true,
+      "stl_reloaded_single_solid": true,
+      "stl_reloaded_degenerate_faces": 0,
+      "sha256": "996b382c9d374da17d076c61838af40fd8653d9479d37de48f5224e6f49cbfbf"
+    },
+    "05_test_clip_femelle_v2": {
+      "watertight": true,
+      "connected_solids": 1,
+      "triangles": 86,
+      "bounds_mm": [
+        [
+          33.4,
+          20.5,
+          0.0
+        ],
+        [
+          37.0,
+          30.5,
+          15.909999999999997
+        ]
+      ],
+      "size_mm": [
+        3.6000000000000014,
+        10.0,
+        15.909999999999997
+      ],
+      "volume_cm3": 0.3771460707694944,
+      "mass_solid_PETG_g_estimate": 0.4789755098772579,
+      "stl_reloaded_watertight": true,
+      "stl_reloaded_single_solid": true,
+      "stl_reloaded_degenerate_faces": 0,
+      "sha256": "1c53bbcf71dcd2b134dcf51c24674a05dc0b42a917e3d32525981e4fa5e1de7d"
+    }
+  },
+  "checks": {
+    "shells_intersection_mm3": 0.0,
+    "dupont_reserved_36mm_intersection_mm3": 0.0,
+    "board_envelope_intersection_mm3": 9.127995600195509e-15,
+    "usb_tunnel_intersection_mm3": 5.684341886080802e-14,
+    "wire_passage_intersection_mm3": 2.413244300572548e-15,
+    "clip_usb_intersection_mm3": 0.0,
+    "mounts_buttons_intersection_mm3": 0.0,
+    "screw_heads_intersection_mm3": 0.0,
+    "clip_1p3mm_deflection_board_mounts_intersection_mm3": 0.0,
+    "usb_port_to_outer_end_mm": 5.100000000000001,
+    "mount_hole_spacing_mm": 26.0,
+    "pcb_thickness_assumed_mm": 1.6,
+    "floor_reference_block_present_mm3": 10.4,
+    "screen_angle_degrees": 30.0,
+    "barrel_reference_width_mm": 82.0,
+    "tested_with_physical_board": false,
+    "tested_with_physical_print": false
+  }
+}

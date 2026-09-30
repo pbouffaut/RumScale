@@ -50,12 +50,25 @@ void buildState(JsonDocument& doc) {
   doc["evaporated_g"]  = roundf(st.evaporatedG);
 
   doc["alert_on_serve"] = st.alertOnServe;
+  doc["display_sleep_min"] = Store::displaySleepMinutes();
   doc["telegram"]       = Notify::configured();
   doc["tg_error"]       = Notify::lastError();
   doc["tg_chat"]        = st.tgChat;          // le jeton n'est jamais renvoyé
 
   JsonArray hx = doc["hx"].to<JsonArray>();
   for (uint8_t i = 0; i < NUM_CHANNELS; i++) hx.add(Scale::channelOk(i));
+
+  // Valeurs brutes par canal : indispensables au montage pour voir vivre chaque
+  // cellule séparément, avant que la moindre calibration ait du sens.
+  JsonArray raw = doc["raw"].to<JsonArray>();
+  JsonArray dlt = doc["raw_delta"].to<JsonArray>();
+  JsonArray smp = doc["hx_samples"].to<JsonArray>();
+  for (uint8_t i = 0; i < NUM_CHANNELS; i++) {
+    raw.add(Scale::filteredRaw(i));
+    dlt.add(Scale::channelDelta(i));
+    smp.add(Scale::sampleCount(i));
+  }
+  doc["scale_ready"] = Scale::ready();
 
   doc["ip"]        = WiFi.localIP().toString();
   doc["rssi"]      = WiFi.RSSI();
@@ -141,9 +154,8 @@ void registerRoutes() {
   server.on("/api/events",  HTTP_GET, handleEvents);
 
   server.on("/api/tare", HTTP_POST, [](AsyncWebServerRequest* request) {
-    if (!Scale::ready()) { sendOk(request, false, "La balance n'a pas encore de mesure stable."); return; }
-    Scale::tare();
-    sendOk(request, true, "Zéro enregistré.");
+    const char* err = Scale::tareChecked();
+    sendOk(request, err == nullptr, err ? err : "Zéro enregistré.");
   });
 
   server.on("/api/empty", HTTP_POST, [](AsyncWebServerRequest* request) {
@@ -186,9 +198,8 @@ void registerRoutes() {
   server.addHandler(new AsyncCallbackJsonWebHandler(
       "/api/calibrate", [](AsyncWebServerRequest* request, JsonVariant& json) {
         float known = json["known_g"] | 0.0f;
-        bool ok = Scale::calibrateWithKnown(known);
-        sendOk(request, ok, ok ? "Balance calibrée."
-                               : "Pose bien le poids connu (≥ 100 g) sur la base et réessaie.");
+        const char* err = Scale::calibrateWithKnown(known);
+        sendOk(request, err == nullptr, err ? err : "Balance calibrée.");
       }));
 
   server.addHandler(new AsyncCallbackJsonWebHandler(
@@ -216,6 +227,10 @@ void registerRoutes() {
         }
         if (json["alert_on_serve"].is<bool>())
           st.alertOnServe = json["alert_on_serve"].as<bool>();
+        if (json["display_sleep_min"].is<uint16_t>()) {
+          uint16_t minutes = json["display_sleep_min"].as<uint16_t>();
+          if (minutes <= 1440) Store::setDisplaySleepMinutes(minutes);
+        }
 
         // Une chaîne vide efface le réglage ; une chaîne absente le laisse tel quel.
         if (json["tg_token"].is<const char*>())
@@ -248,9 +263,42 @@ void onWsEvent(AsyncWebSocket* srv, AsyncWebSocketClient* client,
 void Net::begin() {
   WiFi.mode(WIFI_STA);
   WiFi.setSleep(false);       // le HX711 et le WebSocket préfèrent une radio éveillée
+  WiFi.setTxPower(WIFI_POWER_19_5dBm);
+  WiFi.setAutoReconnect(true);
+
+  // Les raisons de déconnexion (mot de passe, AP introuvable, handshake, etc.)
+  // sont indispensables au diagnostic : WiFiManager ne les affiche pas.
+  WiFi.onEvent([](WiFiEvent_t event, WiFiEventInfo_t info) {
+    Serial.printf("[net] Wi-Fi déconnecté, raison=%u\n",
+                  (unsigned)info.wifi_sta_disconnected.reason);
+  }, ARDUINO_EVENT_WIFI_STA_DISCONNECTED);
+
+  const String savedSsid = WiFi.SSID();
+  Serial.printf("[net] SSID mémorisé : %s\n",
+                savedSsid.length() ? savedSsid.c_str() : "(aucun)");
+  int found = WiFi.scanNetworks(false, true);
+  if (found < 0) {
+    Serial.printf("[net] scan Wi-Fi impossible (%d)\n", found);
+  } else {
+    bool seen = false;
+    for (int i = 0; i < found; i++) {
+      if (savedSsid.length() && WiFi.SSID(i) == savedSsid) {
+        seen = true;
+        Serial.printf("[net] AP trouvé : %s, %d dBm, canal %d, sécurité %d\n",
+                      WiFi.SSID(i).c_str(), WiFi.RSSI(i), WiFi.channel(i),
+                      (int)WiFi.encryptionType(i));
+      }
+    }
+    if (savedSsid.length() && !seen)
+      Serial.println(F("[net] SSID mémorisé absent du scan 2,4 GHz"));
+  }
+  WiFi.scanDelete();
 
   WiFiManager wm;
   wm.setConfigPortalTimeout(300);
+  wm.setConnectTimeout(20);
+  wm.setConnectRetries(3);
+  wm.setWiFiAutoReconnect(true);
   wm.setAPCallback([](WiFiManager* m) {
     Serial.println(F("[net] portail de configuration ouvert"));
     Ui::showPortalScreen(AP_NAME);

@@ -33,12 +33,12 @@
 // les cellules de charge posées juste en dessous. 170 reste très lisible.
   #define TFT_BACKLIGHT 170
 
-// GPIO 16 et 17 sont libres sur un WROOM-32 (attention : sur un module WROVER,
-// ils servent à la PSRAM — cette carte est un WROOM, sans PSRAM).
-  #define PIN_HX_A_DOUT 16
-  #define PIN_HX_A_SCK  17
-  #define PIN_HX_B_DOUT 25
-  #define PIN_HX_B_SCK  26
+// Le pont complet formé par les quatre demi-cellules utilise un seul HX711,
+// câblé sur D25/D26. GPIO 16/17 restent disponibles pour une extension future.
+  #define PIN_HX_A_DOUT 25
+  #define PIN_HX_A_SCK  26
+  #define PIN_HX_B_DOUT 16
+  #define PIN_HX_B_SCK  17
 
   #define PIN_BUTTON    27   // bouton vers GND, pull-up interne
   #define PIN_LED       -1   // pas de LED libre sur cette carte
@@ -78,9 +78,8 @@
 
 #endif
 
-// Nombre de cellules de charge réellement câblées (1 ou 2).
-// Avec 1, seul le HX711 « A » est lu et le tonneau doit être centré dessus.
-#define NUM_CHANNELS   2
+// Les quatre demi-cellules forment ensemble un pont complet lu par un HX711.
+#define NUM_CHANNELS   1
 
 // ============================================================================
 //  Échantillonnage et filtrage
@@ -89,6 +88,12 @@
 // Le HX711 sort 10 mesures/seconde (broche RATE à la masse, réglage d'usine).
 static const uint8_t MEDIAN_WINDOW = 15;     // médiane glissante, ~1,5 s
 static const float   EMA_ALPHA     = 0.08f;  // lissage exponentiel derrière
+
+// Écran : le contrôleur reste éveillé pour continuer à peser et détecter deux
+// coups brefs sur la base ; seul le rétroéclairage est coupé.
+static const uint32_t TAP_WINDOW_MS    = 1200;
+static const uint32_t TAP_LOCKOUT_MS   = 250;
+static const int32_t  TAP_MIN_COUNTS   = 5000;
 
 // ============================================================================
 //  Détection d'événements
@@ -101,6 +106,7 @@ static const float   EMA_ALPHA     = 0.08f;  // lissage exponentiel derrière
 // ============================================================================
 
 static const float    STABLE_BAND_G   = 12.0f;   // amplitude tolérée pour un palier
+static const float    STABLE_EXIT_G   = 20.0f;   // hystérésis visuelle : ignore la dérive lente
 static const uint32_t STABLE_MS       = 20000;   // durée de calme avant de figer le palier
 static const float    EVENT_MIN_G     = 25.0f;   // plus petit écart qui mérite un événement
 static const float    EVAP_MAX_G_DAY  = 25.0f;   // au-delà, ce n'est plus de l'évaporation

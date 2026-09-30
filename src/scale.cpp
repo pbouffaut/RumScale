@@ -12,11 +12,21 @@ struct Channel {
   float    ema    = 0.0f;
   bool     emaInit = false;
   uint32_t lastSampleMs = 0;
+  int32_t  lastRaw = 0;
   bool     alive = false;
 };
 
 Channel ch[NUM_CHANNELS];
 bool everReady = false;
+uint32_t lastLogMs = 0;
+
+// Nomme le premier module qui ne répond pas, ou nullptr s'ils répondent tous.
+const char* muteChannel() {
+  for (uint8_t i = 0; i < NUM_CHANNELS; i++)
+    if (ch[i].wcount < MEDIAN_WINDOW)
+      return (i == 0) ? "A" : "B";
+  return nullptr;
+}
 
 int32_t medianOf(const int32_t* src, uint8_t n) {
   int32_t tmp[MEDIAN_WINDOW];
@@ -57,6 +67,7 @@ void Scale::update() {
 
     int32_t raw = (int32_t)c.hx.read();
     c.lastSampleMs = now;
+    c.lastRaw = raw;
     c.alive = true;
 
     c.window[c.wpos] = raw;
@@ -68,11 +79,25 @@ void Scale::update() {
     else            { c.ema += EMA_ALPHA * ((float)med - c.ema); }
   }
 
+  // Prêt dès qu'UN canal a rempli sa fenêtre. Exiger les deux ferait qu'un seul
+  // module muet bloque tout l'appareil — tare refusée, aucun palier — sans
+  // jamais dire lequel est en cause.
   if (!everReady) {
-    bool all = true;
     for (uint8_t i = 0; i < NUM_CHANNELS; i++)
-      if (ch[i].wcount < MEDIAN_WINDOW) all = false;
-    everReady = all;
+      if (ch[i].wcount >= MEDIAN_WINDOW) { everReady = true; break; }
+  }
+
+  // Tant que la balance n'est pas calibrée, on crache les valeurs brutes sur le
+  // port série : c'est le seul moyen de voir vivre chaque cellule au montage.
+  if (!Store::s().calibrated && now - lastLogMs > 2000) {
+    lastLogMs = now;
+    Serial.printf("[scale] A: brut %ld  delta %ld  (%u mes.)",
+                  (long)filteredRaw(0), (long)channelDelta(0), ch[0].wcount);
+#if NUM_CHANNELS > 1
+    Serial.printf("   B: brut %ld  delta %ld  (%u mes.)",
+                  (long)filteredRaw(1), (long)channelDelta(1), ch[1].wcount);
+#endif
+    Serial.printf("   total %.0f g\n", grams());
   }
 }
 
@@ -81,6 +106,24 @@ bool Scale::ready() { return everReady; }
 int32_t Scale::filteredRaw(uint8_t c) {
   if (c >= NUM_CHANNELS) return 0;
   return (int32_t)lroundf(ch[c].ema);
+}
+
+int32_t Scale::instantRaw(uint8_t c) {
+  return c < NUM_CHANNELS ? ch[c].lastRaw : 0;
+}
+
+uint32_t Scale::lastSampleMs(uint8_t c) {
+  return c < NUM_CHANNELS ? ch[c].lastSampleMs : 0;
+}
+
+uint8_t Scale::sampleCount(uint8_t c) {
+  if (c >= NUM_CHANNELS) return 0;
+  return ch[c].wcount;
+}
+
+int32_t Scale::channelDelta(uint8_t c) {
+  if (c >= NUM_CHANNELS) return 0;
+  return filteredRaw(c) - Store::s().offsetRaw[c];
 }
 
 bool Scale::channelOk(uint8_t c) {
@@ -114,14 +157,45 @@ void Scale::tare() {
                 (long)(NUM_CHANNELS > 1 ? Store::s().offsetRaw[1] : 0));
 }
 
-bool Scale::calibrateWithKnown(float knownGrams) {
-  if (knownGrams < 100.0f) return false;      // trop léger pour une pente fiable
+const char* Scale::tareChecked() {
+  const char* mute = muteChannel();
+  if (mute) {
+    static char msg[96];
+    snprintf(msg, sizeof(msg),
+             "Le module HX711 %s ne renvoie rien. Vérifie son DT, son SCK, "
+             "son 3V3 et la masse commune.", mute);
+    return msg;
+  }
+  tare();
+  return nullptr;
+}
+
+const char* Scale::calibrateWithKnown(float knownGrams) {
+  if (knownGrams < 100.0f)
+    return "Il faut un poids d'au moins 100 g pour une pente fiable.";
+
+  const char* mute = muteChannel();
+  if (mute) {
+    static char msg[96];
+    snprintf(msg, sizeof(msg),
+             "Le module HX711 %s ne renvoie rien : la pente serait fausse. "
+             "Vérifie son câblage avant de calibrer.", mute);
+    return msg;
+  }
+
   int32_t d = deltaSum();
-  if (labs(d) < 1000) return false;           // rien n'est posé, ou câblage muet
+  if (labs(d) < 1000) {
+    static char msg[128];
+    snprintf(msg, sizeof(msg),
+             "La mesure n'a pas bougé (écart %ld sur %ld attendus). Poids bien "
+             "posé sur le plateau ? Cellules libres de fléchir ?",
+             (long)d, 1000L);
+    return msg;
+  }
 
   Store::s().countsPerGram = (float)d / knownGrams;
   Store::s().calibrated = true;
   Store::save();
   Serial.printf("[scale] calibration : %.2f counts/g\n", Store::s().countsPerGram);
-  return true;
+  return nullptr;
 }

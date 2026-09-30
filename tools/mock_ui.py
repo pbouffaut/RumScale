@@ -16,7 +16,7 @@ print(f"HTML extrait : {len(HTML)} octets")
 
 NOW = int(time.time())
 DENS = 0.94
-CAP = 5000
+CAP = 2000
 EMPTY_G = 3120.0
 FULL_G = EMPTY_G + CAP * DENS      # 4700 g de liquide
 

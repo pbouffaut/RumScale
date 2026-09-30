@@ -3,3 +3,6 @@
 *.pyc
 __pycache__/
 .DS_Store
+
+# Fichiers temporaires et dependances locales de conception 3D
+/work/
