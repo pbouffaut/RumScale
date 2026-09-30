@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="RumScale — Setup guide and FAQ. The logbook for your connected barrel: prepare for the journey, keep aging on course, and pass on the treasure.">
+<meta name="theme-color" content="#201d18">
+<title>RumScale — Setup guide and FAQ</title>
+<link rel="canonical" href="https://pbouffaut.github.io/RumScale/en/">
+<link rel="alternate" hreflang="fr" href="https://pbouffaut.github.io/RumScale/">
+<link rel="alternate" hreflang="en" href="https://pbouffaut.github.io/RumScale/en/">
+<link rel="alternate" hreflang="gcf" href="https://pbouffaut.github.io/RumScale/gcf/">
+<link rel="alternate" hreflang="x-default" href="https://pbouffaut.github.io/RumScale/">
+<link rel="icon" type="image/svg+xml" href="../assets/pirate-mark.svg">
+<link rel="stylesheet" href="../assets/guide.css">
+<script id="guide-strings" type="application/json">{"searchLabel": "Search the FAQ", "searchPlaceholder": "Wi-Fi, screen, calibration…", "expand": "Open all", "collapse": "Close all", "empty": "No matching answers. Try another word or check the troubleshooting section above.", "count": "{total} questions to help you find an answer.", "resultOne": "{n} answer out of {total}", "resultMany": "{n} answers out of {total}"}</script>
+<script src="../assets/guide.js" defer></script>
+</head>
+<body id="haut">
+<a class="skip" href="#contenu">Skip to content</a>
+<div class="reading-progress" aria-hidden="true"></div>
+<header class="topbar">
+<a class="brand" href="#haut" aria-label="RumScale"><img src="../assets/pirate-mark.svg" alt="" width="40" height="45"><strong>RumScale</strong><span>Captain’s log</span></a>
+<nav class="language-switch" aria-label="Guide language"><a href="../index.html" lang="fr" hreflang="fr" data-guide-lang="fr">Français</a><a href="../en/index.html" lang="en" hreflang="en" data-guide-lang="en" aria-current="page">English</a><a href="../gcf/index.html" lang="gcf" hreflang="gcf" data-guide-lang="gcf" title="Kréyòl Gwadloup">Kréyòl</a></nav>
+<div class="top-actions"><button class="print-button" type="button">Print the guide</button><a class="local-link" href="http://rum.local/">Open my barrel ↗</a></div>
+</header>
+<details class="mobile-nav"><summary>Guide contents</summary><nav aria-label="Guide contents"><a href="#demarrage">First connection</a>
+<a href="#wifi">Wi-Fi and moving home</a>
+<a href="#calibration">Calibrate the scale</a>
+<a href="#quotidien">Everyday use</a>
+<a href="#telegram">Telegram alerts</a>
+<a href="#reinitialisation">Restart or reset</a>
+<a href="#cadeau">Give the barrel as a gift</a>
+<a href="#depannage">Troubleshooting</a>
+<a href="#faq">Frequently asked questions</a>
+<a href="#boitier">Enclosure and 3D printing</a>
+<a href="#avance">Assembly and maintenance</a></nav></details>
+<div class="layout">
+<aside class="sidebar"><p class="nav-title">Chart your course</p><nav aria-label="Guide contents"><a href="#demarrage">First connection</a>
+<a href="#wifi">Wi-Fi and moving home</a>
+<a href="#calibration">Calibrate the scale</a>
+<a href="#quotidien">Everyday use</a>
+<a href="#telegram">Telegram alerts</a>
+<a href="#reinitialisation">Restart or reset</a>
+<a href="#cadeau">Give the barrel as a gift</a>
+<a href="#depannage">Troubleshooting</a>
+<a href="#faq">Frequently asked questions</a>
+<a href="#boitier">Enclosure and 3D printing</a>
+<a href="#avance">Assembly and maintenance</a></nav><p class="nav-note">Keep this guide close to your barrel.<br>Checked on September 30, 2026.</p></aside>
+<main id="contenu" class="main">
+<div class="hero">
+<div class="hero-topline"><p class="eyebrow">Setup · Everyday use · Frequently asked questions</p><span class="hero-edition">The captain’s handbook</span></div>
+<div class="hero-grid"><div class="hero-copy"><h1><span>All aboard,</span><br>set a course for rum.</h1><p class="intro">The logbook for your connected barrel: prepare for the journey, keep aging on course, and pass on the treasure.</p><div class="hero-links"><a class="button" href="#demarrage">Get started <span aria-hidden="true">→</span></a><a class="button secondary" href="#faq">Explore the FAQ <span aria-hidden="true">↓</span></a></div></div><figure class="hero-art" aria-hidden="true"><img src="../assets/pirate-barrel.svg" width="420" height="460" alt=""><figcaption>The captain’s reserve</figcaption></figure></div>
+<div class="quick-paths"><a href="#cadeau"><strong>I received a gift ↗</strong>Getting started at home.</a><a href="#wifi"><strong>I’m changing Wi-Fi ↗</strong>Keep your barrel’s settings.</a><a href="#depannage"><strong>Something’s wrong ↗</strong>What to check first.</a></div>
+<p class="print-note">RumScale — Setup guide and FAQ · Checked on September 30, 2026.</p>
+</div>
+<section id="demarrage" aria-labelledby="titre-demarrage">
+  <h2 id="titre-demarrage">Getting started</h2>
+  <p class="lead">A USB cable, your phone and a few minutes are all you need to connect a barrel that has already been set up.</p>
+  <ol class="steps">
+    <li><strong>Place the base on a stable, level table.</strong> The barrel must rest entirely on its weighing platform. Leave the cables loose: they must not pull on the base or get trapped underneath it.</li>
+    <li><strong>Connect the USB-C power supply.</strong> A 5 V / 1 A USB power supply is suitable. Wait for startup and the Wi-Fi connection to finish.</li>
+    <li><strong>Connect the barrel to your home Wi-Fi.</strong> If the screen shows <code>RumBarrel-setup</code>, follow the <a href="#wifi">Wi-Fi setup instructions</a>.</li>
+    <li><strong>Open <a href="http://rum.local/">http://rum.local</a></strong> on a phone connected to the same network as the barrel. You do not need to install an app or create a RumScale account.</li>
+    <li><strong>Check the level and settings.</strong> If the barrel was given to you already filled and calibrated, keep its reference settings. If the app displays “Pas encore initialisé” (not yet initialized), complete the <a href="#calibration">four calibration steps</a> before filling it.</li>
+  </ol>
+  <aside class="callout"><strong>Two pages with different purposes.</strong> You read this guide on the Internet. The <code>rum.local</code> app runs inside your barrel and lets you change its settings only when you are connected to its local network. The device app’s menus and buttons are in French; this guide keeps their exact labels so you can find them.</aside>
+</section>
+
+<section id="wifi" aria-labelledby="titre-wifi">
+  <h2 id="titre-wifi">Connecting or changing Wi-Fi</h2>
+  <p class="lead">RumScale uses a <strong>2.4 GHz</strong> Wi-Fi network. Moving it to another home does not require resetting the scale.</p>
+  <h3>First connection or a new home</h3>
+  <ol>
+    <li>Plug in the barrel. If it already has a saved network, it tries to connect three times, for about 20 seconds per attempt. Allow a little over a minute, including the network scan.</li>
+    <li>When <code>RumBarrel-setup</code> appears, join that network in your phone’s Wi-Fi settings. It is open and has no password. If your phone warns that there is no Internet connection, choose to stay connected.</li>
+    <li>The setup portal may open automatically. Otherwise, open <a href="http://192.168.4.1/">http://192.168.4.1</a> in your browser, using <strong>http</strong>.</li>
+    <li>Select your home network, enter its password and confirm. The barrel saves the network and continues starting up.</li>
+    <li>Reconnect your phone to your home network, then open <a href="http://rum.local/">http://rum.local</a>. Your phone can use the 5 GHz band if it belongs to the same local network; the barrel itself needs 2.4 GHz.</li>
+  </ol>
+  <p>If the barrel is still connected to the old network and you want to choose another one, open <strong>Réglages → Système → Oublier le Wi-Fi</strong> (forget Wi-Fi). It restarts and opens its setup portal. Calibration, the reference level and history remain saved.</p>
+  <h3>If setup times out</h3>
+  <p>After about <strong>5 minutes with no activity in the portal</strong>, the barrel switches to standalone mode. While connected to <code>RumBarrel-setup</code>, you can then open the app at <code>http://192.168.4.1</code>. That address now shows the monitoring app: the portal for choosing a Wi-Fi network has closed. Unplug the barrel and plug it back in to restart Wi-Fi setup.</p>
+  <p><strong>Weighing is paused while the setup portal is open.</strong> It resumes when the connection succeeds or the portal times out. In standalone mode, you can still check the level in the local app, but Telegram and time synchronization require an Internet connection. In the current software, the screen may stay on “Configuration Wi-Fi” and remain lit even after the portal times out: read the measurements in the app instead. After starting up offline, no new hourly data points are recorded until the clock is synchronized.</p>
+  <h3>If rum.local does not respond</h3>
+  <p>First check that your phone and the barrel share the same network, without guest-network isolation. Try the barrel’s IP address, listed among the connected devices on your router. If an external button is installed, the screen’s “Réseau” (network) page also shows this address and a QR code. Enter the address in the form <code>http://adresse-IP</code>, replacing <code>adresse-IP</code> with the actual IP address.</p>
+</section>
+
+<section id="calibration" aria-labelledby="titre-calibration">
+  <h2 id="titre-calibration">Calibrating the scale and barrel</h2>
+  <p class="lead">This process establishes the actual weight, then the empty and full reference points. Do it during the initial setup or after modifying the base.</p>
+  <p>Have an object whose total mass you have checked on another scale, weighing <strong>at least 100 g</strong>, and the barrel while it is still empty. Place the base where you will be using it. Open <strong>Réglages → Initialisation</strong> and follow these steps in order.</p>
+  <ol class="steps">
+    <li><strong>Empty platform — Faire le zéro.</strong> Remove the barrel and all other objects from the platform. Wait for the displayed weight to settle, then press <strong>Faire le zéro</strong> (set zero).</li>
+    <li><strong>Known weight — Calibrer la balance.</strong> Place your reference object on the platform, wait for the reading to settle and enter its exact mass in grams in <strong>Masse posée</strong>. Press <strong>Calibrer la balance</strong> (calibrate the scale). Then remove the object and check that the reading returns close to zero.</li>
+    <li><strong>Empty barrel — Enregistrer le tonneau vide.</strong> Put the empty barrel on the platform, with its bung, tap and any accessories that will remain in place during use. Wait for the reading to settle, then press <strong>Enregistrer le tonneau vide</strong> (save empty barrel).</li>
+    <li><strong>Full barrel — Enregistrer le tonneau plein.</strong> Fill it to the reference volume you intend to enter, put it back on the platform and wait for the reading to settle. Enter its capacity in litres: <strong>2 L is an example</strong>, to be replaced with your barrel’s actual value. Press <strong>Enregistrer le tonneau plein</strong> (save full barrel).</li>
+  </ol>
+  <aside class="callout"><strong>The container’s weight counts.</strong> A bottle containing one litre of water weighs more than 1,000 g once you include the bottle and cap. Even if the app uses that simplified example, enter the object’s measured total mass, not just the mass of its contents.</aside>
+  <p>A stable reading takes about <strong>20 seconds without disturbance</strong>, sometimes longer after moving things. Wait for the stabilization indicator to disappear; two seconds is not enough.</p>
+  <p>Saving the first full reference also starts the aging timer. The estimated volume depends on the liquid’s mass and density; the density is calculated if the relationship between added weight and entered volume is plausible. Entering the wrong volume will give incorrect litre readings.</p>
+  <h3>When should you update the reference points?</h3>
+  <ul>
+    <li><strong>Changes to the base, sensors or mechanical assembly:</strong> repeat the full calibration.</li>
+    <li><strong>A new barrel absorbing liquid:</strong> its wood gains weight. When it is empty again, save its empty weight with the same accessories, then save a new full reference after filling it.</li>
+    <li><strong>A new batch:</strong> keep a valid calibration, check the empty and full references and use <strong>Redémarrer le vieillissement</strong> (restart aging) if you want to time a new cycle. Saving “full” again does not reset an aging timer that has already started.</li>
+  </ul>
+  <p><strong>A barrel that is already filled but has no valid empty reference cannot be correctly initialized using these four buttons.</strong> Ask the person who prepared it for the reference values, or wait until you can empty it. Never set the platform’s zero with the barrel on it.</p>
+</section>
+
+<section id="quotidien" aria-labelledby="titre-quotidien">
+  <h2 id="titre-quotidien">Everyday use</h2>
+  <p class="lead">Leave the barrel on its base. The scale tracks the remaining liquid and distinguishes pours from slow changes.</p>
+  <h3>Reading the screen and app</h3>
+  <ul>
+    <li><strong>Percentage:</strong> the level calculated between the saved empty and full reference points.</li>
+    <li><strong>Litres:</strong> an estimate based on the liquid’s weight and the configured density.</li>
+    <li><strong>Aging:</strong> elapsed time since the saved starting date.</li>
+    <li><strong>Last pour and history:</strong> confirmed changes are recorded. The chart normally receives one data point per hour, plus extra points when events occur.</li>
+    <li><strong>Angel’s share:</strong> an estimate of slow losses. The system cannot perfectly distinguish evaporation, absorption by the wood and sensor drift.</li>
+  </ul>
+  <p>Avoid placing a glass or bottle on the platform. After a pour, leave the barrel undisturbed: the system waits for a stable reading and then about <strong>3 minutes</strong> before confirming the event. A change smaller than about 25 g is not recorded as an individual pour.</p>
+  <h3>Screen sleep and wake</h3>
+  <p>On the ideaspark board, only the backlight turns off, after <strong>5 minutes by default</strong>. Weighing, Wi-Fi and alerts continue working. Give the base <strong>two light, quick taps</strong> to wake the screen; this gesture does not switch pages.</p>
+  <p>In <strong>Réglages → Le tonneau → Mise en veille de l’écran</strong>, choose <strong>Jamais, 1, 5, 10, 30 minutes or 1 heure</strong> (never, or the desired delay), then press <strong>Enregistrer</strong> (save). You can change the displayed name in the same place. Keep the density and capacity from initialization as long as they are correct: changing these fields does not recreate the empty and full weight references.</p>
+  <h3>If an external button is installed</h3>
+  <p>A short press wakes the screen or moves to the next page: level, aging, network and diagnostics. The screen returns to the main page after about 30 seconds. Holding the button shows a confirmation after 3 seconds and restarts aging at 6 seconds; release it before then to cancel. This optional button is separate from the small <strong>EN</strong> and <strong>BOOT</strong> buttons on the board.</p>
+  <h3>Power outages</h3>
+  <p>Calibration, reference points, settings, the aging start date and already saved history remain in memory. After restarting, the device gets the time from the Internet and recalculates the number of days. It measures nothing while unplugged and cannot reconstruct each pour made during the outage.</p>
+</section>
+
+<section id="telegram" aria-labelledby="titre-telegram">
+  <h2 id="titre-telegram">Receiving Telegram alerts</h2>
+  <p class="lead">Telegram is optional. It can notify you about confirmed pours and when the level reaches 50%, 25% and 10%.</p>
+  <ol>
+    <li>In Telegram, open the official <a href="https://t.me/BotFather">@BotFather</a> bot, send <code>/newbot</code> and follow its instructions. Keep the supplied <strong>bot token</strong> private, just like a password.</li>
+    <li>Open the conversation with your new bot and press <strong>Start</strong> (“Démarrer” in French), or send it a message. This first action allows it to send you messages.</li>
+    <li>For a private conversation, open <a href="https://t.me/userinfobot">@userinfobot</a> and note your numeric ID. This is a <strong>third-party bot</strong>: never send it your token. RumScale needs the chat ID, not an <code>@username</code>.</li>
+    <li>In <strong>Réglages → Alertes Telegram</strong>, paste the token into <strong>Jeton du bot</strong> and the ID into <strong>Identifiant de discussion</strong>, choose whether to receive a notification for every pour, then press <strong>Enregistrer</strong>.</li>
+    <li>Press <strong>Envoyer un test</strong> (send a test), wait a few seconds and <strong>check that you actually receive the message in Telegram</strong>.</li>
+  </ol>
+  <p>The app’s “Message de test envoyé” message confirms that the test has been queued, not delivered. It may never arrive without Internet access or if the details are wrong. Check the fields, that you have sent an initial message to the bot, that it is not blocked, and the Telegram status line.</p>
+  <p>Unchecking <strong>Me prévenir à chaque service</strong> only disables pour notifications; level-threshold alerts stay active. To suspend all notifications, clear <strong>Identifiant de discussion</strong> (chat ID) and save. An empty token field means “keep the existing token.”</p>
+  <p>Alerts that fail to send are discarded: they are not automatically retried when the network returns. When ownership changes, configure the new owner’s bot and chat so the messages go to them.</p>
+  <details class="faq-item">
+    <summary>Getting the chat ID without a third-party bot</summary>
+    <div>
+      <p>After sending a private message to your new bot, open the address below in a private browsing window, replacing <code>TON_JETON</code> with the token you received from BotFather. Do not share the personalized address.</p>
+      <pre><code>https://api.telegram.org/botTON_JETON/getUpdates</code></pre>
+      <p>In the response, find your message and the number in <code>message → chat → id</code>. Copy that number into <strong>Identifiant de discussion</strong>, then close the private window. If <code>result</code> is empty, send the bot another message and refresh. This procedure assumes a new bot dedicated to RumScale, with no other application receiving its messages.</p>
+      <p>References: <a href="https://core.telegram.org/bots/tutorial">creating a Telegram bot</a> and the <a href="https://core.telegram.org/bots/api#getupdates">official getUpdates method</a>.</p>
+    </div>
+  </details>
+</section>
+
+<section id="reinitialisation" aria-labelledby="titre-reinitialisation">
+  <h2 id="titre-reinitialisation">Restarting or resetting</h2>
+  <p class="lead">Choose the action that fits your needs. “Reset” can mean four very different things.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">What you need</th><th scope="col">Action in the app</th><th scope="col">Effect</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Restart the device</th><td>Réglages → Système → <strong>Redémarrer</strong></td><td>Keeps settings, Wi-Fi, calibration and saved history.</td></tr>
+        <tr><th scope="row">Change networks</th><td>Réglages → Système → <strong>Oublier le Wi-Fi</strong></td><td>Erases the saved network and restarts into Wi-Fi setup. Keeps the barrel’s data.</td></tr>
+        <tr><th scope="row">Start a new aging cycle</th><td>Réglages → Le tonneau → <strong>Redémarrer le vieillissement</strong></td><td>Starts again from day zero after confirmation. Keeps calibration, reference points, history, accumulated angel’s share and threshold-alert state; adds an event to the log.</td></tr>
+        <tr><th scope="row">Start the entire setup again</th><td>Réglages → Système → <strong>Remise à zéro complète</strong></td><td>Erases calibration, empty/full references, name, settings, Telegram, aging start date and history. <strong>The Wi-Fi network stays saved.</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>After a complete reset, repeat the <a href="#calibration">four initialization steps</a>. To erase Wi-Fi as well, use <strong>Oublier le Wi-Fi</strong> separately.</p>
+  <p><strong>On the board:</strong> pressing <strong>EN / Reset</strong> simply restarts the ESP32, like cycling its power. <strong>BOOT</strong> is used when uploading software; it does not restore factory settings. These two buttons provide no shortcut for a complete reset.</p>
+</section>
+
+<section id="cadeau" aria-labelledby="titre-cadeau">
+  <h2 id="titre-cadeau">Giving the barrel as a gift or moving home</h2>
+  <p class="lead">A barrel that has already been set up keeps its saved measurements during transport. Its recipient mainly needs to connect it to their own Wi-Fi.</p>
+  <h3>Before giving it away</h3>
+  <ol>
+    <li>If you are giving it away filled, save its empty reference before filling it, then its full reference after filling it. Check that the displayed level makes sense.</li>
+    <li>Pass on its capacity, aging start date and this guide. Explain whether aging should continue or start again from zero.</li>
+    <li>In the Telegram settings, clear the chat ID and save to stop messages going to your account. The recipient can set up their own bot.</li>
+    <li>You can use <strong>Oublier le Wi-Fi</strong> before unplugging it, but this is optional: if the old network is unavailable, the setup portal will open the next time it starts.</li>
+  </ol>
+  <h3>At the recipient’s home</h3>
+  <p>Place the base on a stable table, put the barrel back and plug it in. After it tries the old network, join <code>RumBarrel-setup</code> and follow the <a href="#wifi">Wi-Fi setup instructions</a>. Then allow the reading to settle. <strong>Do not perform a complete reset just because the barrel has a new owner.</strong></p>
+  <p>If the barrel arrives filled and is already working, keep its calibration. Using “Enregistrer le tonneau vide” with liquid inside would make all subsequent readings wrong. If the references have been lost, ask the person who prepared it for them, or wait until the barrel is empty to initialize it again.</p>
+</section>
+
+<section id="depannage" aria-labelledby="titre-depannage">
+  <h2 id="titre-depannage">Quick troubleshooting</h2>
+  <p class="lead">Start with the symptom you can see. A complete reset is rarely the best first step.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Symptom</th><th scope="col">What to check</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Black screen</th><td>Give the base two light taps to wake it. If nothing changes, check the power supply and USB cable, then restart. If the app responds, the scale still has power.</td></tr>
+        <tr><th scope="row">rum.local cannot be found</th><td>Your phone and barrel must be on the same network, with no isolated guest network. Try the IP address assigned by your router with <code>http://</code>. In standalone mode, use <code>192.168.4.1</code>.</td></tr>
+        <tr><th scope="row">Home network missing from the list</th><td>Enable 2.4 GHz Wi-Fi and move the barrel closer to the router. A 5 GHz-only network is not compatible.</td></tr>
+        <tr><th scope="row">192.168.4.1 shows the gauge instead of the Wi-Fi choices</th><td>The portal has timed out. Restart the barrel and begin setup again when <code>RumBarrel-setup</code> appears.</td></tr>
+        <tr><th scope="row">“Pas encore initialisé”</th><td>Complete the four steps in Réglages → Initialisation. If the barrel is already filled, first check with the person who prepared it.</td></tr>
+        <tr><th scope="row">Unstable weight</th><td>Wait at least 20 seconds without touching the base. Check for taut cables, unwanted contact with the platform and loose screws. A flexible table or vibrations can prevent the reading from settling.</td></tr>
+        <tr><th scope="row">Zero weight or “HX A muet”</th><td>Check the HX711 power supply, shared ground and DT/SCK connections. Calibration cannot fix a missing signal. See the <a href="cablage.html">wiring for the active setup</a>.</td></tr>
+        <tr><th scope="row">“La mesure n’a pas bougé” during calibration</th><td>The reference object must load the platform, and the sensors must be able to flex. Check the mechanical assembly and wiring before trying again.</td></tr>
+        <tr><th scope="row">Level above 100%</th><td>Check the accessories and make sure no extra object is on the platform. If the barrel really contains more liquid than at the original reference point, save the correct full reference and capacity.</td></tr>
+        <tr><th scope="row">Aging shows “en cours” or J+?</th><td>The starting date is saved, but the current time is unavailable. Restore Internet access and check for “heure synchronisée” in Réglages → Système. Do not reset the timer.</td></tr>
+        <tr><th scope="row">No chart at first</th><td>The chart needs at least two data points. Wait about an hour, with a stable reading and the clock synchronized.</td></tr>
+        <tr><th scope="row">Telegram test never arrives</th><td>Check Internet access, the token, the chat ID and that you have started a conversation with the correct bot. Save, send another test and check Telegram directly.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="faq" aria-labelledby="titre-faq">
+  <h2 id="titre-faq">Frequently asked questions</h2>
+  <p class="lead">Answers to common situations, without having to read the entire guide.</p>
+  <details class="faq-item"><summary>Do I need to install an app or create an account?</summary><div><p>No. Open <a href="http://rum.local/">http://rum.local</a> in your browser while on the same network as the barrel. You only need a Telegram account if you want to use its alerts.</p></div></details>
+  <details class="faq-item"><summary>Can the barrel work without Internet access?</summary><div><p>Yes, for weighing and local monitoring after the connection phase. In standalone mode, join <code>RumBarrel-setup</code>, then open <code>http://192.168.4.1</code>. Telegram will not work and, after a power outage, the day count and new hourly data points must wait for time synchronization. The screen may stay on “Configuration Wi-Fi”: you can still read the measurements in the local app.</p></div></details>
+  <details class="faq-item"><summary>What happens if I take it to another home?</summary><div><p>It tries its old network, then offers <code>RumBarrel-setup</code>. Configure the new 2.4 GHz Wi-Fi network. Calibration, reference points and the aging start date remain saved. See the <a href="#cadeau">gift instructions</a>.</p></div></details>
+  <details class="faq-item"><summary>My phone says “no Internet” on RumBarrel-setup. Is that normal?</summary><div><p>Yes. This network connects your phone directly to the barrel. Stay connected and open <code>http://192.168.4.1</code>. Once you have configured your home Wi-Fi, reconnect your phone to your home network.</p></div></details>
+  <details class="faq-item"><summary>Why does startup take about a minute?</summary><div><p>When a network is already saved, the barrel makes up to three attempts of about 20 seconds each, plus a network scan. If it cannot connect, it opens its setup portal. Weighing has not started yet during this phase.</p></div></details>
+  <details class="faq-item"><summary>How can I reopen Wi-Fi setup after five minutes?</summary><div><p>Unplug the barrel and plug it back in. If you can still access the local app, Réglages → Système → Redémarrer has the same effect. The portal opens if no configured network is reachable.</p></div></details>
+  <details class="faq-item"><summary>Can I check the barrel while away from home?</summary><div><p>The app is local: this documentation website does not make <code>rum.local</code> accessible remotely. Telegram lets you receive alerts away from home. The app has no password; do not set up Internet port forwarding to the barrel.</p></div></details>
+  <details class="faq-item"><summary>Does a power outage erase my data?</summary><div><p>No. Settings and already saved history remain in memory. The aging duration is recalculated when Internet time becomes available again. Measurements during the outage, pending messages and a small amount of slow losses not yet saved may be missing.</p></div></details>
+  <details class="faq-item"><summary>Why does the screen turn off while the barrel is plugged in?</summary><div><p>By default, it goes to sleep after five minutes. Only the backlight turns off; weighing and networking continue. Two light taps on the base wake it. Change the delay in Réglages → Le tonneau.</p></div></details>
+  <details class="faq-item"><summary>Do two taps on the base change the screen page?</summary><div><p>No, they only wake the screen. You need the optional external button to cycle through its pages. All main functions remain available in the web app without that button.</p></div></details>
+  <details class="faq-item"><summary>What do the EN and BOOT buttons near the USB port do?</summary><div><p>EN, sometimes labelled Reset, restarts the board without erasing data. BOOT is used to install software. Neither button starts a complete reset or calibration.</p></div></details>
+  <details class="faq-item"><summary>What weight should I use for calibration?</summary><div><p>An object weighing at least 100 g whose exact total mass you have measured on another scale. Include its entire container. Do not automatically enter 1,000 g for a one-litre bottle.</p></div></details>
+  <details class="faq-item"><summary>Should I set zero when I put the barrel on the platform?</summary><div><p>No. “Faire le zéro” is for the completely empty platform during calibration. The empty barrel has its own step, “Enregistrer le tonneau vide”. Setting zero with the barrel in place would make the measurements wrong.</p></div></details>
+  <details class="faq-item"><summary>I received the barrel already filled. Should I initialize it?</summary><div><p>Keep its settings if it was prepared and displays a sensible level. Only configure your Wi-Fi and, if needed, Telegram. If it has no valid empty reference, ask the giver for the reference values or wait until you empty it; do not save it as “empty” with liquid inside.</p></div></details>
+  <details class="faq-item"><summary>Why wait before saving a weight?</summary><div><p>Measurements are smoothed, and reaching a stable state takes about 20 seconds without disturbance. Pressure from your hand, a taut cable or a moving table changes the load. Wait for the stabilization indicator to disappear.</p></div></details>
+  <details class="faq-item"><summary>Why is a pour notification delayed?</summary><div><p>After the reading settles, RumScale waits about three minutes to confirm a pour. This lets it cancel a change caused by an object being placed on the platform and then removed. Very small pours, below about 25 g, are not recognized as individual events.</p></div></details>
+  <details class="faq-item"><summary>Are missed alerts sent when Internet access returns?</summary><div><p>No. Failed sends are discarded. The device also does not reconstruct alerts for pours made while it was unplugged.</p></div></details>
+  <details class="faq-item"><summary>Does “Message de test envoyé” mean Telegram is working?</summary><div><p>The button queues the message. Only receiving it in your Telegram conversation confirms that the entire process works. If it does not arrive, check Internet access, the token, the chat ID and that you have started a conversation with your bot.</p></div></details>
+  <details class="faq-item"><summary>How can I disable Telegram without erasing everything?</summary><div><p>In Réglages → Alertes Telegram, clear “Identifiant de discussion”, then save. Unchecking only “Me prévenir à chaque service” leaves threshold alerts active. Leaving the token field blank keeps its previous value.</p></div></details>
+  <details class="faq-item"><summary>How can I start from day zero without recalibrating?</summary><div><p>Use Réglages → Le tonneau → Redémarrer le vieillissement, then confirm. Weight references and history remain saved. A complete reset is not necessary.</p></div></details>
+  <details class="faq-item"><summary>Does a complete reset erase Wi-Fi too?</summary><div><p>No. It erases RumScale data and settings, but keeps the network. To erase that, use Réglages → Système → Oublier le Wi-Fi separately. Conversely, forgetting Wi-Fi keeps calibration and history.</p></div></details>
+  <details class="faq-item"><summary>Is the volume an exact measurement of the liquid?</summary><div><p>It is an estimate based on weight. It depends on calibration, the empty barrel’s weight, density and the mechanical assembly. Wood absorbing liquid and sensor drift can change it. Update the reference points when the barrel is empty if they no longer match it.</p></div></details>
+  <details class="faq-item"><summary>Does refilling restart the aging timer?</summary><div><p>The first full reference starts it. Later full references keep an already saved date. For a new batch whose aging duration you want to track, also use “Redémarrer le vieillissement”.</p></div></details>
+  <details class="faq-item"><summary>How long is history kept?</summary><div><p>Memory holds 8,760 data points, or about a year at one point per hour; extra points added for events shorten that period. The log keeps the last 128 events, and the app displays up to 40. The oldest entries are gradually replaced.</p></div></details>
+</section>
+
+<section id="boitier" aria-labelledby="titre-boitier">
+  <h2 id="titre-boitier">3D-printed barrel enclosure</h2>
+  <p class="lead">The V2 enclosure protects the ideaspark board while keeping its screen and connectors accessible.</p>
+  <p><a href="https://github.com/pbouffaut/RumScale/raw/refs/heads/main/hardware/tonneau_ESP32_V2_STL_et_guide.zip">Download the V2 STL files and guide</a> · <a href="https://github.com/pbouffaut/RumScale/tree/main/hardware/tonneau_v2">Browse all enclosure files</a>.</p>
+  <figure><img src="../assets/boitier-v2.png" alt="Preview of the V2 barrel enclosure: tilted screen, flat base and two interlocking shells." loading="lazy"><figcaption>Preview of the V2 model. The colours illustrate its shape; no metal parts are required.</figcaption></figure>
+  <ul>
+    <li>Overall dimensions of about <strong>74 × 82 × 75 mm</strong>, with a flat base and a screen tilted at <strong>30°</strong>.</li>
+    <li><strong>46 × 25 mm</strong> screen window; board pocket designed for a measured width of 32.6 mm and thickness of 5 mm.</li>
+    <li><strong>13 × 8 mm</strong> inner USB opening, with the port about 5.1 mm from the end; a 10 mm rear opening for wires.</li>
+    <li>Two built-in supports spaced <strong>26 mm</strong> apart, for <strong>two M2 × 5 mm screws</strong> with cylindrical or rounded heads, not countersunk heads.</li>
+    <li>Two shells held together by four clips, without glue; 36 mm of space behind the board for Dupont connectors.</li>
+  </ul>
+  <h3>Before printing the complete enclosure</h3>
+  <p>Print the board-and-screw fit gauge first, using your final filament. Check the window, hole alignment and where the board rests. The gauge does not reproduce the USB tunnel: after printing the upper shell, also check that your actual plug fits. Digital model checks do not replace this physical test. <strong>V1 and V2 shells do not fit together.</strong></p>
+  <h3>Printing and assembly</h3>
+  <p>Units: millimetres, scale 100%. The files are already oriented: lower shell on its flat base, upper shell on its joining face, and gauge with its visible face on the print bed. Starting settings: 0.4 mm nozzle, 0.20 mm layers, four walls, five solid layers and 15–20% infill. PETG gives the clips more flexibility; test them if you choose PLA or wood-filled filament.</p>
+  <p>Add supports under the upper shell’s arch and some of its ledges, and check the lower shell’s overhangs. Remove burrs. Place the board in the upper shell, then gently drive the screws from the back of the circuit board into the two 1.6 mm pilot holes. Stop as soon as the board is secure: the screws must not bend the board or put pressure on the glass.</p>
+  <p>Check the USB plug before closing the enclosure. A plug with a 6–7 mm-high moulded housing leaves more clearance than an 8 mm one. Connect the Dupont leads, tuck the wires away from the clips and join the shells. BOOT and EN remain board controls, not everyday setup buttons.</p>
+</section>
+
+<section id="avance" aria-labelledby="titre-avance">
+  <h2 id="titre-avance">Advanced assembly and maintenance</h2>
+  <p class="lead">This information is for the person assembling or maintaining the electronics. You do not need it to use a barrel supplied ready to go.</p>
+  <h3>Active setup: one HX711</h3>
+  <p>The current setup combines an <strong>ideaspark ESP32-WROOM-32 board with a 1.9″ ST7789 screen</strong> and <strong>one HX711</strong>. Four half-bridge load cells together form a single measurement bridge; they are not four independent channels.</p>
+  <div class="table-wrap"><table><thead><tr><th scope="col">HX711</th><th scope="col">ideaspark board</th></tr></thead><tbody><tr><th scope="row">VCC</th><td>3V3</td></tr><tr><th scope="row">GND</th><td>Shared GND</td></tr><tr><th scope="row">DT / DOUT</th><td>GPIO 25</td></tr><tr><th scope="row">SCK</th><td>GPIO 26</td></tr></tbody></table></div>
+  <p><strong>The HX711 is powered at 3.3 V, even though the board receives 5 V over USB.</strong> Do not connect a logic output powered at 5 V to the ESP32 pins. Consult the <a href="cablage.html">wiring reference</a> before working on it.</p>
+  <h3>Alternative setup: two HX711 modules</h3>
+  <p>An alternative uses two full-bridge load cells, with one HX711 per cell. On the ideaspark board, the second module uses GPIO 16 for DT and GPIO 17 for SCK. This requires changing <code>NUM_CHANNELS</code> from <code>1</code> to <code>2</code>, rebuilding the firmware and recalibrating. The diagram for this alternative does not show the individual connections of the four half-bridge cells in the active setup.</p>
+  <h3>Updating the software</h3>
+  <p>From a copy of the project with PlatformIO installed, connect the board over USB, then use the commands below. The firmware already includes the web app; no separate upload of web files is needed.</p>
+  <pre><code>make ports       # repérer la carte USB
+make build       # compiler pour la carte ideaspark
+make upload      # installer le logiciel
+make monitor     # lire le diagnostic ; quitter avec Ctrl-C</code></pre>
+  <p>The commands above identify the USB board, build the ideaspark firmware, install it and display diagnostics; exit the monitor with Ctrl-C. If installation stays on <code>Connecting…</code>, hold BOOT as the upload starts, then release it when writing begins. <code>make build-all</code> also builds the two OLED variants included in the project. Their pin assignments differ: check the target before installing anything.</p>
+  <p>A software update may preserve settings, but this is not guaranteed if their format has changed. After maintenance, check the network, weight, reference points and Telegram before putting the barrel back into use.</p>
+  <h3>Useful information for troubleshooting</h3>
+  <p>Note the symptom, your recent actions and the information in <strong>Réglages → Système</strong>: HX711 status and time synchronization. For technical diagnostics, the local page <code>http://rum.local/api/state</code> exposes raw measurements and device status. It may include the barrel’s name and Telegram chat ID: hide those details before sharing it publicly.</p>
+</section>
+
+<footer class="site-footer"><p>RumScale · Captain’s log<br>Checked on September 30, 2026.</p><a href="https://github.com/pbouffaut/RumScale">Project on GitHub ↗</a><a href="#haut">Back to top ↑</a></footer>
+</main></div>
+</body></html>

@@ -3,23 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Le guide RumScale : connecter le tonneau au Wi-Fi, calibrer la balance, configurer Telegram, offrir le tonneau et résoudre les problèmes courants.">
-<meta name="theme-color" content="#faf8f3">
+<meta name="description" content="RumScale — Guide de configuration et FAQ. Le carnet de bord de ton tonneau connecté : préparer la traversée, garder le cap sur le vieillissement et transmettre le trésor.">
+<meta name="theme-color" content="#201d18">
 <title>RumScale — Guide de configuration et FAQ</title>
-<link rel="icon" type="image/svg+xml" href="assets/tonneau.svg">
+<link rel="canonical" href="https://pbouffaut.github.io/RumScale/">
+<link rel="alternate" hreflang="fr" href="https://pbouffaut.github.io/RumScale/">
+<link rel="alternate" hreflang="en" href="https://pbouffaut.github.io/RumScale/en/">
+<link rel="alternate" hreflang="gcf" href="https://pbouffaut.github.io/RumScale/gcf/">
+<link rel="alternate" hreflang="x-default" href="https://pbouffaut.github.io/RumScale/">
+<link rel="icon" type="image/svg+xml" href="assets/pirate-mark.svg">
 <link rel="stylesheet" href="assets/guide.css">
+<script id="guide-strings" type="application/json">{"searchLabel": "Rechercher dans la FAQ", "searchPlaceholder": "Wi-Fi, écran, calibration…", "expand": "Tout ouvrir", "collapse": "Tout fermer", "empty": "Aucune réponse trouvée. Essaie un autre mot, ou consulte le dépannage ci-dessus.", "count": "{total} questions pour trouver rapidement une réponse.", "resultOne": "{n} réponse sur {total}", "resultMany": "{n} réponses sur {total}"}</script>
 <script src="assets/guide.js" defer></script>
 </head>
 <body id="haut">
 <a class="skip" href="#contenu">Aller au contenu</a>
 <div class="reading-progress" aria-hidden="true"></div>
 <header class="topbar">
-<a class="brand" href="#haut" aria-label="RumScale, début du guide">
-<svg viewBox="0 0 32 40" aria-hidden="true" fill="none"><path d="M8 3Q16 0 24 3Q34 20 24 37Q16 40 8 37Q-2 20 8 3Z" stroke="currentColor" stroke-width="1.6"/><path d="M5 10H27M3 29H29M12 3Q7 20 12 37M20 3Q25 20 20 37" stroke="currentColor" stroke-width="1.1"/></svg>
-<strong>RumScale</strong><span>Le guide</span></a>
+<a class="brand" href="#haut" aria-label="RumScale"><img src="assets/pirate-mark.svg" alt="" width="40" height="45"><strong>RumScale</strong><span>Carnet de bord</span></a>
+<nav class="language-switch" aria-label="Langue du guide"><a href="index.html" lang="fr" hreflang="fr" data-guide-lang="fr" aria-current="page">Français</a><a href="en/index.html" lang="en" hreflang="en" data-guide-lang="en">English</a><a href="gcf/index.html" lang="gcf" hreflang="gcf" data-guide-lang="gcf" title="Kréyòl Gwadloup">Kréyòl</a></nav>
 <div class="top-actions"><button class="print-button" type="button">Imprimer le guide</button><a class="local-link" href="http://rum.local/">Ouvrir mon tonneau ↗</a></div>
 </header>
-<details class="mobile-nav"><summary>Sommaire du guide</summary><nav aria-label="Sommaire mobile"><a href="#demarrage">Première connexion</a>
+<details class="mobile-nav"><summary>Sommaire du guide</summary><nav aria-label="Sommaire du guide"><a href="#demarrage">Première connexion</a>
 <a href="#wifi">Wi-Fi et déménagement</a>
 <a href="#calibration">Calibrer la balance</a>
 <a href="#quotidien">Utilisation quotidienne</a>
@@ -31,7 +36,7 @@
 <a href="#boitier">Boîtier et impression 3D</a>
 <a href="#avance">Montage et maintenance</a></nav></details>
 <div class="layout">
-<aside class="sidebar"><p class="nav-title">Prendre en main</p><nav aria-label="Sommaire"><a href="#demarrage">Première connexion</a>
+<aside class="sidebar"><p class="nav-title">Carte de navigation</p><nav aria-label="Sommaire du guide"><a href="#demarrage">Première connexion</a>
 <a href="#wifi">Wi-Fi et déménagement</a>
 <a href="#calibration">Calibrer la balance</a>
 <a href="#quotidien">Utilisation quotidienne</a>
@@ -44,12 +49,10 @@
 <a href="#avance">Montage et maintenance</a></nav><p class="nav-note">Un guide à garder près du tonneau.<br>Vérifié le 30 septembre 2026.</p></aside>
 <main id="contenu" class="main">
 <div class="hero">
-<p class="eyebrow">Configuration · Utilisation · Questions fréquentes</p>
-<h1>Ton tonneau,<br>tout simplement.</h1>
-<p class="intro">Du premier branchement au suivi du vieillissement : les étapes utiles pour configurer RumScale, l’offrir et comprendre ce qu’il affiche.</p>
-<div class="hero-links"><a class="button" href="#demarrage">Commencer <span aria-hidden="true">→</span></a><a class="button secondary" href="#faq">Consulter la FAQ <span aria-hidden="true">↓</span></a></div>
+<div class="hero-topline"><p class="eyebrow">Configuration · Utilisation · Questions fréquentes</p><span class="hero-edition">Le carnet du capitaine</span></div>
+<div class="hero-grid"><div class="hero-copy"><h1><span>À bord,</span><br>cap sur le rhum.</h1><p class="intro">Le carnet de bord de ton tonneau connecté : préparer la traversée, garder le cap sur le vieillissement et transmettre le trésor.</p><div class="hero-links"><a class="button" href="#demarrage">Commencer <span aria-hidden="true">→</span></a><a class="button secondary" href="#faq">Consulter la FAQ <span aria-hidden="true">↓</span></a></div></div><figure class="hero-art" aria-hidden="true"><img src="assets/pirate-barrel.svg" width="420" height="460" alt=""><figcaption>Réserve du capitaine</figcaption></figure></div>
 <div class="quick-paths"><a href="#cadeau"><strong>Je reçois un cadeau ↗</strong>La prise en main chez soi.</a><a href="#wifi"><strong>Je change de Wi-Fi ↗</strong>Garder tous les réglages.</a><a href="#depannage"><strong>J’ai un problème ↗</strong>Les vérifications à faire.</a></div>
-<p class="print-note">Guide RumScale · Configuration et FAQ · Vérifié le 30 septembre 2026.</p>
+<p class="print-note">RumScale — Guide de configuration et FAQ · Vérifié le 30 septembre 2026.</p>
 </div>
 <section id="demarrage" aria-labelledby="titre-demarrage">
   <h2 id="titre-demarrage">Première mise en route</h2>
@@ -276,7 +279,6 @@ make monitor     # lire le diagnostic ; quitter avec Ctrl-C</code></pre>
   <h3>Diagnostic utile à transmettre</h3>
   <p>Note le symptôme, les dernières manipulations et les indications de <strong>Réglages → Système</strong> : état du HX711 et synchronisation de l’heure. Pour un diagnostic technique, la page locale <code>http://rum.local/api/state</code> expose les mesures brutes et l’état de l’appareil. Elle peut contenir le nom du tonneau et l’identifiant de discussion Telegram : masque ces éléments avant de la partager publiquement.</p>
 </section>
-
-<footer class="site-footer"><p>RumScale · Guide d’utilisation<br>Fonctionnement vérifié dans le firmware du 30 septembre 2026.</p><a href="https://github.com/pbouffaut/RumScale">Le projet sur GitHub ↗</a><a href="#haut">Retour en haut ↑</a></footer>
+<footer class="site-footer"><p>RumScale · Carnet de bord<br>Vérifié le 30 septembre 2026.</p><a href="https://github.com/pbouffaut/RumScale">Le projet sur GitHub ↗</a><a href="#haut">Retour en haut ↑</a></footer>
 </main></div>
 </body></html>

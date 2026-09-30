@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="fr">
+<html lang="gcf">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RumScale — schéma de câblage</title>
+<title>RumScale — schéma a sé kab-la</title>
 <style>
 :root{
   --bg:#faf7f2; --panel:#fffefb; --panel-2:#f3ece1; --line:#ddd2c2; --line-2:#c4b6a2;
@@ -113,55 +113,55 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
   h1{font-size:32px} h2{font-size:22px} .wrap{padding:32px 16px 60px; gap:28px}
 }
 </style>
-<link rel="icon" type="image/svg+xml" href="assets/pirate-mark.svg">
-<link rel="stylesheet" href="assets/pirate-chart.css">
+<link rel="icon" type="image/svg+xml" href="../assets/pirate-mark.svg">
+<link rel="stylesheet" href="../assets/pirate-chart.css">
 </head>
 <body>
 
 <div class="wrap">
 
 <header>
-<nav class="chart-languages" aria-label="Langue du guide"><a href="cablage.html" lang="fr" hreflang="fr" aria-current="page">Français</a><a href="en/cablage.html" lang="en" hreflang="en">English</a><a href="gcf/cablage.html" lang="gcf" hreflang="gcf" title="Kréyòl Gwadloup">Kréyòl</a></nav>
-  <p><a href="index.html#avance">← Retour au guide RumScale</a></p>
-  <div class="eyebrow">RumScale · fiche de montage</div>
-  <h1>Câblage de la carte ideaspark</h1>
-  <p class="lede">Montage actuel : quatre demi-cellules réunies en un pont complet,
-  un HX711, carte ESP32-WROOM-32 à écran ST7789 1,9". Les schémas ci-dessous
-  conservent la variante à deux HX711 et deux cellules à quatre fils.</p>
+<nav class="chart-languages" aria-label="Lang a gid-la"><a href="../cablage.html" lang="fr" hreflang="fr">Français</a><a href="../en/cablage.html" lang="en" hreflang="en">English</a><a href="../gcf/cablage.html" lang="gcf" hreflang="gcf" aria-current="page" title="Kréyòl Gwadloup">Kréyòl</a></nav>
+  <p><a href="index.html#avance">← Viré adan gid RumScale la</a></p>
+  <div class="eyebrow">RumScale · fich montaj</div>
+  <h1>Branché kat ideaspark la</h1>
+  <p class="lede">Montaj-la yo ka sèvi èvè-y alè : kat dimi-sélil ansanm adan on pon konplé,
+  on HX711, on kat ESP32-WROOM-32 èvè lékran ST7789 1,9". Sé schéma-la ki anba-la
+  ka montré ondòt montaj, èvè dé HX711 é dé sélil a kat fil.</p>
 </header>
 
 <div class="callout note">
-  <div class="t">Montage actuel — un HX711 A</div>
+  <div class="t">Montaj-la ki la alè — on HX711 A</div>
   <p><strong>DT / DOUT → GPIO 25 · SCK → GPIO 26 · VCC → 3V3 · GND → GND.</strong>
-  Les quatre demi-cellules sont réunies en un pont complet raccordé aux bornes
-  E+, E−, A+ et A− du module. Les couleurs du schéma à quatre fils ci-dessous
-  ne décrivent pas leurs liaisons individuelles.</p>
-  <p><code>NUM_CHANNELS</code> vaut <code>1</code> dans <code>src/config.h</code>.
-  Le second HX711 n'est pas nécessaire. Le bouton est optionnel : deux coups
-  brefs sur la base réveillent l'écran en veille, et l'app web donne accès aux réglages.</p>
-  <p><strong>Variante illustrée ci-dessous :</strong> deux cellules formant chacune
-  un pont complet, chacune sur son HX711. Mettre <code>NUM_CHANNELS</code> à
-  <code>2</code>, recompiler et recalibrer ; A reste sur 25/26, B utilise 16/17.</p>
+  Sé kat dimi-sélil la ka fè on pon konplé ki branché asi sé bòn
+  E+, E−, A+ é A− a modil-la. Sé koulè-la adan schéma a kat fil la ki anba-la
+  pa ka montré koneksyon a chak dimi-sélil.</p>
+  <p><code>NUM_CHANNELS</code> ni valè <code>1</code> adan <code>src/config.h</code>.
+  Ou pa bizwen dézyèm HX711 la. Ou pa oblijé enstalé bouton-la : dé ti tap vit
+  asi baz-la ka limé lékran-la ankò lè i an vèy, é ou pé fè sé réglaj-la adan aplikasyon web la.</p>
+  <p><strong>Lòt montaj-la ou ka vwè anba-la :</strong> dé sélil ki ka fè chak
+  on pon konplé, chak asi HX711 a-y. Mété <code>NUM_CHANNELS</code> a
+  <code>2</code>, rikompilé é kalibré balans-la ankò ; A ka rété asi 25/26, B ka sèvi èvè 16/17.</p>
 </div>
 
 <div class="callout">
-  <div class="t">Trois erreurs qui coûtent la journée</div>
-  <p><strong>1. N'alimente pas les HX711 en 5 V.</strong> Leur sortie DOUT suivrait
-  le 5 V et attaquerait les GPIO de l'ESP32 hors spécification. Tout se câble
-  sur la broche <code>3V3</code>.</p>
-  <p><strong>2. La masse commune n'est pas optionnelle.</strong> Sans un GND
-  partagé entre l'ESP32 et les deux HX711, la mesure reste bloquée à zéro ou
-  dérive n'importe comment.</p>
-  <p><strong>3. Ne touche pas aux GPIO 2, 4, 15, 18, 23 et 32.</strong> L'écran
-  de la carte les utilise déjà.</p>
+  <div class="t">Twa érè ki pé fè-w pèd tout on jouné</div>
+  <p><strong>1. Pa alimanté sé HX711 la an 5 V.</strong> Sòti DOUT a yo té ké swiv
+  5 V la é sa té ké mété on vòltaj twò fò asi sé GPIO a ESP32 la. Fò ou branché tout
+  asi broch <code>3V3</code>.</p>
+  <p><strong>2. Fò ni on mas an komen.</strong> Si ESP32 la
+  é sé dé HX711 la pa ni menm GND la, mizir-la ké rété kwennsé a zéwo oben
+  i ké dérivé nenpòt kijan.</p>
+  <p><strong>3. Pa touché sé GPIO 2, 4, 15, 18, 23 é 32 la.</strong> Lékran a kat-la
+  ja ka sèvi èvè yo.</p>
 </div>
 
 <section>
-  <h2><span class="n">01</span>Variante à deux HX711 — câblage électrique</h2>
+  <h2><span class="n">01</span>Montaj èvè dé HX711 — kab élèktrik</h2>
 
   <figure>
     <div class="scroller">
-      <svg viewBox="0 0 900 620" role="img" aria-label="Schéma de câblage : la carte ideaspark ESP32 alimente deux modules HX711 en 3,3 volts avec masse commune, leur envoie les signaux DT et SCK sur les GPIO 25 et 26 pour A, 16 et 17 pour B, chaque HX711 recevant une cellule de charge à quatre fils ; un bouton est câblé entre le GPIO 27 et la masse.">
+      <svg viewBox="0 0 900 620" role="img" aria-label="Schéma a sé kab-la : kat ideaspark ESP32 la ka alimanté dé modil HX711 an 3,3 vòlt èvè on mas an komen. I ka voyé sé siyal DT é SCK la asi sé GPIO 25 é 26 la pou A, 16 é 17 pou B. Chak HX711 ka risivwè on sélil a chaj a kat fil ; on bouton branché ant GPIO 27 é mas-la.">
         <defs>
           <marker id="dot" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="8" markerHeight="8">
             <circle cx="4" cy="4" r="3.4" fill="currentColor"/>
@@ -175,7 +175,7 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
           <text x="400" y="66" text-anchor="middle" font-family="Georgia,serif"
                 font-size="15" fill="currentColor">ideaspark ESP32-WROOM-32</text>
           <text x="400" y="84" text-anchor="middle" font-size="11.5"
-                fill="var(--ink-3)">écran ST7789 1,9" 170×320 intégré</text>
+                fill="var(--ink-3)">lékran ST7789 1,9" 170×320 entégré</text>
 
           <rect x="266" y="94" width="268" height="42" rx="5"
                 fill="none" stroke="var(--line-2)" stroke-width="1"
@@ -185,7 +185,7 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
             GPIO 2 · 4 · 15 · 18 · 23 · 32</text>
           <text x="400" y="126" text-anchor="middle" font-size="10.5"
                 font-family="ui-monospace,Menlo,monospace" fill="var(--ink-3)">
-            pris par l'écran — ne pas câbler</text>
+            pou lékran-la — pa branché fil</text>
 
           <!-- broches du bas -->
           <g font-size="11" font-family="ui-monospace,Menlo,monospace"
@@ -221,7 +221,7 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
           <text x="775" y="112" text-anchor="middle" font-family="Georgia,serif"
                 font-size="14" fill="currentColor">Bouton</text>
           <text x="775" y="132" text-anchor="middle" font-size="11"
-                fill="var(--ink-3)">poussoir, sans polarité</text>
+                fill="var(--ink-3)">pouswa, san polarité</text>
           <line x1="580" y1="110" x2="700" y2="110" stroke="currentColor" stroke-width="1.6"/>
           <line x1="580" y1="135" x2="700" y2="135" stroke="currentColor" stroke-width="1.6"/>
         </g>
@@ -262,7 +262,7 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
         </g>
         <!-- le seul croisement du schéma : pas de pastille, donc pas de liaison -->
         <text x="369" y="243" text-anchor="end" font-size="9.5" fill="var(--ink-3)"
-              font-family="ui-monospace,Menlo,monospace">non relié</text>
+              font-family="ui-monospace,Menlo,monospace">pa branché</text>
 
         <!-- ============ HX711 A ============ -->
         <g>
@@ -271,7 +271,7 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
           <text x="165" y="322" text-anchor="middle" font-family="Georgia,serif"
                 font-size="15" fill="currentColor">HX711 · A</text>
           <text x="165" y="342" text-anchor="middle" font-size="11"
-                fill="var(--ink-3)">gain 128</text>
+                fill="var(--ink-3)">gen 128</text>
           <g font-size="11" font-family="ui-monospace,Menlo,monospace"
              text-anchor="middle" fill="currentColor">
             <text x="95" y="291">DT</text>
@@ -292,7 +292,7 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
           <text x="635" y="322" text-anchor="middle" font-family="Georgia,serif"
                 font-size="15" fill="currentColor">HX711 · B</text>
           <text x="635" y="342" text-anchor="middle" font-size="11"
-                fill="var(--ink-3)">gain 128</text>
+                fill="var(--ink-3)">gen 128</text>
           <g font-size="11" font-family="ui-monospace,Menlo,monospace"
              text-anchor="middle" fill="currentColor">
             <text x="565" y="291">VCC</text>
@@ -311,21 +311,21 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
           <rect x="55" y="480" width="220" height="90" rx="7"
                 fill="var(--panel-2)" stroke="currentColor" stroke-width="1.6"/>
           <text x="165" y="520" text-anchor="middle" font-family="Georgia,serif"
-                font-size="14" fill="currentColor">Cellule de charge A</text>
+                font-size="14" fill="currentColor">Sélil a chaj A</text>
           <text x="165" y="540" text-anchor="middle" font-size="11"
-                fill="var(--ink-3)">barre 10 kg · 4 fils</text>
+                fill="var(--ink-3)">ba 10 kg · 4 fil</text>
           <text x="165" y="557" text-anchor="middle" font-size="11"
-                fill="var(--ink-3)">côté gauche de la base</text>
+                fill="var(--ink-3)">koté gòch a baz-la</text>
         </g>
         <g>
           <rect x="525" y="480" width="220" height="90" rx="7"
                 fill="var(--panel-2)" stroke="currentColor" stroke-width="1.6"/>
           <text x="635" y="520" text-anchor="middle" font-family="Georgia,serif"
-                font-size="14" fill="currentColor">Cellule de charge B</text>
+                font-size="14" fill="currentColor">Sélil a chaj B</text>
           <text x="635" y="540" text-anchor="middle" font-size="11"
-                fill="var(--ink-3)">barre 10 kg · 4 fils</text>
+                fill="var(--ink-3)">ba 10 kg · 4 fil</text>
           <text x="635" y="557" text-anchor="middle" font-size="11"
-                fill="var(--ink-3)">côté droit de la base</text>
+                fill="var(--ink-3)">koté dwèt a baz-la</text>
         </g>
 
         <!-- fils de cellule : halo puis couleur réelle -->
@@ -354,7 +354,7 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
         <!-- Étiquette dans le prolongement du bus, entre les descentes vers DT
              (x=95) et SCK (x=135) : il n'y a de place ni au-dessus ni au-dessous. -->
         <text x="178" y="254" text-anchor="end" font-size="11" fill="var(--ink-3)"
-              font-family="ui-monospace,Menlo,monospace">masse</text>
+              font-family="ui-monospace,Menlo,monospace">mas</text>
         <text x="292" y="281" font-size="11" fill="var(--wire-red)"
               font-family="ui-monospace,Menlo,monospace">3,3 V</text>
         <text x="88" y="204" font-size="10.5" fill="var(--ink-3)"
@@ -368,85 +368,85 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
         <text x="590" y="103" font-size="10.5" fill="var(--ink-3)"
               font-family="ui-monospace,Menlo,monospace">GPIO 27</text>
         <text x="590" y="128" font-size="10.5" fill="var(--ink-3)"
-              font-family="ui-monospace,Menlo,monospace">masse</text>
+              font-family="ui-monospace,Menlo,monospace">mas</text>
       </svg>
     </div>
 
     <ul class="legend">
-      <li><span class="swatch" style="background:var(--wire-red)"></span>rouge → E+</li>
-      <li><span class="swatch" style="background:var(--wire-black)"></span>noir → E−</li>
-      <li><span class="swatch" style="background:var(--wire-white)"></span>blanc → A−</li>
-      <li><span class="swatch" style="background:var(--wire-green)"></span>vert → A+</li>
+      <li><span class="swatch" style="background:var(--wire-red)"></span>wouj → E+</li>
+      <li><span class="swatch" style="background:var(--wire-black)"></span>nwè → E−</li>
+      <li><span class="swatch" style="background:var(--wire-white)"></span>blan → A−</li>
+      <li><span class="swatch" style="background:var(--wire-green)"></span>vèw → A+</li>
     </ul>
 
-    <figcaption>Les six pastilles pleines marquent les vraies jonctions. Un
-    croisement <strong>sans pastille</strong> n'est pas une liaison — cela n'arrive
-    qu'une fois, là où le 3,3 V descend en travers du bus de masse.</figcaption>
+    <figcaption>Sé sis ti won plen la ka montré la sé fil-la vréman lyanné la. Lè dé fil ka
+    kwazé <strong>san ti won</strong>, yo pa lyanné — sa ka fèt
+    on sèl fwa, la 3,3 V la ka désann antravè liy a mas-la.</figcaption>
   </figure>
 
   <div class="callout note">
-    <div class="t">La position physique des broches</div>
-    <p>Le schéma dit <em>quelle</em> broche va <em>où</em>, pas où elle se trouve sur
-    le connecteur. Repère chaque GPIO sur la sérigraphie de ta carte avant de souder :
-    l'ordre des broches sur le peigne varie d'un lot à l'autre. Si ta carte a plusieurs
-    broches <code>GND</code>, sers-t'en — c'est ce que fait le schéma pour le bouton.</p>
+    <div class="t">La sé broch-la yé asi kat-la</div>
+    <p>Schéma-la ka di <em>ki</em> broch ka alé <em>ki koté</em>, i pa ka di la i yé asi
+    konektè-la. Chèché non a chak GPIO ki maké asi kat a-w avan ou soudé :
+    lòd a sé broch-la asi ranjé-la pé chanjé dè on lo a ondòt. Si kat a-w ni plizyè
+    broch <code>GND</code>, sèvi èvè yo — sé sa schéma-la ka fè pou bouton-la.</p>
   </div>
 </section>
 
 <section>
-  <h2><span class="n">02</span>Variante à deux HX711 — connexions</h2>
+  <h2><span class="n">02</span>Montaj èvè dé HX711 — koneksyon</h2>
 
   <div class="tablewrap">
     <table>
       <thead>
-        <tr><th>Depuis</th><th>Vers</th><th>Fil</th></tr>
+        <tr><th>Dépi</th><th>Jis a</th><th>Fil</th></tr>
       </thead>
       <tbody>
-        <tr class="grp"><td colspan="3">Alimentation — les deux modules en parallèle</td></tr>
-        <tr><td class="pin">3V3</td><td>VCC des HX711 A <em>et</em> B</td>
-            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-red)"></span>libre</span></td></tr>
-        <tr><td class="pin">GND</td><td>GND des HX711 A <em>et</em> B</td>
-            <td class="wire">libre</td></tr>
+        <tr class="grp"><td colspan="3">Alimantasyon — sé dé modil-la an paralèl</td></tr>
+        <tr><td class="pin">3V3</td><td>VCC a sé HX711 A <em>é</em> B</td>
+            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-red)"></span>chwa a-w</span></td></tr>
+        <tr><td class="pin">GND</td><td>GND a sé HX711 A <em>é</em> B</td>
+            <td class="wire">chwa a-w</td></tr>
 
-        <tr class="grp"><td colspan="3">Signaux — un couple par module</td></tr>
-        <tr><td class="pin">GPIO 25</td><td>HX711 A · DT (ou DOUT)</td><td class="wire">libre</td></tr>
-        <tr><td class="pin">GPIO 26</td><td>HX711 A · SCK</td><td class="wire">libre</td></tr>
-        <tr><td class="pin">GPIO 16</td><td>HX711 B · DT (ou DOUT)</td><td class="wire">libre</td></tr>
-        <tr><td class="pin">GPIO 17</td><td>HX711 B · SCK</td><td class="wire">libre</td></tr>
+        <tr class="grp"><td colspan="3">Siyal — on pè pou chak modil</td></tr>
+        <tr><td class="pin">GPIO 25</td><td>HX711 A · DT (oben DOUT)</td><td class="wire">chwa a-w</td></tr>
+        <tr><td class="pin">GPIO 26</td><td>HX711 A · SCK</td><td class="wire">chwa a-w</td></tr>
+        <tr><td class="pin">GPIO 16</td><td>HX711 B · DT (oben DOUT)</td><td class="wire">chwa a-w</td></tr>
+        <tr><td class="pin">GPIO 17</td><td>HX711 B · SCK</td><td class="wire">chwa a-w</td></tr>
 
-        <tr class="grp"><td colspan="3">Bouton optionnel — sans polarité, ni résistance</td></tr>
-        <tr><td class="pin">GPIO 27</td><td>une patte du poussoir</td><td class="wire">libre</td></tr>
-        <tr><td class="pin">GND</td><td>l'autre patte</td><td class="wire">libre</td></tr>
+        <tr class="grp"><td colspan="3">Bouton si ou vlé — san polarité ni rézistans</td></tr>
+        <tr><td class="pin">GPIO 27</td><td>on pat a pouswa-la</td><td class="wire">chwa a-w</td></tr>
+        <tr><td class="pin">GND</td><td>lòt pat-la</td><td class="wire">chwa a-w</td></tr>
 
-        <tr class="grp"><td colspan="3">Cellule A → HX711 A · Cellule B → HX711 B</td></tr>
-        <tr><td class="pin">E+</td><td>cellule</td>
-            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-red)"></span>rouge</span></td></tr>
-        <tr><td class="pin">E−</td><td>cellule</td>
-            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-black)"></span>noir</span></td></tr>
-        <tr><td class="pin">A−</td><td>cellule</td>
-            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-white)"></span>blanc</span></td></tr>
-        <tr><td class="pin">A+</td><td>cellule</td>
-            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-green)"></span>vert</span></td></tr>
+        <tr class="grp"><td colspan="3">Sélil A → HX711 A · Sélil B → HX711 B</td></tr>
+        <tr><td class="pin">E+</td><td>sélil</td>
+            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-red)"></span>wouj</span></td></tr>
+        <tr><td class="pin">E−</td><td>sélil</td>
+            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-black)"></span>nwè</span></td></tr>
+        <tr><td class="pin">A−</td><td>sélil</td>
+            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-white)"></span>blan</span></td></tr>
+        <tr><td class="pin">A+</td><td>sélil</td>
+            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-green)"></span>vèw</span></td></tr>
       </tbody>
     </table>
   </div>
 
-  <p>Le poussoir n'a besoin d'aucune résistance : l'ESP32 active son tirage interne.
-  Les codes couleur des cellules varient selon le fabricant — si le poids
-  <em>diminue</em> quand tu appuies sur le plateau, échange les deux fils de signal branchés sur A+ et A− sur ce
-  module seulement (vert et blanc dans ce schéma).</p>
+  <p>Pouswa-la pa bizwen pon rézistans : ESP32 la ka aktivé rézistans entèn a-y.
+  Koulè a sé fil sélil-la pé chanjé dapré moun-la ki fè yo la — si pwa-la
+  <em>ka désann</em> lè ou ka apiyé asi plato-la, échanjé sé dé fil siyal la ki branché asi A+ é A−,
+  asi modil-lasa tousèl (vèw é blan adan schéma-lasa).</p>
 </section>
 
 <section>
-  <h2><span class="n">03</span>Variante à deux barres — base mécanique</h2>
+  <h2><span class="n">03</span>Montaj èvè dé ba — baz mékanik</h2>
 
-  <p>C'est la partie qui décide de la qualité de la mesure. Une cellule à flexion ne
-  mesure que si elle peut <strong>fléchir</strong> : une extrémité sur la plaque du
-  bas, l'autre sur le plateau, et du vide entre les deux.</p>
+  <p>Sé pati-lasa ki ka désidé si mizir-la ké bon. On sélil a flèksyon pa ka
+  miziré si i pé pa <strong>pliyé tibwen</strong> : on bout asi plak
+  anba-la, lòt bout-la asi plato-la, é on vid ant sé dé-la.</p>
 
   <figure>
     <div class="scroller">
-      <svg viewBox="0 0 900 330" role="img" aria-label="Coupe de la base : le tonneau repose sur un plateau, porté uniquement par deux cellules de charge montées en porte-à-faux ; chaque cellule est vissée par son extrémité extérieure sur la plaque de fond et par son extrémité intérieure sur le plateau, via des entretoises qui laissent un vide sous la barre.">
+      <svg viewBox="0 0 900 330" role="img" aria-label="Baz-la vwè an koup : barik-la pozé asi on plato, é sé dé sélil a chaj an pòt-a-fo tousèl ki ka pòté-y. Bout pa déwò a chak sélil visé asi plak anba-la é bout pa anndan a-y visé asi plato-la, èvè antretwaz ki ka lésé on vid anba ba-la.">
         <defs>
           <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5"
                   markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -460,7 +460,7 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
         <ellipse cx="450" cy="20" rx="65" ry="9"
                  fill="var(--panel)" stroke="currentColor" stroke-width="1.6"/>
         <text x="450" y="66" text-anchor="middle" font-family="Georgia,serif"
-              font-size="14" fill="var(--ink-3)">tonneau</text>
+              font-size="14" fill="var(--ink-3)">barik</text>
 
         <!-- charge -->
         <g stroke="var(--accent)" stroke-width="1.6" marker-end="url(#arr)"
@@ -474,7 +474,7 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
         <rect x="100" y="130" width="700" height="22" rx="3"
               fill="var(--panel-2)" stroke="currentColor" stroke-width="1.6"/>
         <text x="110" y="146" font-size="11.5" fill="var(--ink-3)"
-              font-family="ui-monospace,Menlo,monospace">plateau</text>
+              font-family="ui-monospace,Menlo,monospace">plato</text>
 
         <!-- entretoises hautes (extrémités intérieures) -->
         <g fill="var(--accent-soft)" stroke="currentColor" stroke-width="1.2">
@@ -488,9 +488,9 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
           <rect x="550" y="200" width="200" height="20" rx="3"/>
         </g>
         <text x="250" y="214" text-anchor="middle" font-size="11.5"
-              font-family="ui-monospace,Menlo,monospace" fill="currentColor">cellule A</text>
+              font-family="ui-monospace,Menlo,monospace" fill="currentColor">sélil A</text>
         <text x="650" y="214" text-anchor="middle" font-size="11.5"
-              font-family="ui-monospace,Menlo,monospace" fill="currentColor">cellule B</text>
+              font-family="ui-monospace,Menlo,monospace" fill="currentColor">sélil B</text>
 
         <!-- entretoises basses (extrémités extérieures) -->
         <g fill="var(--accent-soft)" stroke="currentColor" stroke-width="1.2">
@@ -502,68 +502,68 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
         <rect x="100" y="268" width="700" height="22" rx="3"
               fill="var(--panel-2)" stroke="currentColor" stroke-width="1.6"/>
         <text x="110" y="284" font-size="11.5" fill="var(--ink-3)"
-              font-family="ui-monospace,Menlo,monospace">plaque de fond, posée au sol</text>
+              font-family="ui-monospace,Menlo,monospace">plak anba-la, pozé atè</text>
 
         <!-- annotation du vide -->
         <g stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3">
           <line x1="250" y1="152" x2="250" y2="200"/>
         </g>
         <text x="238" y="178" text-anchor="end" font-size="11" fill="var(--ink-3)"
-              font-family="ui-monospace,Menlo,monospace">du vide, obligatoire</text>
+              font-family="ui-monospace,Menlo,monospace">fò ni on vid</text>
         <g stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3">
           <line x1="450" y1="220" x2="450" y2="268"/>
         </g>
         <text x="462" y="248" font-size="11" fill="var(--ink-3)"
-              font-family="ui-monospace,Menlo,monospace">du vide, ici aussi</text>
+              font-family="ui-monospace,Menlo,monospace">on vid isi osi</text>
 
         <text x="790" y="178" text-anchor="end" font-size="11"
               font-family="ui-monospace,Menlo,monospace" fill="var(--accent)">
-          entretoises</text>
+          antretwaz</text>
       </svg>
     </div>
-    <figcaption>Chaque cellule travaille en porte-à-faux : vissée sur la plaque de fond
-    par son extrémité extérieure, sur le plateau par son extrémité intérieure. Une barre
-    plaquée sur toute sa longueur ne mesure rien.</figcaption>
+    <figcaption>Chak sélil ka travay an pòt-a-fo : bout pa déwò a-y visé asi plak anba-la,
+    bout pa anndan a-y visé asi plato-la. Si tout longè a on ba kolé asi plak-la,
+    i pa ka miziré ayen.</figcaption>
   </figure>
 
   <ol class="steps">
-    <li><strong>Le plateau ne doit toucher que les cellules.</strong> Aucun autre appui,
-    aucun câble coincé, aucune vis qui frotte : tout contact parasite se soustrait
-    directement de la mesure.</li>
-    <li><strong>Une entretoise de chaque côté de chaque cellule</strong>, pour que la
-    barre travaille dans le vide.</li>
-    <li><strong>Serre fort.</strong> Une vis qui se desserre lentement, c'est une
-    dérive lente — et le firmware la prendra pour de l'évaporation.</li>
-    <li><strong>Cellules symétriques</strong> de part et d'autre du centre, tonneau
-    toujours posé au même endroit. C'est ce qui permet à une seule pente de calibration
-    de suffire pour les deux cellules.</li>
-    <li><strong>Électronique sur la plaque de fond</strong>, câbles sans tension, et la
-    carte le plus loin possible des cellules : ce qui chauffe fait dériver la mesure.</li>
+    <li><strong>Fò plato-la touché sé sélil-la tousèl.</strong> Fò pa i apiyé dòt koté,
+    ni pon kab rété kwennsé, ni pon vis fwoté : nenpòt lòt kontak ka woté
+    on pati a pwa-la adan mizir-la.</li>
+    <li><strong>On antretwaz chak koté a chak sélil</strong>, pou ba-la
+    pé travay adan vid-la.</li>
+    <li><strong>Séré fò.</strong> On vis ki ka déséré dousman ka fè
+    on dériv dousman — é lojisyèl-la ké pran sa pou évaporasyon.</li>
+    <li><strong>Sé sélil-la dwèt simétrik</strong> chak koté a sant-la, é fò barik-la
+    toujou pozé menm koté-la. Sé sa ki ka pèwmèt on sèl pant pou réglé balans-la
+    sifi pou sé dé sélil-la.</li>
+    <li><strong>Mété léktwonik-la asi plak anba-la</strong>, sé kab-la lach, é
+    kat-la pli lwen posib dè sé sélil-la : sa ki ka chofé ka fè mizir-la dérivé.</li>
   </ol>
 </section>
 
 <section>
-  <h2><span class="n">04</span>Vérifier avant de refermer</h2>
+  <h2><span class="n">04</span>Vérifyé avan ou fèmé</h2>
   <ol class="steps">
-    <li>Branche l'USB et ouvre la console série. Le montage actuel annonce
-    <code>1 canal/canaux HX711 initialisé(s)</code> ; la variante à deux modules,
-    compilée avec <code>NUM_CHANNELS = 2</code>, en annonce deux.</li>
-    <li>Dans l'app web, vérifie que la mesure brute réagit. Avec un bouton installé,
-    la page <strong>Diagnostic</strong> de l'écran permet aussi de vérifier les
-    canaux actifs. Un module muet signale un DT, un SCK ou une alimentation à vérifier.</li>
-    <li>Appuie du doigt sur le plateau : la valeur brute doit <strong>varier</strong>.
-    La calibration avec un poids connu prend en compte le sens du signal.</li>
-    <li>Appuie sur un coin puis sur l'autre : les deux doivent faire réagir la mesure.
-    Sinon, vérifie que toutes les cellules portent correctement le plateau.</li>
-    <li>Rejoins le réseau <code>RumBarrel-setup</code>, configure le Wi-Fi, puis fais
-    l'initialisation en quatre étapes dans l'app.</li>
+    <li>Branché USB la é wouvè konsòl séri la. Montaj-la ki la alè ka maké
+    <code>1 canal/canaux HX711 initialisé(s)</code> ; montaj èvè dé modil-la,
+    konpilé èvè <code>NUM_CHANNELS = 2</code>, ka anonsé dé kanal.</li>
+    <li>Adan aplikasyon web la, vérifyé mizir brit la ka réyaji. Si ou enstalé on bouton,
+    paj <strong>« Diagnostic »</strong> a lékran-la ka pèwmèt ou vérifyé
+    sé kanal aktif la osi. Si on modil pa ka réponn, vérifyé DT a-y, SCK a-y oben alimantasyon a-y.</li>
+    <li>Apiyé dwèt a-w asi plato-la : valè brit la dwèt <strong>chanjé</strong>.
+    Lè ou ka kalibré èvè on pwa ou konnèt, réglaj-la ka pran sans a siyal-la an kont.</li>
+    <li>Apiyé asi on kwen, épi asi lòt-la : sé dé-la dwèt fè mizir-la réyaji.
+    Si sa pa fèt, vérifyé tout sé sélil-la ka pòté plato-la kon i fo.</li>
+    <li>Konekté asi rézo <code>RumBarrel-setup</code>, réglé Wi-Fi la, épi fè
+    sé kat étap a inisyalizasyon-la adan aplikasyon-la.</li>
   </ol>
 </section>
 
 <footer>
-  RumScale · brochage défini dans <code>src/config.h</code>, bloc
-  <code>BOARD_TFT_ST7789</code>. Pour la variante à écran OLED, les GPIO changent :
-  voir le tableau du README.
+  RumScale · brochaj-la défini adan <code>src/config.h</code>, adan blòk
+  <code>BOARD_TFT_ST7789</code>. Pou vèsyon èvè lékran OLED la, sé GPIO-la ka chanjé :
+  gadé tablo-la adan README la.
 </footer>
 
 </div>

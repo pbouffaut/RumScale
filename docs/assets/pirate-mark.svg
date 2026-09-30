@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-labelledby="mark-title mark-desc">
+  <title id="mark-title">Pavillon RumScale</title>
+  <desc id="mark-desc">Emblème pirate : un crâne au tricorne sur deux os croisés.</desc>
+  <path d="M8 48L51 60M13 60L57 47" stroke="#a36a2d" stroke-width="5" stroke-linecap="round"/>
+  <path d="M6 46L9 51M50 57L53 62M11 57L14 62M55 45L58 50" stroke="#a36a2d" stroke-width="4" stroke-linecap="round"/>
+  <path d="M17 33C17 24 23 19 32 19C42 19 48 25 48 34C48 40 44 44 40 46L39 54H25L24 46C20 44 17 40 17 33Z" fill="#ead3a5" stroke="#2d2118" stroke-width="2"/>
+  <path d="M22 35C22 30 29 29 29 34C29 40 22 40 22 35ZM35 34C35 29 43 30 43 35C43 40 35 40 35 34Z" fill="#2d2118"/>
+  <path d="M32 38L28 44H35Z" fill="#2d2118"/><path d="M29 48V54M34 48V54" stroke="#2d2118" stroke-width="1.5"/>
+  <path d="M17 18L25 4L32 7L40 3L48 18Z" fill="#2d2118" stroke="#2d2118" stroke-linejoin="round" stroke-width="2"/>
+  <path d="M4 13C11 14 18 21 22 23C28 17 31 14 34 14C37 14 42 20 45 24C51 21 56 16 61 16C58 26 54 31 49 32C39 29 27 28 15 30C10 26 6 20 4 13Z" fill="#2d2118" stroke="#2d2118" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M9 18L22 27C28 20 31 18 34 18C37 19 40 23 45 28L55 22" stroke="#a36a2d" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M16 30C27 29 39 29 48 32" stroke="#7e3024" stroke-width="3" stroke-linecap="round"/>
+</svg>

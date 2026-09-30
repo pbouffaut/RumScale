@@ -1,7 +1,9 @@
 # RumScale
 
-**[Guide de configuration et FAQ](https://pbouffaut.github.io/RumScale/)** —
-première connexion, calibration, Telegram, changement de Wi-Fi, cadeau et dépannage.
+**Guide de configuration et FAQ : [Français](https://pbouffaut.github.io/RumScale/) ·
+[English](https://pbouffaut.github.io/RumScale/en/) ·
+[Kréyòl Gwadloup](https://pbouffaut.github.io/RumScale/gcf/)** — première connexion,
+calibration, Telegram, changement de Wi-Fi, cadeau, dépannage et câblage.
 
 Un tonneau de vieillissement posé sur une base qui le pèse. Il sait combien il
 reste dedans, depuis combien de jours le rhum vieillit, et il prévient quand le
@@ -381,10 +383,22 @@ V2 ne sont pas interchangeables : les deux moitiés doivent être imprimées en 
 
 ## Documentation publique
 
-Le guide est dans `docs/index.html`, avec ses styles et sa recherche locale dans
-`docs/assets/`. La fiche de câblage est dans `docs/cablage.html`. Aucune compilation
-du site n'est nécessaire. GitHub Pages publie le dossier `/docs` de la branche
-`main` ; les modifications poussées sur cette branche mettent le guide à jour.
+Le guide au thème pirate est disponible en trois langues :
+
+- Français : `docs/index.html` et `docs/cablage.html`.
+- Anglais : `docs/en/index.html` et `docs/en/cablage.html`.
+- Créole guadeloupéen : `docs/gcf/index.html` et `docs/gcf/cablage.html`.
+
+Les styles, illustrations et la recherche locale sont partagés dans `docs/assets/`.
+La police est fournie localement, avec sa licence dans `docs/assets/fonts/OFL.txt`.
+Le site ne dépend d'aucun service externe pour ses polices ou sa recherche.
+Le sélecteur de langue conserve le lien vers la section sélectionnée. Les libellés
+des commandes de l'application restent en français pour correspondre à l'ESP32.
+
+Aucune compilation du site n'est nécessaire. GitHub Pages publie le dossier
+`/docs` de la branche `main` ; les modifications poussées sur cette branche mettent
+le guide à jour. Lors d'une modification des instructions, mettre à jour les trois
+versions et garder leurs identifiants de section identiques.
 
 Pour le consulter avant publication :
 

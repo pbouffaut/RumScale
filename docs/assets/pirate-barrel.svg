@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 460" fill="none" role="img" aria-labelledby="pirate-title pirate-desc">
+  <title id="pirate-title">Le tonneau du capitaine</title>
+  <desc id="pirate-desc">Un tonneau de rhum en bois, équipé d’un petit écran et coiffé d’un tricorne à tête de mort. Deux sabres et une rose des vents complètent cette gravure pirate.</desc>
+  <defs>
+    <linearGradient id="wood" x1="87" y1="249" x2="342" y2="249" gradientUnits="userSpaceOnUse"><stop stop-color="#a36a2d"/><stop offset=".3" stop-color="#ead3a5"/><stop offset=".58" stop-color="#d8b276"/><stop offset="1" stop-color="#976031"/></linearGradient>
+    <linearGradient id="iron" x1="85" y1="200" x2="340" y2="200" gradientUnits="userSpaceOnUse"><stop stop-color="#2d2118"/><stop offset=".45" stop-color="#745341"/><stop offset="1" stop-color="#2d2118"/></linearGradient>
+    <linearGradient id="hat" x1="180" y1="63" x2="227" y2="166" gradientUnits="userSpaceOnUse"><stop stop-color="#493228"/><stop offset="1" stop-color="#2d2118"/></linearGradient>
+    <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><path d="M0 0V7" stroke="#2d2118" stroke-width=".75" opacity=".22"/></pattern>
+    <clipPath id="barrel-clip"><path d="M112 162C83 198 76 293 98 356C121 401 299 407 323 357C347 299 343 204 318 165Z"/></clipPath>
+  </defs>
+  <!-- The faded compass is part of the engraving, not a background rectangle. -->
+  <g stroke="#a36a2d" opacity=".27">
+    <circle cx="210" cy="237" r="174" stroke-width=".8"/>
+    <circle cx="210" cy="237" r="162" stroke-width=".7" stroke-dasharray="2 8"/>
+    <path d="M210 43V77M210 399V428M17 237H48M372 237H404M72 99L93 120M329 354L350 375M73 375L94 354M328 120L349 99" stroke-width="1.1"/>
+    <path d="M210 49L219 87L210 76L201 87Z" fill="#a36a2d" stroke="none"/>
+    <path d="M46 237L82 229L72 237L82 245ZM375 237L339 229L349 237L339 245ZM210 418L202 383L210 393L218 383Z"/>
+    <path d="M81 111L115 129M338 107L308 130M64 332L94 319M359 331L329 318" stroke-dasharray="3 6"/>
+  </g>
+  <!-- Two old cutlasses, their hilts wrapped with copper wire. -->
+  <g stroke="#2d2118" stroke-linejoin="round">
+    <path d="M319 325C244 267 115 162 40 92C59 158 154 257 298 349Z" fill="#ead3a5" stroke-width="2.2"/>
+    <path d="M47 105C104 173 231 284 308 337" stroke="#a36a2d" stroke-width="1.2"/>
+    <path d="M54 116L62 129M70 137L78 149M87 157L94 166M108 178L117 189" stroke-width=".7" opacity=".6"/>
+    <path d="M293 354L321 326M289 351C286 340 291 327 303 319M318 331C330 328 340 335 341 347C342 360 328 372 316 366" stroke-width="6"/>
+    <path d="M294 353L326 322M319 334C330 333 337 339 337 348C337 357 327 367 317 363" stroke="#a36a2d" stroke-width="2.3"/>
+    <path d="M308 348L335 376" stroke-width="13" stroke-linecap="round"/>
+    <path d="M307 352L314 348M313 358L320 354M319 364L326 360M325 370L332 366" stroke="#a36a2d" stroke-width="2"/>
+    <circle cx="339" cy="380" r="7" fill="#a36a2d" stroke-width="2"/>
+    <path d="M103 325C181 262 298 162 379 94C361 160 263 261 124 347Z" fill="#ead3a5" stroke-width="2.2"/>
+    <path d="M373 106C311 176 197 280 112 337" stroke="#a36a2d" stroke-width="1.2"/>
+    <path d="M365 119L357 133M348 139L341 150M330 161L320 174" stroke-width=".7" opacity=".6"/>
+    <path d="M98 326L127 353M123 350C128 339 120 326 109 319M100 331C89 328 80 335 78 346C77 360 91 372 103 366" stroke-width="6"/>
+    <path d="M95 323L128 353M98 334C88 333 81 340 82 349C83 358 92 367 103 363" stroke="#a36a2d" stroke-width="2.3"/>
+    <path d="M112 348L85 376" stroke-width="13" stroke-linecap="round"/>
+    <path d="M113 352L106 348M107 358L100 354M101 364L94 360M95 370L88 366" stroke="#a36a2d" stroke-width="2"/>
+    <circle cx="81" cy="380" r="7" fill="#a36a2d" stroke-width="2"/>
+  </g>
+  <!-- Barrel body and individually drawn staves. -->
+  <path d="M112 162C83 198 76 293 98 356C121 401 299 407 323 357C347 299 343 204 318 165Z" fill="url(#wood)" stroke="#2d2118" stroke-width="3"/>
+  <g clip-path="url(#barrel-clip)" stroke="#2d2118" stroke-linecap="round">
+    <path d="M123 163C96 234 99 321 123 376M151 170C132 245 133 335 147 389M182 174C173 251 171 334 178 396M219 175C221 252 220 335 216 400M254 172C269 249 268 330 251 396M287 167C311 243 308 320 285 387M315 164C339 237 335 310 315 373" stroke-width="1.65"/>
+    <path d="M96 180L114 179C80 274 108 361 143 391L95 379Z" fill="url(#hatch)" stroke="none"/>
+    <path d="M287 174L329 169L354 330L316 391L267 404C303 345 322 246 287 174Z" fill="url(#hatch)" stroke="none"/>
+    <g stroke-width=".65" opacity=".65">
+      <path d="M144 192C127 229 119 267 123 305M146 206C130 248 130 282 131 311M111 227L105 258M116 311C119 334 125 350 130 361M161 237C155 267 154 290 157 317M165 258L164 286M145 332L148 360M150 340L153 372M187 326L187 366M193 346L194 379M207 338L207 372M204 346L204 360M229 333C237 351 229 365 231 386M235 331C244 350 235 372 236 382M256 284L257 307M278 220L284 246M283 221L288 239M287 274C291 304 286 329 280 344M280 306L277 330M306 321L296 351M308 332L302 348M316 209C322 231 324 252 323 274"/>
+      <path d="M159 271C150 280 150 302 158 309C167 300 167 280 159 271ZM159 281C156 285 155 297 159 300C162 295 162 285 159 281Z"/>
+      <path d="M302 265C295 274 295 289 301 296C308 288 309 273 302 265ZM302 273L300 285"/>
+      <path d="M196 182L194 204M239 182L244 205M250 193L251 206M178 189L176 203M125 208L119 223M154 187L151 200"/>
+    </g>
+  </g>
+  <ellipse cx="215" cy="166" rx="104" ry="36" fill="#c59a60" stroke="#2d2118" stroke-width="2.7"/>
+  <ellipse cx="215" cy="163" rx="94" ry="29" stroke="#2d2118" stroke-width="1"/>
+  <path d="M146 149C177 173 240 177 288 165M135 161C174 185 237 191 293 178M165 140C186 154 231 161 272 152" stroke="#2d2118" stroke-width=".7" opacity=".5"/>
+  <!-- The forged hoops follow the curve of the barrel. -->
+  <path d="M96 211C148 245 284 252 333 217L336 235C281 273 146 264 91 229Z" fill="url(#iron)" stroke="#2d2118" stroke-width="2"/>
+  <path d="M95 213C148 246 282 253 332 220M92 226C146 262 281 269 335 232" stroke="#b9935d" stroke-width="1"/>
+  <path d="M89 317C145 350 280 357 336 320L333 341C280 377 149 371 93 337Z" fill="url(#iron)" stroke="#2d2118" stroke-width="2"/>
+  <path d="M90 320C147 352 279 359 335 323M93 334C152 368 279 374 333 338" stroke="#b9935d" stroke-width="1"/>
+  <g fill="#c19863" stroke="#2d2118" stroke-width=".7"><circle cx="118" cy="232" r="2.5"/><circle cx="158" cy="246" r="2.5"/><circle cx="212" cy="253" r="2.5"/><circle cx="268" cy="250" r="2.5"/><circle cx="313" cy="236" r="2.5"/><circle cx="116" cy="340" r="2.5"/><circle cx="158" cy="354" r="2.5"/><circle cx="212" cy="361" r="2.5"/><circle cx="269" cy="357" r="2.5"/><circle cx="313" cy="344" r="2.5"/></g>
+  <!-- A discreet nod to the real connected barrel. -->
+  <path d="M181 272L248 273L248 315L181 313Z" fill="#a36a2d" stroke="#2d2118" stroke-width="2"/>
+  <path d="M187 278L242 279L242 308L187 307Z" fill="#2d2118" stroke="#ead3a5" stroke-opacity=".6"/>
+  <path d="M194 298V287H231V299Z" stroke="#d8b276" stroke-width="1"/>
+  <path d="M197 295V290H220V296Z" fill="#a36a2d"/>
+  <path d="M227 303H231M194 302L205 302" stroke="#ead3a5" stroke-width="1"/>
+  <circle cx="184" cy="275" r=".9" fill="#2d2118"/><circle cx="245" cy="312" r=".9" fill="#2d2118"/>
+  <!-- Tricorne: a deliberately unmistakable pirate silhouette. -->
+  <path d="M138 125C149 112 159 92 169 77C187 84 202 83 217 71C234 80 248 88 266 88C279 106 287 119 292 135Z" fill="url(#hat)" stroke="#2d2118" stroke-width="3"/>
+  <path d="M158 117C165 102 169 92 173 87C185 91 200 90 215 81C230 88 244 95 260 96L277 123" stroke="#a36a2d" stroke-width="1.3"/>
+  <path d="M104 105C123 108 146 130 169 140C190 114 210 102 218 102C235 104 256 124 269 144C290 136 316 113 334 117C332 139 318 166 293 178C266 174 249 169 216 170C181 168 160 170 134 163C116 145 107 125 104 105Z" fill="url(#hat)" stroke="#2d2118" stroke-width="3.2" stroke-linejoin="round"/>
+  <path d="M111 113C128 120 148 138 170 149C187 128 207 111 218 111C231 113 252 134 267 153C294 145 311 128 326 126" stroke="#a36a2d" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M116 124L139 151M125 128L146 153M137 137L154 156M285 162L312 145M292 165L316 150" stroke="#ead3a5" stroke-width=".7" opacity=".3"/>
+  <path d="M135 163C174 161 194 157 219 160C248 158 270 167 293 178" stroke="#a36a2d" stroke-width="1.2"/>
+  <path d="M133 166C175 173 181 171 207 174C239 170 268 176 289 183L284 190C249 184 235 180 208 183C183 180 157 184 132 174Z" fill="#7e3024" stroke="#2d2118" stroke-width="1.8"/>
+  <path d="M286 184L312 191L305 205L289 197L278 210L273 187Z" fill="#7e3024" stroke="#2d2118" stroke-width="1.7"/>
+  <!-- Skull and crossed bones, cut in pale ivory. -->
+  <g fill="#ead3a5" stroke="#2d2118" stroke-linejoin="round">
+    <path d="M201 144L231 159C234 154 239 158 237 161C240 165 235 169 232 165L199 150C196 154 192 151 194 148C191 144 196 140 201 144Z" stroke-width=".8"/>
+    <path d="M233 144L202 159C198 155 193 159 196 163C193 167 198 170 201 166L235 150C239 153 243 149 240 146C243 141 237 140 233 144Z" stroke-width=".8"/>
+    <path d="M203 133C203 125 209 121 218 121C227 121 233 126 233 134C233 141 229 144 226 145L225 152H211L210 145C206 144 203 140 203 133Z" stroke-width="1.2"/>
+    <path d="M207 134C208 129 215 130 215 135C215 140 208 140 207 134ZM221 135C221 129 229 130 229 134C229 140 221 141 221 135Z" fill="#2d2118" stroke="none"/>
+    <path d="M218 137L215 143H221Z" fill="#2d2118" stroke="none"/>
+    <path d="M214 147V152M219 147V152M223 146V152" stroke-width=".9"/>
+  </g>
+  <!-- A coil of hemp rope anchors the vignette. -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M92 395C126 390 156 416 201 414C249 414 281 391 318 396C344 400 351 417 326 424C300 432 264 420 276 408C290 394 321 407 309 417C297 427 252 432 224 428" stroke="#2d2118" stroke-width="7"/>
+    <path d="M92 395C126 390 156 416 201 414C249 414 281 391 318 396C344 400 351 417 326 424C300 432 264 420 276 408C290 394 321 407 309 417C297 427 252 432 224 428" stroke="#b98a51" stroke-width="4.5"/>
+    <path d="M92 395C126 390 156 416 201 414C249 414 281 391 318 396C344 400 351 417 326 424C300 432 264 420 276 408C290 394 321 407 309 417C297 427 252 432 224 428" stroke="#ead3a5" stroke-width="2.2" stroke-dasharray="1 5"/>
+  </g>
+  <path d="M108 435H162M174 435H181M292 442H331M338 442H343" stroke="#a36a2d" stroke-width=".7" opacity=".5"/>
+</svg>

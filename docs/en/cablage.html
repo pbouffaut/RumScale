@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RumScale — schéma de câblage</title>
+<title>RumScale — wiring diagram</title>
 <style>
 :root{
   --bg:#faf7f2; --panel:#fffefb; --panel-2:#f3ece1; --line:#ddd2c2; --line-2:#c4b6a2;
@@ -113,55 +113,43 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
   h1{font-size:32px} h2{font-size:22px} .wrap{padding:32px 16px 60px; gap:28px}
 }
 </style>
-<link rel="icon" type="image/svg+xml" href="assets/pirate-mark.svg">
-<link rel="stylesheet" href="assets/pirate-chart.css">
+<link rel="icon" type="image/svg+xml" href="../assets/pirate-mark.svg">
+<link rel="stylesheet" href="../assets/pirate-chart.css">
 </head>
 <body>
 
 <div class="wrap">
 
 <header>
-<nav class="chart-languages" aria-label="Langue du guide"><a href="cablage.html" lang="fr" hreflang="fr" aria-current="page">Français</a><a href="en/cablage.html" lang="en" hreflang="en">English</a><a href="gcf/cablage.html" lang="gcf" hreflang="gcf" title="Kréyòl Gwadloup">Kréyòl</a></nav>
-  <p><a href="index.html#avance">← Retour au guide RumScale</a></p>
-  <div class="eyebrow">RumScale · fiche de montage</div>
-  <h1>Câblage de la carte ideaspark</h1>
-  <p class="lede">Montage actuel : quatre demi-cellules réunies en un pont complet,
-  un HX711, carte ESP32-WROOM-32 à écran ST7789 1,9". Les schémas ci-dessous
-  conservent la variante à deux HX711 et deux cellules à quatre fils.</p>
+<nav class="chart-languages" aria-label="Guide language"><a href="../cablage.html" lang="fr" hreflang="fr">Français</a><a href="../en/cablage.html" lang="en" hreflang="en" aria-current="page">English</a><a href="../gcf/cablage.html" lang="gcf" hreflang="gcf" title="Kréyòl Gwadloup">Kréyòl</a></nav>
+  <p><a href="index.html#avance">← Back to the RumScale guide</a></p>
+  <div class="eyebrow">RumScale · assembly sheet</div>
+  <h1>Wiring the ideaspark board</h1>
+  <p class="lede">Current setup: four half-bridge load cells combined into one full bridge, one HX711, and an ESP32-WROOM-32 board with a 1.9" ST7789 display. The diagrams below show the alternative setup with two HX711 modules and two four-wire load cells.</p>
 </header>
 
 <div class="callout note">
-  <div class="t">Montage actuel — un HX711 A</div>
+  <div class="t">Current setup — one HX711 A</div>
   <p><strong>DT / DOUT → GPIO 25 · SCK → GPIO 26 · VCC → 3V3 · GND → GND.</strong>
-  Les quatre demi-cellules sont réunies en un pont complet raccordé aux bornes
-  E+, E−, A+ et A− du module. Les couleurs du schéma à quatre fils ci-dessous
-  ne décrivent pas leurs liaisons individuelles.</p>
-  <p><code>NUM_CHANNELS</code> vaut <code>1</code> dans <code>src/config.h</code>.
-  Le second HX711 n'est pas nécessaire. Le bouton est optionnel : deux coups
-  brefs sur la base réveillent l'écran en veille, et l'app web donne accès aux réglages.</p>
-  <p><strong>Variante illustrée ci-dessous :</strong> deux cellules formant chacune
-  un pont complet, chacune sur son HX711. Mettre <code>NUM_CHANNELS</code> à
-  <code>2</code>, recompiler et recalibrer ; A reste sur 25/26, B utilise 16/17.</p>
+  The four half-bridge load cells form one full bridge connected to the module’s E+, E−, A+ and A− terminals. The wire colours in the four-wire diagram below do not describe their individual connections.</p>
+  <p><code>NUM_CHANNELS</code> is set to <code>1</code> in <code>src/config.h</code>. A second HX711 is not needed. The button is optional: two quick taps on the base wake the sleeping display, and the web app provides access to settings.</p>
+  <p><strong>Alternative setup shown below:</strong> two full-bridge load cells, each connected to its own HX711. Set <code>NUM_CHANNELS</code> to
+  <code>2</code>, rebuild and recalibrate; A stays on 25/26, while B uses 16/17.</p>
 </div>
 
 <div class="callout">
-  <div class="t">Trois erreurs qui coûtent la journée</div>
-  <p><strong>1. N'alimente pas les HX711 en 5 V.</strong> Leur sortie DOUT suivrait
-  le 5 V et attaquerait les GPIO de l'ESP32 hors spécification. Tout se câble
-  sur la broche <code>3V3</code>.</p>
-  <p><strong>2. La masse commune n'est pas optionnelle.</strong> Sans un GND
-  partagé entre l'ESP32 et les deux HX711, la mesure reste bloquée à zéro ou
-  dérive n'importe comment.</p>
-  <p><strong>3. Ne touche pas aux GPIO 2, 4, 15, 18, 23 et 32.</strong> L'écran
-  de la carte les utilise déjà.</p>
+  <div class="t">Three mistakes that can cost you a day</div>
+  <p><strong>1. Do not power the HX711 modules with 5 V.</strong> Their DOUT output would follow the 5 V supply, exceeding the ESP32 GPIO ratings. Connect all power inputs to the <code>3V3</code> pin.</p>
+  <p><strong>2. A shared ground is essential.</strong> Without a shared GND between the ESP32 and both HX711 modules, readings can stay at zero or drift unpredictably.</p>
+  <p><strong>3. Leave GPIO 2, 4, 15, 18, 23 and 32 alone.</strong> The board’s display already uses them.</p>
 </div>
 
 <section>
-  <h2><span class="n">01</span>Variante à deux HX711 — câblage électrique</h2>
+  <h2><span class="n">01</span>Two-HX711 alternative — electrical wiring</h2>
 
   <figure>
     <div class="scroller">
-      <svg viewBox="0 0 900 620" role="img" aria-label="Schéma de câblage : la carte ideaspark ESP32 alimente deux modules HX711 en 3,3 volts avec masse commune, leur envoie les signaux DT et SCK sur les GPIO 25 et 26 pour A, 16 et 17 pour B, chaque HX711 recevant une cellule de charge à quatre fils ; un bouton est câblé entre le GPIO 27 et la masse.">
+      <svg viewBox="0 0 900 620" role="img" aria-label="Wiring diagram: the ideaspark ESP32 board powers two HX711 modules at 3.3 volts with a shared ground. DT and SCK use GPIO 25 and 26 for A, and 16 and 17 for B. Each HX711 connects to a four-wire load cell. An optional button connects GPIO 27 to ground.">
         <defs>
           <marker id="dot" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="8" markerHeight="8">
             <circle cx="4" cy="4" r="3.4" fill="currentColor"/>
@@ -175,7 +163,7 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
           <text x="400" y="66" text-anchor="middle" font-family="Georgia,serif"
                 font-size="15" fill="currentColor">ideaspark ESP32-WROOM-32</text>
           <text x="400" y="84" text-anchor="middle" font-size="11.5"
-                fill="var(--ink-3)">écran ST7789 1,9" 170×320 intégré</text>
+                fill="var(--ink-3)">built-in 1.9" ST7789 170×320 display</text>
 
           <rect x="266" y="94" width="268" height="42" rx="5"
                 fill="none" stroke="var(--line-2)" stroke-width="1"
@@ -185,7 +173,7 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
             GPIO 2 · 4 · 15 · 18 · 23 · 32</text>
           <text x="400" y="126" text-anchor="middle" font-size="10.5"
                 font-family="ui-monospace,Menlo,monospace" fill="var(--ink-3)">
-            pris par l'écran — ne pas câbler</text>
+            display pins — do not connect</text>
 
           <!-- broches du bas -->
           <g font-size="11" font-family="ui-monospace,Menlo,monospace"
@@ -219,9 +207,9 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
           <rect x="700" y="85" width="150" height="70" rx="7"
                 fill="var(--panel-2)" stroke="currentColor" stroke-width="1.6"/>
           <text x="775" y="112" text-anchor="middle" font-family="Georgia,serif"
-                font-size="14" fill="currentColor">Bouton</text>
+                font-size="14" fill="currentColor">Button</text>
           <text x="775" y="132" text-anchor="middle" font-size="11"
-                fill="var(--ink-3)">poussoir, sans polarité</text>
+                fill="var(--ink-3)">push button, no polarity</text>
           <line x1="580" y1="110" x2="700" y2="110" stroke="currentColor" stroke-width="1.6"/>
           <line x1="580" y1="135" x2="700" y2="135" stroke="currentColor" stroke-width="1.6"/>
         </g>
@@ -262,7 +250,7 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
         </g>
         <!-- le seul croisement du schéma : pas de pastille, donc pas de liaison -->
         <text x="369" y="243" text-anchor="end" font-size="9.5" fill="var(--ink-3)"
-              font-family="ui-monospace,Menlo,monospace">non relié</text>
+              font-family="ui-monospace,Menlo,monospace">no joint</text>
 
         <!-- ============ HX711 A ============ -->
         <g>
@@ -311,21 +299,21 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
           <rect x="55" y="480" width="220" height="90" rx="7"
                 fill="var(--panel-2)" stroke="currentColor" stroke-width="1.6"/>
           <text x="165" y="520" text-anchor="middle" font-family="Georgia,serif"
-                font-size="14" fill="currentColor">Cellule de charge A</text>
+                font-size="14" fill="currentColor">Load cell A</text>
           <text x="165" y="540" text-anchor="middle" font-size="11"
-                fill="var(--ink-3)">barre 10 kg · 4 fils</text>
+                fill="var(--ink-3)">10 kg bar · 4 wires</text>
           <text x="165" y="557" text-anchor="middle" font-size="11"
-                fill="var(--ink-3)">côté gauche de la base</text>
+                fill="var(--ink-3)">left side of the base</text>
         </g>
         <g>
           <rect x="525" y="480" width="220" height="90" rx="7"
                 fill="var(--panel-2)" stroke="currentColor" stroke-width="1.6"/>
           <text x="635" y="520" text-anchor="middle" font-family="Georgia,serif"
-                font-size="14" fill="currentColor">Cellule de charge B</text>
+                font-size="14" fill="currentColor">Load cell B</text>
           <text x="635" y="540" text-anchor="middle" font-size="11"
-                fill="var(--ink-3)">barre 10 kg · 4 fils</text>
+                fill="var(--ink-3)">10 kg bar · 4 wires</text>
           <text x="635" y="557" text-anchor="middle" font-size="11"
-                fill="var(--ink-3)">côté droit de la base</text>
+                fill="var(--ink-3)">right side of the base</text>
         </g>
 
         <!-- fils de cellule : halo puis couleur réelle -->
@@ -354,9 +342,9 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
         <!-- Étiquette dans le prolongement du bus, entre les descentes vers DT
              (x=95) et SCK (x=135) : il n'y a de place ni au-dessus ni au-dessous. -->
         <text x="178" y="254" text-anchor="end" font-size="11" fill="var(--ink-3)"
-              font-family="ui-monospace,Menlo,monospace">masse</text>
+              font-family="ui-monospace,Menlo,monospace">ground</text>
         <text x="292" y="281" font-size="11" fill="var(--wire-red)"
-              font-family="ui-monospace,Menlo,monospace">3,3 V</text>
+              font-family="ui-monospace,Menlo,monospace">3.3 V</text>
         <text x="88" y="204" font-size="10.5" fill="var(--ink-3)"
               font-family="ui-monospace,Menlo,monospace">GPIO 25 → DT</text>
         <text x="128" y="222" font-size="10.5" fill="var(--ink-3)"
@@ -368,85 +356,76 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
         <text x="590" y="103" font-size="10.5" fill="var(--ink-3)"
               font-family="ui-monospace,Menlo,monospace">GPIO 27</text>
         <text x="590" y="128" font-size="10.5" fill="var(--ink-3)"
-              font-family="ui-monospace,Menlo,monospace">masse</text>
+              font-family="ui-monospace,Menlo,monospace">ground</text>
       </svg>
     </div>
 
     <ul class="legend">
-      <li><span class="swatch" style="background:var(--wire-red)"></span>rouge → E+</li>
-      <li><span class="swatch" style="background:var(--wire-black)"></span>noir → E−</li>
-      <li><span class="swatch" style="background:var(--wire-white)"></span>blanc → A−</li>
-      <li><span class="swatch" style="background:var(--wire-green)"></span>vert → A+</li>
+      <li><span class="swatch" style="background:var(--wire-red)"></span>red → E+</li>
+      <li><span class="swatch" style="background:var(--wire-black)"></span>black → E−</li>
+      <li><span class="swatch" style="background:var(--wire-white)"></span>white → A−</li>
+      <li><span class="swatch" style="background:var(--wire-green)"></span>green → A+</li>
     </ul>
 
-    <figcaption>Les six pastilles pleines marquent les vraies jonctions. Un
-    croisement <strong>sans pastille</strong> n'est pas une liaison — cela n'arrive
-    qu'une fois, là où le 3,3 V descend en travers du bus de masse.</figcaption>
+    <figcaption>The six filled dots mark actual electrical junctions. A crossing <strong>without a dot</strong> is not a connection. There is only one such crossing: where the 3.3 V line crosses the ground bus.</figcaption>
   </figure>
 
   <div class="callout note">
-    <div class="t">La position physique des broches</div>
-    <p>Le schéma dit <em>quelle</em> broche va <em>où</em>, pas où elle se trouve sur
-    le connecteur. Repère chaque GPIO sur la sérigraphie de ta carte avant de souder :
-    l'ordre des broches sur le peigne varie d'un lot à l'autre. Si ta carte a plusieurs
-    broches <code>GND</code>, sers-t'en — c'est ce que fait le schéma pour le bouton.</p>
+    <div class="t">Physical pin positions</div>
+    <p>The diagram shows <em>which</em> pin connects <em>where</em>, rather than its physical position on the connector. Check each GPIO against your board’s printed labels before soldering: header pin order can vary between batches. If your board has several <code>GND</code> pins, use them — as the diagram does for the button.</p>
   </div>
 </section>
 
 <section>
-  <h2><span class="n">02</span>Variante à deux HX711 — connexions</h2>
+  <h2><span class="n">02</span>Two-HX711 alternative — connections</h2>
 
   <div class="tablewrap">
     <table>
       <thead>
-        <tr><th>Depuis</th><th>Vers</th><th>Fil</th></tr>
+        <tr><th>From</th><th>To</th><th>Wire</th></tr>
       </thead>
       <tbody>
-        <tr class="grp"><td colspan="3">Alimentation — les deux modules en parallèle</td></tr>
-        <tr><td class="pin">3V3</td><td>VCC des HX711 A <em>et</em> B</td>
-            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-red)"></span>libre</span></td></tr>
-        <tr><td class="pin">GND</td><td>GND des HX711 A <em>et</em> B</td>
-            <td class="wire">libre</td></tr>
+        <tr class="grp"><td colspan="3">Power — both modules in parallel</td></tr>
+        <tr><td class="pin">3V3</td><td>VCC on HX711 A <em>and</em> B</td>
+            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-red)"></span>any colour</span></td></tr>
+        <tr><td class="pin">GND</td><td>GND on HX711 A <em>and</em> B</td>
+            <td class="wire">any colour</td></tr>
 
-        <tr class="grp"><td colspan="3">Signaux — un couple par module</td></tr>
-        <tr><td class="pin">GPIO 25</td><td>HX711 A · DT (ou DOUT)</td><td class="wire">libre</td></tr>
-        <tr><td class="pin">GPIO 26</td><td>HX711 A · SCK</td><td class="wire">libre</td></tr>
-        <tr><td class="pin">GPIO 16</td><td>HX711 B · DT (ou DOUT)</td><td class="wire">libre</td></tr>
-        <tr><td class="pin">GPIO 17</td><td>HX711 B · SCK</td><td class="wire">libre</td></tr>
+        <tr class="grp"><td colspan="3">Signals — one pair per module</td></tr>
+        <tr><td class="pin">GPIO 25</td><td>HX711 A · DT (or DOUT)</td><td class="wire">any colour</td></tr>
+        <tr><td class="pin">GPIO 26</td><td>HX711 A · SCK</td><td class="wire">any colour</td></tr>
+        <tr><td class="pin">GPIO 16</td><td>HX711 B · DT (or DOUT)</td><td class="wire">any colour</td></tr>
+        <tr><td class="pin">GPIO 17</td><td>HX711 B · SCK</td><td class="wire">any colour</td></tr>
 
-        <tr class="grp"><td colspan="3">Bouton optionnel — sans polarité, ni résistance</td></tr>
-        <tr><td class="pin">GPIO 27</td><td>une patte du poussoir</td><td class="wire">libre</td></tr>
-        <tr><td class="pin">GND</td><td>l'autre patte</td><td class="wire">libre</td></tr>
+        <tr class="grp"><td colspan="3">Optional button — no polarity or resistor</td></tr>
+        <tr><td class="pin">GPIO 27</td><td>one button terminal</td><td class="wire">any colour</td></tr>
+        <tr><td class="pin">GND</td><td>the other terminal</td><td class="wire">any colour</td></tr>
 
-        <tr class="grp"><td colspan="3">Cellule A → HX711 A · Cellule B → HX711 B</td></tr>
-        <tr><td class="pin">E+</td><td>cellule</td>
-            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-red)"></span>rouge</span></td></tr>
-        <tr><td class="pin">E−</td><td>cellule</td>
-            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-black)"></span>noir</span></td></tr>
-        <tr><td class="pin">A−</td><td>cellule</td>
-            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-white)"></span>blanc</span></td></tr>
-        <tr><td class="pin">A+</td><td>cellule</td>
-            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-green)"></span>vert</span></td></tr>
+        <tr class="grp"><td colspan="3">Load cell A → HX711 A · Load cell B → HX711 B</td></tr>
+        <tr><td class="pin">E+</td><td>load cell</td>
+            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-red)"></span>red</span></td></tr>
+        <tr><td class="pin">E−</td><td>load cell</td>
+            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-black)"></span>black</span></td></tr>
+        <tr><td class="pin">A−</td><td>load cell</td>
+            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-white)"></span>white</span></td></tr>
+        <tr><td class="pin">A+</td><td>load cell</td>
+            <td class="wire"><span class="chip"><span class="swatch" style="background:var(--wire-green)"></span>green</span></td></tr>
       </tbody>
     </table>
   </div>
 
-  <p>Le poussoir n'a besoin d'aucune résistance : l'ESP32 active son tirage interne.
-  Les codes couleur des cellules varient selon le fabricant — si le poids
-  <em>diminue</em> quand tu appuies sur le plateau, échange les deux fils de signal branchés sur A+ et A− sur ce
-  module seulement (vert et blanc dans ce schéma).</p>
+  <p>The button needs no external resistor: the ESP32 enables its internal pull-up. Load-cell wire colours vary by manufacturer. If the weight
+  <em>decreases</em> when you press the platform, swap the two signal wires connected to A+ and A− on that module only (green and white in this diagram).</p>
 </section>
 
 <section>
-  <h2><span class="n">03</span>Variante à deux barres — base mécanique</h2>
+  <h2><span class="n">03</span>Two-bar alternative — mechanical base</h2>
 
-  <p>C'est la partie qui décide de la qualité de la mesure. Une cellule à flexion ne
-  mesure que si elle peut <strong>fléchir</strong> : une extrémité sur la plaque du
-  bas, l'autre sur le plateau, et du vide entre les deux.</p>
+  <p>This part determines measurement quality. A bending-beam load cell only measures correctly if it can <strong>bend</strong> : one end attaches to the bottom plate, the other to the platform, with clearance in between.</p>
 
   <figure>
     <div class="scroller">
-      <svg viewBox="0 0 900 330" role="img" aria-label="Coupe de la base : le tonneau repose sur un plateau, porté uniquement par deux cellules de charge montées en porte-à-faux ; chaque cellule est vissée par son extrémité extérieure sur la plaque de fond et par son extrémité intérieure sur le plateau, via des entretoises qui laissent un vide sous la barre.">
+      <svg viewBox="0 0 900 330" role="img" aria-label="Cross-section of the base: the barrel rests on a platform supported only by two cantilevered load cells. Each cell’s outer end is screwed to the bottom plate, and its inner end to the platform. Spacers maintain clearance beneath the bar.">
         <defs>
           <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5"
                   markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -460,7 +439,7 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
         <ellipse cx="450" cy="20" rx="65" ry="9"
                  fill="var(--panel)" stroke="currentColor" stroke-width="1.6"/>
         <text x="450" y="66" text-anchor="middle" font-family="Georgia,serif"
-              font-size="14" fill="var(--ink-3)">tonneau</text>
+              font-size="14" fill="var(--ink-3)">barrel</text>
 
         <!-- charge -->
         <g stroke="var(--accent)" stroke-width="1.6" marker-end="url(#arr)"
@@ -474,7 +453,7 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
         <rect x="100" y="130" width="700" height="22" rx="3"
               fill="var(--panel-2)" stroke="currentColor" stroke-width="1.6"/>
         <text x="110" y="146" font-size="11.5" fill="var(--ink-3)"
-              font-family="ui-monospace,Menlo,monospace">plateau</text>
+              font-family="ui-monospace,Menlo,monospace">platform</text>
 
         <!-- entretoises hautes (extrémités intérieures) -->
         <g fill="var(--accent-soft)" stroke="currentColor" stroke-width="1.2">
@@ -488,9 +467,9 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
           <rect x="550" y="200" width="200" height="20" rx="3"/>
         </g>
         <text x="250" y="214" text-anchor="middle" font-size="11.5"
-              font-family="ui-monospace,Menlo,monospace" fill="currentColor">cellule A</text>
+              font-family="ui-monospace,Menlo,monospace" fill="currentColor">cell A</text>
         <text x="650" y="214" text-anchor="middle" font-size="11.5"
-              font-family="ui-monospace,Menlo,monospace" fill="currentColor">cellule B</text>
+              font-family="ui-monospace,Menlo,monospace" fill="currentColor">cell B</text>
 
         <!-- entretoises basses (extrémités extérieures) -->
         <g fill="var(--accent-soft)" stroke="currentColor" stroke-width="1.2">
@@ -502,68 +481,52 @@ footer{border-top:1px solid var(--line); padding-top:18px; font-size:13.5px;
         <rect x="100" y="268" width="700" height="22" rx="3"
               fill="var(--panel-2)" stroke="currentColor" stroke-width="1.6"/>
         <text x="110" y="284" font-size="11.5" fill="var(--ink-3)"
-              font-family="ui-monospace,Menlo,monospace">plaque de fond, posée au sol</text>
+              font-family="ui-monospace,Menlo,monospace">bottom plate, on the floor</text>
 
         <!-- annotation du vide -->
         <g stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3">
           <line x1="250" y1="152" x2="250" y2="200"/>
         </g>
         <text x="238" y="178" text-anchor="end" font-size="11" fill="var(--ink-3)"
-              font-family="ui-monospace,Menlo,monospace">du vide, obligatoire</text>
+              font-family="ui-monospace,Menlo,monospace">required clearance</text>
         <g stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3">
           <line x1="450" y1="220" x2="450" y2="268"/>
         </g>
         <text x="462" y="248" font-size="11" fill="var(--ink-3)"
-              font-family="ui-monospace,Menlo,monospace">du vide, ici aussi</text>
+              font-family="ui-monospace,Menlo,monospace">clearance here too</text>
 
         <text x="790" y="178" text-anchor="end" font-size="11"
               font-family="ui-monospace,Menlo,monospace" fill="var(--accent)">
-          entretoises</text>
+          spacers</text>
       </svg>
     </div>
-    <figcaption>Chaque cellule travaille en porte-à-faux : vissée sur la plaque de fond
-    par son extrémité extérieure, sur le plateau par son extrémité intérieure. Une barre
-    plaquée sur toute sa longueur ne mesure rien.</figcaption>
+    <figcaption>Each load cell works as a cantilever: its outer end is screwed to the bottom plate, and its inner end to the platform. A bar clamped along its entire length cannot measure correctly.</figcaption>
   </figure>
 
   <ol class="steps">
-    <li><strong>Le plateau ne doit toucher que les cellules.</strong> Aucun autre appui,
-    aucun câble coincé, aucune vis qui frotte : tout contact parasite se soustrait
-    directement de la mesure.</li>
-    <li><strong>Une entretoise de chaque côté de chaque cellule</strong>, pour que la
-    barre travaille dans le vide.</li>
-    <li><strong>Serre fort.</strong> Une vis qui se desserre lentement, c'est une
-    dérive lente — et le firmware la prendra pour de l'évaporation.</li>
-    <li><strong>Cellules symétriques</strong> de part et d'autre du centre, tonneau
-    toujours posé au même endroit. C'est ce qui permet à une seule pente de calibration
-    de suffire pour les deux cellules.</li>
-    <li><strong>Électronique sur la plaque de fond</strong>, câbles sans tension, et la
-    carte le plus loin possible des cellules : ce qui chauffe fait dériver la mesure.</li>
+    <li><strong>The platform must touch only the load cells.</strong> No other support, trapped cable or rubbing screw: any unwanted contact diverts weight away from the measurement.</li>
+    <li><strong>A spacer at each end of each load cell</strong> allows the bar to flex freely.</li>
+    <li><strong>Tighten securely.</strong> A screw that gradually loosens causes slow drift — which the firmware may interpret as evaporation.</li>
+    <li><strong>Position the cells symmetrically</strong> on either side of the centre, with the barrel always in the same place. This allows a single calibration factor to work for both cells.</li>
+    <li><strong>Mount the electronics on the bottom plate</strong>, leave slack in the cables, and keep the board as far from the load cells as possible: heat causes measurement drift.</li>
   </ol>
 </section>
 
 <section>
-  <h2><span class="n">04</span>Vérifier avant de refermer</h2>
+  <h2><span class="n">04</span>Check before closing the enclosure</h2>
   <ol class="steps">
-    <li>Branche l'USB et ouvre la console série. Le montage actuel annonce
-    <code>1 canal/canaux HX711 initialisé(s)</code> ; la variante à deux modules,
-    compilée avec <code>NUM_CHANNELS = 2</code>, en annonce deux.</li>
-    <li>Dans l'app web, vérifie que la mesure brute réagit. Avec un bouton installé,
-    la page <strong>Diagnostic</strong> de l'écran permet aussi de vérifier les
-    canaux actifs. Un module muet signale un DT, un SCK ou une alimentation à vérifier.</li>
-    <li>Appuie du doigt sur le plateau : la valeur brute doit <strong>varier</strong>.
-    La calibration avec un poids connu prend en compte le sens du signal.</li>
-    <li>Appuie sur un coin puis sur l'autre : les deux doivent faire réagir la mesure.
-    Sinon, vérifie que toutes les cellules portent correctement le plateau.</li>
-    <li>Rejoins le réseau <code>RumBarrel-setup</code>, configure le Wi-Fi, puis fais
-    l'initialisation en quatre étapes dans l'app.</li>
+    <li>Connect USB and open the serial console. The current setup reports
+    <code>1 canal/canaux HX711 initialisé(s)</code> (one initialized HX711 channel); the two-module alternative, built with <code>NUM_CHANNELS = 2</code>, reports two.</li>
+    <li>In the web app, check that the raw reading responds. If a button is installed, the display’s <strong>Diagnostic</strong> page (diagnostics) also lets you check active channels. If a module gives no response, check its DT, SCK and power connections.</li>
+    <li>Press the platform with your finger: the raw value should <strong>change</strong>. Calibration with a known weight accounts for the signal direction.</li>
+    <li>Press one corner and then the other: both should affect the reading. If not, check that every load cell properly supports the platform.</li>
+    <li>Join the <code>RumBarrel-setup</code> network, set up Wi-Fi, then complete the four initialization steps in the app.</li>
   </ol>
 </section>
 
 <footer>
-  RumScale · brochage défini dans <code>src/config.h</code>, bloc
-  <code>BOARD_TFT_ST7789</code>. Pour la variante à écran OLED, les GPIO changent :
-  voir le tableau du README.
+  RumScale · pin assignments are defined in <code>src/config.h</code>, in the
+  <code>BOARD_TFT_ST7789</code> block. GPIO assignments differ for the OLED display variant: see the table in the README.
 </footer>
 
 </div>

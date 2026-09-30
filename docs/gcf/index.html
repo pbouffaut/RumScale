@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="gcf">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="RumScale — Gid pou sé réglaj-la é sé kèsyon-la. Kayé bò a barik konekté a-w : préparé vwayaj-la, suiv ròm-la toupannan i ka vyéyi é pasé trézò-la ba ondòt moun.">
+<meta name="theme-color" content="#201d18">
+<title>RumScale — Gid pou sé réglaj-la é sé kèsyon-la</title>
+<link rel="canonical" href="https://pbouffaut.github.io/RumScale/gcf/">
+<link rel="alternate" hreflang="fr" href="https://pbouffaut.github.io/RumScale/">
+<link rel="alternate" hreflang="en" href="https://pbouffaut.github.io/RumScale/en/">
+<link rel="alternate" hreflang="gcf" href="https://pbouffaut.github.io/RumScale/gcf/">
+<link rel="alternate" hreflang="x-default" href="https://pbouffaut.github.io/RumScale/">
+<link rel="icon" type="image/svg+xml" href="../assets/pirate-mark.svg">
+<link rel="stylesheet" href="../assets/guide.css">
+<script id="guide-strings" type="application/json">{"searchLabel": "Chèché adan sé kèsyon-la", "searchPlaceholder": "Wi-Fi, lékran, balans…", "expand": "Wouvè tout", "collapse": "Fèmé tout", "empty": "Pa ni pon répons. Éséyé ondòt mo, oben gadé pati dépannaj-la pli ho.", "count": "{total} kèsyon pou jwenn répons a-w vit.", "resultOne": "{n} répons asi {total}", "resultMany": "{n} répons asi {total}"}</script>
+<script src="../assets/guide.js" defer></script>
+</head>
+<body id="haut">
+<a class="skip" href="#contenu">Alé dirèk adan gid-la</a>
+<div class="reading-progress" aria-hidden="true"></div>
+<header class="topbar">
+<a class="brand" href="#haut" aria-label="RumScale"><img src="../assets/pirate-mark.svg" alt="" width="40" height="45"><strong>RumScale</strong><span>Gid-la</span></a>
+<nav class="language-switch" aria-label="Lang a gid-la"><a href="../index.html" lang="fr" hreflang="fr" data-guide-lang="fr">Français</a><a href="../en/index.html" lang="en" hreflang="en" data-guide-lang="en">English</a><a href="../gcf/index.html" lang="gcf" hreflang="gcf" data-guide-lang="gcf" title="Kréyòl Gwadloup" aria-current="page">Kréyòl</a></nav>
+<div class="top-actions"><button class="print-button" type="button">Enprimé gid-la</button><a class="local-link" href="http://rum.local/">Wouvè barik an mwen ↗</a></div>
+</header>
+<details class="mobile-nav"><summary>Sa ki adan gid-la</summary><nav aria-label="Sa ki adan gid-la"><a href="#demarrage">Prèmyé fwa ou ka branché barik-la</a>
+<a href="#wifi">Konekté oben chanjé Wi-Fi la</a>
+<a href="#calibration">Réglé balans-la é sé référans a barik-la</a>
+<a href="#quotidien">Sèvi èvè barik-la touléjou</a>
+<a href="#telegram">Risivwè sé alèt Telegram la</a>
+<a href="#reinitialisation">Ridémarré oben rimèt a zéwo</a>
+<a href="#cadeau">Ba on moun barik-la oben chanjé kaz</a>
+<a href="#depannage">Dépané-y vit</a>
+<a href="#faq">Kèsyon moun ka pozé souvan</a>
+<a href="#boitier">Bwat an fòm barik, enprimé an 3D</a>
+<a href="#avance">Montaj é lantretyen téknik</a></nav></details>
+<div class="layout">
+<aside class="sidebar"><p class="nav-title">Kat pou jwenn chimen a-w</p><nav aria-label="Sa ki adan gid-la"><a href="#demarrage">Prèmyé fwa ou ka branché barik-la</a>
+<a href="#wifi">Konekté oben chanjé Wi-Fi la</a>
+<a href="#calibration">Réglé balans-la é sé référans a barik-la</a>
+<a href="#quotidien">Sèvi èvè barik-la touléjou</a>
+<a href="#telegram">Risivwè sé alèt Telegram la</a>
+<a href="#reinitialisation">Ridémarré oben rimèt a zéwo</a>
+<a href="#cadeau">Ba on moun barik-la oben chanjé kaz</a>
+<a href="#depannage">Dépané-y vit</a>
+<a href="#faq">Kèsyon moun ka pozé souvan</a>
+<a href="#boitier">Bwat an fòm barik, enprimé an 3D</a>
+<a href="#avance">Montaj é lantretyen téknik</a></nav><p class="nav-note">On gid pou gadé owa barik-la.<br>Vérifyé 30 sèptanm 2026.</p></aside>
+<main id="contenu" class="main">
+<div class="hero">
+<div class="hero-topline"><p class="eyebrow">Réglaj · Itilizasyon · Kèsyon moun ka pozé souvan</p><span class="hero-edition">Kayé a kapitenn-la</span></div>
+<div class="hero-grid"><div class="hero-copy"><h1><span>Annou alé,</span><br>kap asi ròm-la.</h1><p class="intro">Kayé bò a barik konekté a-w : préparé vwayaj-la, suiv ròm-la toupannan i ka vyéyi é pasé trézò-la ba ondòt moun.</p><div class="hero-links"><a class="button" href="#demarrage">Koumansé <span aria-hidden="true">→</span></a><a class="button secondary" href="#faq">Gadé sé kèsyon-la <span aria-hidden="true">↓</span></a></div></div><figure class="hero-art" aria-hidden="true"><img src="../assets/pirate-barrel.svg" width="420" height="460" alt=""><figcaption>Rézèv a kapitenn-la</figcaption></figure></div>
+<div class="quick-paths"><a href="#cadeau"><strong>An ka risivwè on kado ↗</strong>Koumansé sèvi èvè-y akaz.</a><a href="#wifi"><strong>An ka chanjé Wi-Fi ↗</strong>Gadé tout sé réglaj-la.</a><a href="#depannage"><strong>An ni on pwoblèm ↗</strong>Sa pou vérifyé.</a></div>
+<p class="print-note">RumScale — Gid pou sé réglaj-la é sé kèsyon-la · Vérifyé 30 sèptanm 2026.</p>
+</div>
+<section id="demarrage" aria-labelledby="titre-demarrage">
+  <h2 id="titre-demarrage">Prèmyé fwa ou ka branché barik-la</h2>
+  <p class="lead">On kab USB, téléfòn a-w é déotwa minit ka sifi pou mété on barik ki ja préparé asi rézo-la.</p>
+  <p class="language-note">Gid-lasa an kréyòl, mé aplikasyon-la ka rété an fransé. Sé pousa non sé meni-la é sé bouton-la ka rété an fransé ant gimè : ou ké jwenn yo fasil adan aplikasyon-la.</p>
+  <ol class="steps">
+    <li><strong>Pozé baz-la asi on tab plat ki pa ka boujé.</strong> Tout pwa a barik-la dwèt rété asi plato a-y. Lésé sé kab-la lach : fò pa yo ralé baz-la ni yo rété kwennsé anba-y.</li>
+    <li><strong>Branché alimantasyon USB-C la.</strong> On alimantasyon USB a 5 V / 1 A ka fè zafè-la. Atann aparèy-la fin démarré é i fin konekté asi Wi-Fi la.</li>
+    <li><strong>Konekté barik-la asi Wi-Fi a kaz-la.</strong> Si ou ka li <code>RumBarrel-setup</code> asi lékran-la, suiv <a href="#wifi">sé étap-la pou réglé Wi-Fi la</a>.</li>
+    <li><strong>Wouvè <a href="http://rum.local/">http://rum.local</a></strong> asi on téléfòn ki konekté asi menm rézo ki barik-la. Ou pa bizwen enstalé pon aplikasyon ni kréyé pon kont RumScale.</li>
+    <li><strong>Vérifyé nivo-la é sé réglaj-la.</strong> Si yo ba-w barik-la ja plen é balans-la ja réglé, gadé sé valè-la yo anrèjistré la. Si aplikasyon-la ka maké « Pas encore initialisé », suiv <a href="#calibration">sé kat étap-la pou réglé balans-la</a> avan ou plen barik-la.</li>
+  </ol>
+  <aside class="callout"><strong>Dé paj, dé travay diféran.</strong> Ou ka li gid-lasa asi Entènèt. Aplikasyon <code>rum.local</code> la adan barik a-w : ou pé sèvi èvè-y pou réglé barik-la sèlman lè ou konekté asi rézo lokal a-y.</aside>
+</section>
+
+<section id="wifi" aria-labelledby="titre-wifi">
+  <h2 id="titre-wifi">Konekté oben chanjé Wi-Fi la</h2>
+  <p class="lead">RumScale ka sèvi èvè on rézo Wi-Fi <strong>2,4 GHz</strong>. Si ou ka chanjé kaz, ou pa bizwen rimèt balans-la a zéwo.</p>
+  <h3>Prèmyé koneksyon oben on nouvo kaz</h3>
+  <ol>
+    <li>Branché barik-la. Si i ja ni on rézo an mémwa a-y, i ka éséyé konekté asi-y twa fwa, pannan apépré 20 sègonn chak fwa. Èvè tan-la i ka pran pou chèché sé rézo-la, konté tibwen plis ki on minit.</li>
+    <li>Lè <code>RumBarrel-setup</code> ka parèt, alé adan réglaj Wi-Fi a téléfòn-la é konekté asi rézo-lasa. I wouvè, i pa ni modpas. Si téléfòn-la ka di « pas d’Internet », chwazi rété konekté.</li>
+    <li>Paj-la pou réglé Wi-Fi la pé wouvè tousèl a-y. Si i pa wouvè, maké <a href="http://192.168.4.1/">http://192.168.4.1</a> adan navigatè-la, èvè <strong>http</strong>.</li>
+    <li>Chwazi rézo a kaz-la, maké modpas a-y, épi validé. Barik-la ka gadé rézo-lasa an mémwa é i ka fin démarré.</li>
+    <li>Rikonekté téléfòn-la asi rézo a kaz-la, épi wouvè <a href="http://rum.local/">http://rum.local</a>. Téléfòn-la pé sèvi èvè bann 5 GHz la si i adan menm rézo lokal la ; barik-la, li, bizwen 2,4 GHz la.</li>
+  </ol>
+  <p>Si barik-la toujou konekté asi ansyen rézo-la é ou vlé chwazi ondòt, wouvè <strong>« Réglages → Système → Oublier le Wi-Fi »</strong>. I ka ridémarré é i ka wouvè paj réglaj Wi-Fi a-y. Réglaj a balans-la, nivo référans-la é listorik-la ka rété an mémwa.</p>
+  <h3>Si tan-la pou réglé Wi-Fi la fini</h3>
+  <p>Apré apépré <strong>5 minit san ou fè ayen adan pòtay réglaj-la</strong>, barik-la ka pasé an mòd otonòm. Lè ou konekté asi <code>RumBarrel-setup</code>, ou pé wouvè aplikasyon-la asi <code>http://192.168.4.1</code>. Alè, sé aplikasyon-la pou suiv barik-la ou ka jwenn a adrès-lasa : pòtay-la pou chwazi Wi-Fi la fèmé. Débranché barik-la é branché-y ankò pou woukoumansé réglaj-la.</p>
+  <p><strong>Balans-la pa ka pézé pannan pòtay réglaj-la wouvè.</strong> I ka woukoumansé lè koneksyon-la ka fèt oben lè tan-la fini. An mòd otonòm, ou toujou pé gadé nivo-la adan aplikasyon lokal la, mé Telegram é réglaj a lè-la bizwen on koneksyon Entènèt. Èvè lojisyèl-la ki la alè, lékran-la pé rété limé asi « Configuration Wi-Fi » menm apré pòtay-la fèmé : gadé sé mizir-la adan aplikasyon-la alò. Si aparèy-la démarré san Entènèt, i pa ka anrèjistré pon nouvo pwen chak lè tant lè-la poko senkronizé.</p>
+  <h3>Si rum.local pa ka réponn</h3>
+  <p>Vérifyé dabò téléfòn-la é barik-la asi menm rézo-la, san rézo « invités » ki ka séparé sé aparèy-la. Éséyé adrès IP a barik-la : ou pé jwenn li adan lis aparèy a routè a-w. Si ou enstalé on bouton déwò, paj « Réseau » a lékran-la ka montré adrès-lasa é on QR code osi. Maké adrès-la konsa : <code>http://adresse-IP</code>.</p>
+</section>
+
+<section id="calibration" aria-labelledby="titre-calibration">
+  <h2 id="titre-calibration">Réglé balans-la é sé référans a barik-la</h2>
+  <p class="lead">Ou ka aprann balans-la miziré bon pwa-la, épi ou ka ba-y dé référans : barik vid é barik plen. Fè sa prèmyé fwa ou ka enstalé-y oben apré ou chanjé on biten adan baz-la.</p>
+  <p>Préparé on objé ou ja pézé asi ondòt balans, <strong>omwen 100 g</strong>, é barik-la ki poko plen. Mété baz-la la i ké rété la. Wouvè <strong>« Réglages → Initialisation »</strong> é fè sé étap-la adan lòd-lasa.</p>
+  <ol class="steps">
+    <li><strong>Baz vid — « Faire le zéro ».</strong> Woté barik-la é tout dòt objé asi plato-la. Atann pwa-la ki maké la pa ka boujé ankò, épi apiyé asi <strong>« Faire le zéro »</strong>.</li>
+    <li><strong>On pwa ou konnèt — « Calibrer la balance ».</strong> Pozé objé référans-la, atann mizir-la vin estab é maké mas ègzak a-y an gram adan <strong>« Masse posée »</strong>. Apiyé asi <strong>« Calibrer la balance »</strong>. Aprésa, woté objé-la é vérifyé mizir-la ka viré toupré zéwo.</li>
+    <li><strong>Barik vid — « Enregistrer le tonneau vide ».</strong> Pozé barik vid la èvè bouchon a-y, wobiné a-y é tout akseswa ki ké rété asi-y lè ou ké sèvi èvè-y. Atann mizir-la vin estab, épi anrèjistré-y.</li>
+    <li><strong>Barik plen — « Enregistrer le tonneau plein ».</strong> Plen-y jis a volim référans-la ou ka anonsé la, ripozé-y é atann mizir-la vin estab. Maké kapasité a-y an lit : <strong>2 L sé on ègzanp</strong>, mété vré valè a barik a-w an plas a-y. Apiyé asi <strong>« Enregistrer le tonneau plein »</strong>.</li>
+  </ol>
+  <aside class="callout"><strong>Pwa a résipyan-la ka konté osi.</strong> On boutèy èvè on lit dlo adan ka pézé plis ki 1 000 g lè ou ka konté boutèy-la é bouchon-la. Menm si aplikasyon-la ka ba-w ègzanp senp lasa, sèvi èvè tout pwa-la ou miziré la, pa èvè pwa a sa ki adan tousèl.</aside>
+  <p>Pou mizir-la vin estab, fò ou lésé baz-la trankil pannan apépré <strong>20 sègonn</strong>, é délè pli lontan apré ou mannyé-y. Fò mésaj-la ki ka di i ka vin estab la disparèt ; dé sègonn pa ka sifi.</p>
+  <p>Prèmyé fwa ou ka validé « plein », sa ka koumansé konté tan vyéyisman-la osi. Volim-la yo ka èstimé la ka dépann dè mas a likid-la é dansité a-y ; aparèy-la ka kalkilé dansité-lasa si rapò-la ant pwa ou ajouté la é volim ou déklaré la ka sanm on valè ki posib. Si volim ou maké la pa bon, kantité lit-la pé ké bon nonplis.</p>
+  <h3>Kitan pou woufè sé référans-la ?</h3>
+  <ul>
+    <li><strong>Ou chanjé baz-la, sé kaptè-la oben montaj mékanik la :</strong> woufè tout réglaj a balans-la.</li>
+    <li><strong>On barik nèf ka bwè likid :</strong> bwa a-y ka pran pwa. Lè i ké vid ankò, anrèjistré pwa vid a-y èvè menm sé akseswa-la, épi anrèjistré nouvo référans plen a-y apré ou plen-y.</li>
+    <li><strong>Ou ka mété on nouvo lo :</strong> gadé réglaj a balans-la si i toujou bon, vérifyé sé référans vid/plen la é sèvi èvè <strong>« Redémarrer le vieillissement »</strong> si ou vlé konté on nouvo sik. Si ou anrèjistré « plein » ankò, sa pa ka rimèt on vyéyisman ki ja koumansé a zéwo.</li>
+  </ul>
+  <p><strong>Si barik-la ja plen é ou pa ni on bon référans pou pwa vid a-y, sé kat bouton-lasa pé pa fè tout inisyalizasyon-la kon i fo.</strong> Mandé moun-la ki préparé-y la sé valè référans-la, oben atann ou pé vidé-y. Pa janmen fè zéwo a baz-la èvè barik-la pozé asi-y.</p>
+</section>
+
+<section id="quotidien" aria-labelledby="titre-quotidien">
+  <h2 id="titre-quotidien">Sèvi èvè barik-la touléjou</h2>
+  <p class="lead">Lésé barik-la asi baz a-y. Balans-la ka suiv kantité likid-la ki rété la é i ka fè diférans ant lè ou ka sèvi ròm é lè pwa-la ka chanjé dousman.</p>
+  <h3>Li lékran-la é aplikasyon-la</h3>
+  <ul>
+    <li><strong>Pousantaj :</strong> nivo-la yo ka kalkilé ant sé référans vid é plen la ki an mémwa.</li>
+    <li><strong>Lit :</strong> on valè yo ka èstimé èvè pwa a likid-la é dansité-la ki réglé la.</li>
+    <li><strong>« Vieillissement » :</strong> tan ki pasé dépi dat départ-la ki an mémwa.</li>
+    <li><strong>« Dernier service » é listorik-la :</strong> sé chanjman-la aparèy-la konfirmé la ka anrèjistré. Dabitid, grafik-la ka risivwè on pwen chak lè, é i ka risivwè dòt pwen lè on évènman fèt.</li>
+    <li><strong>« Part des anges » :</strong> on èstimasyon a sa ki ka pèd dousman. Aparèy-la pé pa toujou fè diférans ant likid ki ka évaporé, likid bwa-la ka bwè é dériv a sé kaptè-la.</li>
+  </ul>
+  <p>Évité pozé on vè oben on boutèy asi plato-la. Apré ou sèvi on kout ròm, lésé barik-la trankil : aparèy-la ka atann pwa-la vin estab, épi apépré <strong>3 minit</strong> ankò pou konfirmé évènman-la. Si pwa-la chanjé dè mwens ki apépré 25 g, sa pa ka anrèjistré kon on sèvis apa.</p>
+  <h3>Lékran-la ka dòmi é ka lévé</h3>
+  <p>Asi kat ideaspark la, sé limyè-la ki dèyè lékran-la tousèl ki ka étenn, apré <strong>5 minit si ou pa chanjé réglaj-la</strong>. Balans-la, Wi-Fi la é sé alèt-la ka kontinyé maché. Ba baz-la <strong>dé ti tap vit</strong> pou limé lékran-la ankò ; jès-lasa pa ka chanjé paj.</p>
+  <p>Adan <strong>« Réglages → Le tonneau → Mise en veille de l’écran »</strong>, chwazi <strong>« Jamais », 1, 5, 10, 30 minit oben 1 lè</strong>, épi apiyé asi <strong>« Enregistrer »</strong>. Sé menm koté-la ou ka chanjé non-la ki ka parèt la. Gadé dansité-la é kapasité-la ou jwenn lè ou té ka inisyalizé-y la, toutotan yo bon : si ou chanjé sé chan-lasa, sa pa ka woufè sé référans pwa vid é plen la.</p>
+  <h3>Si ou enstalé on bouton déwò</h3>
+  <p>On ti apui ka limé lékran-la ankò oben ka pasé a paj apré-la : nivo, vyéyisman, rézo, dyagnostik. Lékran-la ka viré asi paj prensipal la apré apépré 30 sègonn. Si ou kenbé bouton-la apiyé, on konfimasyon ka parèt apré 3 sègonn é vyéyisman-la ka woukoumansé a 6 sègonn ; lagé bouton-la avan tan-la fini pou anilé. Ou pa oblijé enstalé bouton-lasa ; a pa sé ti bouton <strong>EN</strong> é <strong>BOOT</strong> la ki asi kat-la.</p>
+  <h3>Lè kouran-la ka koupé</h3>
+  <p>Réglaj a balans-la, sé référans-la, tout sé réglaj-la, dat vyéyisman-la é listorik-la ki ja anrèjistré ka rété an mémwa. Lè aparèy-la ridémarré, i ka woupran lè-la asi Entènèt é i ka woukonté sé jou-la. I pa ka miziré ayen lè i débranché, é i pa ka woufè lis a chak sèvis ki fèt pannan koupiti kouran-la.</p>
+</section>
+
+<section id="telegram" aria-labelledby="titre-telegram">
+  <h2 id="titre-telegram">Risivwè sé alèt Telegram la</h2>
+  <p class="lead">Ou pa oblijé sèvi èvè Telegram. I ka pèwmèt ou risivwè on mésaj pou sé sèvis-la ki konfirmé la é pou sé nivo-la a 50 %, 25 % é 10 %.</p>
+  <ol>
+    <li>Adan Telegram, wouvè bot ofisyèl <a href="https://t.me/BotFather">@BotFather</a>, voyé <code>/newbot</code> é suiv sa i ka mandé-w fè. Gadé <strong>jéton a bot-la</strong> i ka ba-w la kon on modpas.</li>
+    <li>Wouvè konvèsasyon-la èvè nouvo bot a-w é apiyé asi <strong>« Démarrer »</strong> oben voyé on mésaj ba-y. Sé prèmyé jès-lasa ki ka ba-y dwa maké ba-w.</li>
+    <li>Pou on konvèsasyon privé, wouvè <a href="https://t.me/userinfobot">@userinfobot</a> é pran niméro-la ki ka idantifyé-w la. Sé on <strong>bot a on twazyèm moun</strong> : pa janmen voyé jéton-la ba-y. RumScale ka mandé idantifyan a konvèsasyon-la, pa non <code>@utilisateur</code> la.</li>
+    <li>Adan <strong>« Réglages → Alertes Telegram »</strong>, kolé jéton-la é idantifyan-la, chwazi si ou vlé on mésaj chak fwa ou ka sèvi ròm, épi apiyé asi <strong>« Enregistrer »</strong>.</li>
+    <li>Apiyé asi <strong>« Envoyer un test »</strong>, atann déotwa sègonn épi <strong>gadé adan Telegram pou vérifyé mésaj-la rivé vréman</strong>.</li>
+  </ol>
+  <p>Lè aplikasyon-la ka di « Message de test envoyé », sa vlé di i mété tès-la an atant, sa pa vlé di mésaj-la ja rivé. Si pa ni Entènèt oben si sé idantifyan-la pa bon, i pé pa rivé. Vérifyé sé chan-la, prèmyé mésaj ou voyé ba bot-la, si ou pa bloké-y, é liy-la ki ka montré léta a Telegram la.</p>
+  <p>Lè ou ka dékoché <strong>« Me prévenir à chaque service »</strong>, sé sé mésaj sèvis la tousèl ou ka arété ; sé alèt nivo-la ka rété aktif. Pou arété tout sé alèt-la, éfasé <strong>« Identifiant de discussion »</strong> é anrèjistré. Si chan jéton-la vid, sa vlé di « gadé jéton-la ki ja la ».</p>
+  <p>Si on alèt pa rivé pati, aparèy-la ka lagé-y : i pa ka voyé-y ankò otomatikman lè rézo-la ka viré. Si barik-la ka chanjé mèt, réglé bot-la é konvèsasyon-la pou nouvo mèt-la pé risivwè sé mésaj-la.</p>
+  <details class="faq-item">
+    <summary>Jwenn idantifyan-la san on bot a on twazyèm moun</summary>
+    <div>
+      <p>Apré ou voyé on mésaj privé ba nouvo bot a-w, wouvè adrès-la ki anba-la adan on fenèt navigasyon privé. Ranplasé <code>TON_JETON</code> èvè jéton-la BotFather ba-w la. Pa patajé adrès-lasa ki ni jéton a-w adan.</p>
+      <pre><code>https://api.telegram.org/botTON_JETON/getUpdates</code></pre>
+      <p>Adan répons-la, chèché mésaj a-w é niméro-la ki adan <code>message → chat → id</code>. Kopyé niméro-lasa adan <strong>« Identifiant de discussion »</strong>, épi fèmé fenèt privé la. Si <code>result</code> vid, voyé on nouvo mésaj ba bot-la é rafréchi paj-la. Pou fè sa, fò sé on bot nèf ki ka sèvi pou RumScale tousèl, san ondòt aplikasyon ka risivwè mésaj a-y.</p>
+      <p>Sous : <a href="https://core.telegram.org/bots/tutorial">kréyé on bot Telegram</a> é <a href="https://core.telegram.org/bots/api#getupdates">métòd ofisyèl getUpdates</a>.</p>
+    </div>
+  </details>
+</section>
+
+<section id="reinitialisation" aria-labelledby="titre-reinitialisation">
+  <h2 id="titre-reinitialisation">Ridémarré oben rimèt a zéwo</h2>
+  <p class="lead">Chwazi sa ki ka réponn a sa ou bizwen fè la. Mo « reset » la pé vlé di kat biten ki byen diféran.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Sa ou bizwen</th><th scope="col">Sa pou fè adan aplikasyon-la</th><th scope="col">Sa i ka fè</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Fè aparèy-la démarré ankò</th><td>« Réglages → Système → <strong>Redémarrer</strong> »</td><td>I ka gadé sé réglaj-la, Wi-Fi la, réglaj a balans-la é listorik-la ki ja anrèjistré.</td></tr>
+        <tr><th scope="row">Chanjé rézo</th><td>« Réglages → Système → <strong>Oublier le Wi-Fi</strong> »</td><td>I ka éfasé rézo-la ki an mémwa é i ka ridémarré pou réglé Wi-Fi la. I ka gadé lenfòwmasyon a barik-la.</td></tr>
+        <tr><th scope="row">Koumansé on nouvo vyéyisman</th><td>« Réglages → Le tonneau → <strong>Redémarrer le vieillissement</strong> »</td><td>Apré ou konfirmé, i ka woukoumansé a zéwo jou. I ka gadé réglaj a balans-la, sé référans-la, listorik-la, total a « part des anges » la é léta a sé alèt nivo-la ; i ka ajouté on évènman adan jounal-la.</td></tr>
+        <tr><th scope="row">Woukoumansé tout lenstalasyon-la</th><td>« Réglages → Système → <strong>Remise à zéro complète</strong> »</td><td>I ka éfasé réglaj a balans-la, sé référans vid/plen la, non-la, sé réglaj-la, Telegram, dat vyéyisman-la é listorik-la. <strong>Wi-Fi la ka rété an mémwa.</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Apré ou rimèt tout a zéwo, woufè <a href="#calibration">sé kat étap a inisyalizasyon-la</a>. Pou éfasé Wi-Fi la osi, sèvi apa èvè <strong>« Oublier le Wi-Fi »</strong>.</p>
+  <p><strong>Asi kat-la :</strong> lè ou ka apiyé asi <strong>EN / Reset</strong>, sa ka ridémarré ESP32 la, kon si ou té débranché kouran-la. <strong>BOOT</strong> ka sèvi pou enstalé lojisyèl-la ; i pa ka rimèt tout sé réglaj-la a zéwo. Ou pa ni pon rakousi asi sé dé bouton-lasa pou fè on « Remise à zéro complète ».</p>
+</section>
+
+<section id="cadeau" aria-labelledby="titre-cadeau">
+  <h2 id="titre-cadeau">Ba on moun barik-la oben chanjé kaz</h2>
+  <p class="lead">On barik ki ja préparé ka gadé sé mizir a-y la an mémwa pannan vwayaj-la. Moun-la ki ka risivwè-y la sitou bizwen konekté-y asi Wi-Fi a-y.</p>
+  <h3>Avan ou ba-y kon kado</h3>
+  <ol>
+    <li>Si ou ka bay barik-la plen, anrèjistré référans vid a-y avan ou plen-y, épi référans plen a-y lè i plen. Vérifyé nivo-la i ka montré la ka koresponn a sa ki adan.</li>
+    <li>Ba moun-la kapasité-la, dat départ-la é gid-lasa. Di-y si vyéyisman-la dwèt kontinyé oben woukoumansé a zéwo.</li>
+    <li>Adan réglaj Telegram la, éfasé idantifyan a konvèsasyon-la é anrèjistré pou sé mésaj-la arété rivé asi kont a-w. Moun-la ki ka risivwè barik-la ké pé réglé pwòp bot a-y.</li>
+    <li>Ou pé sèvi èvè <strong>« Oublier le Wi-Fi »</strong> avan ou débranché-y, mé ou pa oblijé : lè i pa ké jwenn ansyen rézo-la, i ké wouvè pòtay réglaj-la lè i ké démarré ankò.</li>
+  </ol>
+  <h3>Akaz a moun-la ki risivwè-y la</h3>
+  <p>Pozé baz-la asi on tab ki pa ka boujé, rimèt barik-la asi-y é branché-y. Apré i éséyé ansyen rézo-la, konekté asi <code>RumBarrel-setup</code> é suiv <a href="#wifi">sé étap réglaj Wi-Fi la</a>. Aprésa, lésé mizir-la vin estab. <strong>Pa rimèt tout a zéwo sèlman pas barik-la ka chanjé mèt.</strong></p>
+  <p>Si barik-la ka rivé plen é i ja ka maché, gadé réglaj a balans-la. Si ou sèvi èvè « Enregistrer le tonneau vide » alò i ni likid adan, tout sé mizir-la apré ké fo. Si sé référans-la pèd, mandé moun-la ki préparé-y la pou jwenn yo ankò, oben atann ou vidé-y pou woufè inisyalizasyon-la.</p>
+</section>
+
+<section id="depannage" aria-labelledby="titre-depannage">
+  <h2 id="titre-depannage">Dépané-y vit</h2>
+  <p class="lead">Koumansé èvè sa ou ka vwè ki pa ka maché la. Rimèt tout a zéwo sé rarman prèmyé biten pou fè.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">Sa ou ka vwè</th><th scope="col">Sa pou vérifyé</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Lékran-la nwè</th><td>Ba baz-la dé ti tap pou fè lékran-la lévé. Si ayen pa ka chanjé, vérifyé alimantasyon-la é kab USB la, épi ridémarré. Si aplikasyon-la ka réponn, balans-la toujou ni kouran.</td></tr>
+        <tr><th scope="row">Ou pa ka jwenn rum.local</th><td>Fò téléfòn-la é barik-la asi menm rézo-la ; pa sèvi èvè on rézo envité ki ka séparé sé aparèy-la. Éséyé IP-la routè-la ba barik-la èvè <code>http://</code>. An mòd otonòm, sèvi èvè <code>192.168.4.1</code>.</td></tr>
+        <tr><th scope="row">Rézo a kaz-la pa adan lis-la</th><td>Aktivé Wi-Fi 2,4 GHz la é mété barik-la pli pré routè-la. On rézo ki ni 5 GHz tousèl pa ka maché èvè-y.</td></tr>
+        <tr><th scope="row">Paj 192.168.4.1 la ka montré nivo-la, pa chwa Wi-Fi la</th><td>Tan a pòtay-la fini. Ridémarré barik-la é woukoumansé réglaj-la lè <code>RumBarrel-setup</code> ka parèt.</td></tr>
+        <tr><th scope="row">« Pas encore initialisé »</th><td>Fin fè sé kat étap-la adan « Réglages → Initialisation ». Si barik-la ja plen, mandé moun-la ki préparé-y la avan.</td></tr>
+        <tr><th scope="row">Pwa-la pa ka rété estab</th><td>Atann omwen 20 sègonn san ou touché baz-la. Vérifyé pon kab pa rèd, plato-la pa ka touché dòt biten é sé vis-la pa lach. On tab ki ka pliyé oben ki ka vibré pé anpéché mizir-la vin estab.</td></tr>
+        <tr><th scope="row">Pwa-la a zéwo oben « HX A muet »</th><td>Vérifyé alimantasyon a HX711 la, mas-la ki an komen la é sé koneksyon DT/SCK la. Kalibré balans-la pé pa réparé on siyal ki pa la. Gadé <a href="cablage.html">kab a montaj-la yo ka sèvi èvè-y alè la</a>.</td></tr>
+        <tr><th scope="row">« La mesure n’a pas bougé » lè ou ka réglé balans-la</th><td>Fò pwa a objé-la apiyé asi plato-la, é fò sé kaptè-la pé pliyé tibwen. Vérifyé montaj mékanik la é sé kab-la avan ou woukoumansé.</td></tr>
+        <tr><th scope="row">Nivo-la pli ho ki 100 %</th><td>Vérifyé sé akseswa-la é si ou pa ajouté on objé asi plato-la. Si barik-la vréman pli plen ki lè ou té anrèjistré prèmyé référans-la, anrèjistré bon référans plen la é kapasité a-y.</td></tr>
+        <tr><th scope="row">Vyéyisman-la maké « en cours » oben J+?</th><td>Dat départ-la an mémwa, mé aparèy-la pa ni lè-la. Rimèt koneksyon Entènèt-la é vérifyé « heure synchronisée » adan « Réglages → Système ». Pa éfasé kontè-la.</td></tr>
+        <tr><th scope="row">Pa ni grafik okoumansman</th><td>Koub-la bizwen omwen dé pwen. Atann apépré on lè, èvè on mizir estab é lè-la senkronizé.</td></tr>
+        <tr><th scope="row">Tès Telegram la pa ka rivé</th><td>Vérifyé Entènèt-la, jéton-la, idantifyan a konvèsasyon-la é si ou ja koumansé palé èvè bon bot-la. Anrèjistré, voyé on tès ankò é gadé dirèktèman adan Telegram.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="faq" aria-labelledby="titre-faq">
+  <h2 id="titre-faq">Kèsyon moun ka pozé souvan</h2>
+  <p class="lead">Mi sé répons-la ou ka bizwen pi souvan la, san ou oblijé li tout gid-la.</p>
+  <details class="faq-item"><summary>Ès fò an enstalé on aplikasyon oben kréyé on kont ?</summary><div><p>Awa. Ou ka suiv barik-la adan navigatè-la asi <a href="http://rum.local/">http://rum.local</a>, lè ou asi menm rézo ki barik-la. Ou bizwen on kont Telegram sèlman si ou vlé sèvi èvè sé alèt a-y la.</p></div></details>
+  <details class="faq-item"><summary>Ès barik-la pé maché san Entènèt ?</summary><div><p>Wi, pou pézé é suiv nivo-la asi plas, apré étap koneksyon-la. An mòd otonòm, konekté asi <code>RumBarrel-setup</code> épi wouvè <code>http://192.168.4.1</code>. Telegram pa ka maché é, apré on koupiti kouran, fò atann lè-la senkronizé pou kalkilé sé jou-la é anrèjistré nouvo pwen chak lè. Lékran-la pé rété asi « Configuration Wi-Fi » : sèvi èvè aplikasyon lokal la pou li sé mizir-la.</p></div></details>
+  <details class="faq-item"><summary>Ka ki ka pasé si an ka pòté-y adan ondòt kaz ?</summary><div><p>I ka éséyé ansyen rézo a-y épi i ka pwopozé <code>RumBarrel-setup</code>. Réglé nouvo Wi-Fi 2,4 GHz la. Réglaj a balans-la, sé référans-la é dat vyéyisman-la ka rété an mémwa. Gadé <a href="#cadeau">sé konsèy-la pou on kado</a>.</p></div></details>
+  <details class="faq-item"><summary>Téléfòn an mwen ka maké « pas d’Internet » asi RumBarrel-setup. Ès sé nòwmal ?</summary><div><p>Wi. Rézo-lasa ka lyanné téléfòn-la dirèktèman èvè barik-la. Rété konekté é wouvè <code>http://192.168.4.1</code>. Lè ou fin réglé Wi-Fi a kaz-la, rikonekté téléfòn-la asi rézo a kaz-la.</p></div></details>
+  <details class="faq-item"><summary>Poukwa i ka pran apépré on minit pou démarré ?</summary><div><p>Lè on rézo ja an mémwa, barik-la ka fè jiska twa éséyaj a apépré 20 sègonn, anplis dè tan-la i ka pran pou chèché sé rézo-la. Si koneksyon-la pa ka fèt, i ka wouvè pòtay réglaj a-y. Pannan étap-lasa, balans-la poko ka pézé.</p></div></details>
+  <details class="faq-item"><summary>Kijan pou wouwouvè chwa Wi-Fi la apré senk minit ?</summary><div><p>Débranché barik-la é branché-y ankò. Si ou toujou pé wouvè aplikasyon lokal la, « Réglages → Système → Redémarrer » ka fè menm biten-la. Pòtay-la ka wouvè si i pa pé jwenn pon rézo ki ja réglé.</p></div></details>
+  <details class="faq-item"><summary>Ès an pé gadé barik-la lè an pa akaz ?</summary><div><p>Aplikasyon-la ka maché asi rézo lokal la : sit dokimantasyon-lasa pa ka fè <code>rum.local</code> vini aksesib dépi déwò. Telegram ka pèwmèt ou risivwè sé alèt-la lè ou lwen kaz a-w. Aplikasyon-la pa ni modpas ; pa fè on rèdirèksyon pò dépi Entènèt pou rivé asi barik-la.</p></div></details>
+  <details class="faq-item"><summary>Ès on koupiti kouran ka éfasé lenfòwmasyon an mwen ?</summary><div><p>Awa. Sé réglaj-la é listorik-la ki ja anrèjistré ka rété an mémwa. Aparèy-la ka woukonté tan vyéyisman-la lè i ka woupran lè-la asi Entènèt. Sé mizir-la pannan koupiti-la, sé mésaj-la ki té an atant é on ti mòso a sé pèwt dousman la ki poko té anrèjistré pé manké.</p></div></details>
+  <details class="faq-item"><summary>Poukwa lékran-la ka étenn alò barik-la toujou branché ?</summary><div><p>I ka pasé an vèy apré senk minit si ou pa chanjé réglaj-la. Sé limyè-la dèyè lékran-la tousèl ki ka étenn ; balans-la é rézo-la ka kontinyé maché. Dé ti tap asi baz-la ka fè-y lévé. Ou pé réglé tan-lasa adan « Réglages → Le tonneau ».</p></div></details>
+  <details class="faq-item"><summary>Ès dé tap asi baz-la ka chanjé paj ?</summary><div><p>Awa, yo ka limé lékran-la ankò tousèl. Pou pasé adan sé paj a lékran-la, fò ou enstalé bouton déwò la. Tout sé fonksyon prensipal la ka rété aksesib adan aplikasyon web la san bouton-lasa.</p></div></details>
+  <details class="faq-item"><summary>Ka sé bouton EN é BOOT la owa USB la ka fè ?</summary><div><p>EN, ki pé maké Reset osi, ka ridémarré kat-la san éfasé lenfòwmasyon-la. BOOT ka sèvi pou enstalé lojisyèl-la. Pon adan yo pa ka rimèt tout a zéwo ni kalibré balans-la.</p></div></details>
+  <details class="faq-item"><summary>Ki mas pou sèvi pou kalibré balans-la ?</summary><div><p>On objé a omwen 100 g ou konnèt tout mas a-y byen, pas ou ja pézé-y asi ondòt balans. Konté résipyan a-y osi. Pa maké 1 000 g otomatikman pou on boutèy a on lit.</p></div></details>
+  <details class="faq-item"><summary>Ès fò an woufè zéwo-la lè an ka pozé barik-la ?</summary><div><p>Awa. « Faire le zéro » ka fèt èvè plato-la vid nèt pannan réglaj a balans-la. Barik vid la ni pwòp étap a-y, « Enregistrer le tonneau vide ». Si ou fè zéwo-la èvè barik-la pozé asi plato-la, mizir-la ké fo.</p></div></details>
+  <details class="faq-item"><summary>An risivwè barik-la ja plen. Ès fò an inisyalizé-y ?</summary><div><p>Gadé sé réglaj a-y la si i ja préparé é si nivo-la i ka montré la ka sanm sa ki adan. Réglé Wi-Fi a-w tousèl é, si ou bizwen, Telegram. Si i pa ni pon bon référans vid, mandé moun-la ki ba-w li la sé référans-la oben atann ou vidé-y ; pa anrèjistré-y kon « vide » èvè likid a-y adan.</p></div></details>
+  <details class="faq-item"><summary>Poukwa fò atann avan ou anrèjistré on pwa ?</summary><div><p>Aparèy-la ka lisé sé mizir-la é i bizwen apépré 20 sègonn trankil pou pwa-la vin estab. On men ki ka apiyé, on kab ki rèd oben on tab ki ka boujé ka chanjé chaj-la. Atann mésaj-la ki ka di i ka vin estab la disparèt.</p></div></details>
+  <details class="faq-item"><summary>Poukwa on alèt sèvis ka rivé an rita ?</summary><div><p>Apré pwa-la vin estab, RumScale ka atann apépré twa minit pou konfirmé sèvis-la. Konsa, i pé anilé on chanjman on objé fè lè ou pozé-y épi ou woté-y. Sé ti sèvis-la ki anba apépré 25 g pa ka konté kon évènman apa.</p></div></details>
+  <details class="faq-item"><summary>Ès sé alèt-la ki pa rivé la ka viré lè Entènèt ka viré ?</summary><div><p>Awa. Lè on mésaj pa rivé pati, aparèy-la ka lagé-y. I pa ka woufè sé alèt-la nonplis pou sé sèvis-la ki fèt lè i té débranché.</p></div></details>
+  <details class="faq-item"><summary>Ès « Message de test envoyé » vlé di Telegram ka maché ?</summary><div><p>Bouton-la ka mété mésaj-la an atant. Sé sèlman lè ou risivwè-y adan konvèsasyon Telegram a-w ou sav tout chimen-la ka maché. Si i pa rivé, vérifyé Entènèt-la, jéton-la, idantifyan-la é si ou ja koumansé konvèsasyon-la èvè bot a-w.</p></div></details>
+  <details class="faq-item"><summary>Kijan pou arété Telegram san éfasé toutbiten ?</summary><div><p>Adan « Réglages → Alertes Telegram », éfasé idantifyan a konvèsasyon-la épi anrèjistré. Si ou dékoché « Me prévenir à chaque service » tousèl, sé alèt nivo-la ka rété aktif. Si ou lésé chan jéton-la vid, i ka gadé ansyen valè a-y.</p></div></details>
+  <details class="faq-item"><summary>Kijan pou woukoumansé a zéwo jou san kalibré balans-la ankò ?</summary><div><p>Sèvi èvè « Réglages → Le tonneau → Redémarrer le vieillissement », épi konfirmé. Sé référans pwa-la é listorik-la ka rété an mémwa. Ou pa bizwen on « Remise à zéro complète ».</p></div></details>
+  <details class="faq-item"><summary>Ès « Remise à zéro complète » ka éfasé Wi-Fi la osi ?</summary><div><p>Awa. I ka éfasé lenfòwmasyon é sé réglaj RumScale la, mé i ka gadé rézo-la. Pou éfasé rézo-la, sèvi apa èvè « Réglages → Système → Oublier le Wi-Fi ». É lè ou ka fè-y oubliyé Wi-Fi la, sa ka gadé réglaj a balans-la é listorik-la.</p></div></details>
+  <details class="faq-item"><summary>Ès volim-la sé on mizir ègzak a likid-la ?</summary><div><p>Sé on èstimasyon aparèy-la ka fè lè i ka pézé. I ka dépann dè réglaj a balans-la, pwa a barik vid la, dansité-la é montaj mékanik la. Bwa-la ki ka bwè likid é dériv a sé kaptè-la pé fè valè-la chanjé. Lè ou ka vidé barik-la, woufè sé référans-la si yo pa ka koresponn a barik-la ankò.</p></div></details>
+  <details class="faq-item"><summary>Ès lè ou plen barik-la ankò, sa ka woukoumansé vyéyisman-la ?</summary><div><p>Prèmyé référans plen la ka koumansé-y. Sé référans-la apré ka gadé dat-la si i ja la. Pou on nouvo lo ou vlé konté tan a-y, sèvi èvè « Redémarrer le vieillissement » osi.</p></div></details>
+  <details class="faq-item"><summary>Konmen tan listorik-la ka rété an mémwa ?</summary><div><p>Mémwa-la pé kenbé 8 760 pwen, kivédi apépré on lanné si ni on pwen chak lè ; sé pwen-la yo ka ajouté lè on évènman fèt la ka fè tan-lasa vini pli kout. Jounal-la ka gadé sé 128 dènyé évènman-la, é aplikasyon-la ka montré jiska 40 adan yo. Piti a piti, sé pli vyé-la ka lésé plas ba sé nouvo-la.</p></div></details>
+</section>
+
+<section id="boitier" aria-labelledby="titre-boitier">
+  <h2 id="titre-boitier">Bwat an fòm barik, enprimé an 3D</h2>
+  <p class="lead">Vèsyon V2 la ka pwotéjé kat ideaspark la é ka lésé-w aksè a lékran-la é sé konektè-la.</p>
+  <p><a href="https://github.com/pbouffaut/RumScale/raw/refs/heads/main/hardware/tonneau_ESP32_V2_STL_et_guide.zip">Téléchajé sé STL-la é gid V2 la</a> · <a href="https://github.com/pbouffaut/RumScale/tree/main/hardware/tonneau_v2">Gadé tout sé fichyé a bwat-la</a>.</p>
+  <figure><img src="../assets/boitier-v2.png" alt="Modèl a bwat-barik V2 la : lékran-la panché, fon-la plat é dé mwatyé-la ka anbwété yonn adan lòt." loading="lazy"><figcaption>Mi modèl V2 la. Sé koulè-la ka montré sé fòm-la ; ou pa bizwen pon pyès an métal.</figcaption></figure>
+  <ul>
+    <li>Grandè pa déwò a apépré <strong>74 × 82 × 75 mm</strong>, fon plat é lékran panché a <strong>30°</strong>.</li>
+    <li>Wouvèti lékran-la : <strong>46 × 25 mm</strong> ; plas-la préparé pou on kat ki miziré 32,6 mm an lajè é 5 mm an épésè.</li>
+    <li>Pasaj USB pa anndan : <strong>13 × 8 mm</strong>, pò-la a apépré 5,1 mm dè bout-la ; pasaj a 10 mm dèyè pou sé fil-la.</li>
+    <li>Dé sipò ki fè kò èvè bwat-la, èvè <strong>26 mm</strong> ant yo, pou <strong>dé vis M2 × 5 mm</strong> a tèt silendrik oben won, pa a tèt frazé.</li>
+    <li>Dé mwatyé-la ka fèmé èvè kat clips, san lakòl ; ni 36 mm dèyè kat-la pou sé konektè Dupont la.</li>
+  </ul>
+  <h3>Avan ou enprimé tout bwat-la</h3>
+  <p>Enprimé gabari a kat-la é sé vis-la avan, èvè filaman-la ou ké sèvi pou bwat-la. Vérifyé wouvèti lékran-la, si sé tou-la byen anfas é si sipò-la ka pozé kon i fo asi sikwi-la. Gabari-la pa ka ripwodui tinèl USB la : apré ou enprimé mwatyé anho-la, vérifyé vré fich USB a-w ka rantré byen osi. Sé vérifikasyon nimerik a modèl-la pa ka ranplasé tès fizik lasa. <strong>Ou pé pa anbwété on mwatyé V1 èvè on mwatyé V2.</strong></p>
+  <h3>Enprimé é monté-y</h3>
+  <p>Inité : milimèt, échèl 100 %. Sé fichyé-la ja byen viré : mwatyé anba-la asi fon a-y, mwatyé anho-la asi fas-la koté sé dé mwatyé-la ka jwenn la, gabari-la èvè fas-la ou ka vwè la asi plato enprimant-la. Pou koumansé : biz a 0,4 mm, kouch a 0,20 mm, kat pawoi, senk kouch plen é 15–20 % ranplisaj. PETG ka ba sé clips-la plis souplès ; fè on tès èvè yo si ou chwazi PLA oben on filaman bwa.</p>
+  <p>Prévwè sé sipò-la anba pati bonbé la é sèten bò a mwatyé anho-la, é vérifyé sé pati a mwatyé anba-la ki ka dépasé san sipò. Woté sé bavir-la. Mété kat-la adan mwatyé anho-la, épi visé dousman dépi do a sikwi enprimé la adan sé dé ti tou a 1,6 mm la. Arété dépi kat-la ka kenbé : fò pa sé vis-la pliyé kat-la ni mété présyon asi vè-la.</p>
+  <p>Vérifyé fich USB la avan ou fèmé. On fich ki ni plastik alantou a-y a 6–7 mm an wotè ka lésé plis maj ki on fich a 8 mm. Branché sé Dupont-la, ranjé sé fil-la lwen sé clips-la é anbwété sé dé mwatyé-la. Sé bouton BOOT é EN la ka rété kòmann a kat-la, a pa bouton pou fè réglaj touléjou.</p>
+</section>
+
+<section id="avance" aria-labelledby="titre-avance">
+  <h2 id="titre-avance">Montaj é lantretyen téknik</h2>
+  <p class="lead">Sé lenfòwmasyon-lasa sé pou moun-la ki ka monté oben antretni léktwonik-la. Si ou risivwè on barik ki ja paré, ou pa bizwen sa pou sèvi èvè-y.</p>
+  <h3>Montaj-la yo ka sèvi èvè-y alè : on HX711 tousèl</h3>
+  <p>Montaj-la ki la alè ka sèvi èvè on kat <strong>ideaspark ESP32-WROOM-32 èvè lékran ST7789 1,9″</strong> é <strong>on HX711</strong>. Kat dimi-sélil a chaj ka fè ansanm on sèl pon mizir ; a pa kat kanal ki ka maché chak apa.</p>
+  <div class="table-wrap"><table><thead><tr><th scope="col">HX711</th><th scope="col">Kat ideaspark</th></tr></thead><tbody><tr><th scope="row">VCC</th><td>3V3</td></tr><tr><th scope="row">GND</th><td>GND an komen</td></tr><tr><th scope="row">DT / DOUT</th><td>GPIO 25</td></tr><tr><th scope="row">SCK</th><td>GPIO 26</td></tr></tbody></table></div>
+  <p><strong>HX711 la ka risivwè 3,3 V, menm si kat-la ka risivwè 5 V pa USB.</strong> Pa branché sòti lojik a-y alimanté an 5 V asi sé broch a ESP32 la. Gadé <a href="cablage.html">fich kab-la</a> avan ou touché montaj-la.</p>
+  <h3>Ondòt montaj : dé HX711</h3>
+  <p>Ondòt montaj ka sèvi èvè dé sélil a pon konplé, èvè on HX711 pou chak sélil. Asi kat ideaspark la, dézyèm modil-la ka sèvi èvè GPIO 16 pou DT é GPIO 17 pou SCK. Pou fè sa, fò ou pasé <code>NUM_CHANNELS</code> dè <code>1</code> a <code>2</code>, rikompilé é woufè réglaj a balans-la. Schéma a montaj-lasa pa ka montré koneksyon a chak adan sé kat dimi-sélil a montaj aktif la.</p>
+  <h3>Mété lojisyèl-la ajou</h3>
+  <p>Èvè on kopi a pwojé-la é PlatformIO ki ja enstalé, branché kat-la an USB épi sèvi èvè sé kòmann-la ki anba-la. Lojisyèl-la ja ni aplikasyon web la adan ; ou pa bizwen voyé sé fichyé web la apa.</p>
+  <pre><code>make ports       # jwenn kat USB la
+make build       # konpilé pou kat ideaspark la
+make upload      # enstalé lojisyèl-la
+make monitor     # li dyagnostik-la ; sòti èvè Ctrl-C</code></pre>
+  <p>Si lenstalasyon-la ka rété asi <code>Connecting…</code>, kenbé BOOT apiyé lè ou ka lanse télévèsman-la, épi lagé-y lè aparèy-la ka koumansé maké lojisyèl-la. <code>make build-all</code> ka konpilé sé dé vèsyon OLED la ki adan pwojé-la osi. Yo pa ni menm brochaj-la : vérifyé ki kat ou ka vizé avan ou enstalé ayen.</p>
+  <p>Lè ou ka mété lojisyèl-la ajou, i pé gadé sé réglaj-la, mé sa pa garanti si fòma a yo chanjé. Apré ou fin travay asi-y, vérifyé rézo-la, pwa-la, sé référans-la é Telegram avan ou rimèt barik-la an sèvis.</p>
+  <h3>Lenfòwmasyon pou ba moun-la ki ka édé-w la</h3>
+  <p>Maké sa ki pa ka maché la, sé dènyé biten-la ou fè la é sa <strong>« Réglages → Système »</strong> ka montré : léta a HX711 la é si lè-la senkronizé. Pou on dyagnostik téknik, paj lokal <code>http://rum.local/api/state</code> la ka montré sé mizir brit la é léta a aparèy-la. I pé ni non a barik-la é idantifyan a konvèsasyon Telegram la adan : kaché sé biten-lasa avan ou patajé paj-la èvè tout moun.</p>
+</section>
+
+<footer class="site-footer"><p>RumScale · Gid-la<br>Vérifyé 30 sèptanm 2026.</p><a href="https://github.com/pbouffaut/RumScale">Pwojé-la asi GitHub ↗</a><a href="#haut">Viré anho ↑</a></footer>
+</main></div>
+</body></html>
